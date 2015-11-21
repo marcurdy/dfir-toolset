@@ -20,7 +20,7 @@ In addition to tools, I'll include scripts that I've developed or incorporated f
 * Offline-Scan: yara (IOC), clamAV
 * Metadata: trID (determine filetype), exifTool, missidentify (find PE in files not named exe)
 * Gen Hashes: ssdeep(fuzzy hashes), md5deep (recursive md5 checks) / hashdeep (audit across multiple sets), hash_id (guess hash algorithm used)
-* Lookup Hashes: nsrllookup (map against known good files), virustotal-search, vtTool.py, Automater (search by URL, IP, Hash)
+* Hashes Query: nsrllookup (Whitelist of known good), virustotal-search, vtTool.py, Automater (search by URL, IP, Hash)
 
 **File Forensics**  
 * Sleuthkit using Autopsy front-end
@@ -33,35 +33,28 @@ In addition to tools, I'll include scripts that I've developed or incorporated f
 * extundelete (ext3/4 file rest), recoverjpeg, vinetto (thumbs.db examiner)
 
 **Handle Network Interactions**  
-    Sniffing: ngrep, tcpdump, tcpick(passive sniffer), tcptrack, driftnet, tshark (termainl wshark),
-      dsniff(captures user data over common protos), aircrack-ng (WEP and WPA-PSK keys cracking), 
-      yaraPcap.py (http streams)
-    Analyze/Exec pcap: ssldump(decode ssl/tls records), tcpxtract, 
-      tcpreplay (can't estab session), tcptrace (stats on pcaps), tcpflow (deconstruct), 
-      tcpcopy (resend data), chaosreader.pl (dump http conversations),
-      CapTipper (analyze http in pcap), Xplico (extract data per protocol), networkminer,
-      scapy (BYO packets)
-    Services: FakeDNS, Nginx, fakeMail, Honeyd, INetSim
-    Reporting: etherape(graphical network monitor), Wireshark
-    MITM: Burp Proxy (manipulate http between web and client), ettercap (content filtering on fly), 
-      sslsniff (MITM attacker), mitmproxy, sslcaudit (test ssl), sslstrip, sslsplit
-    Miscellaneous network: prettyping, Netcat, stunnel, p0f(passive remote fingerprinting), 
-      netwox(swiss-army knife of routines), lft(smart traceroute), passivedns, tcpstat(stats on NIC)
-      Thug (docker based honeypot), Dionaea (honeypot)
+* Sniffing: ngrep, tcpdump, tcpick(passive sniffer), tcptrack, driftnet, tshark (termainl wshark),
+dsniff(captures user data over common protos), aircrack-ng (WEP and WPA-PSK keys cracking), 
+yaraPcap.py (http streams)
+* Analyze/Exec pcap: ssldump(decode ssl/tls records), tcpxtract, tcpreplay (can't estab session), tcptrace (stats on pcaps), tcpflow (deconstruct), tcpcopy (resend data), chaosreader.pl (dump http conversations), CapTipper (emulate web svr of what's in pcap), Xplico (extract data per protocol), networkminer, scapy (BYO packets)
+* Services: FakeDNS, Nginx, fakeMail, Honeyd, INetSim
+* Reporting: etherape(graphical network monitor), Wireshark
+* MITM: Burp Proxy (manipulate http between web and client), ettercap (content filtering on fly), sslsniff (MITM attacker), mitmproxy, sslcaudit (test ssl), sslstrip, sslsplit
+* Miscellaneous network: prettyping, Netcat, stunnel, p0f(passive remote fingerprinting), netwox(swiss-army knife of routines), lft(smart traceroute), passivedns, tcpstat(stats on NIC), Thug (docker based honeypot), Dionaea (honeypot)
 
 **Windows Event Logger analysis**  
-   logparser - MS
-   Event Log Explorer - eventlogxp.com
-   Log Parser Lizard - gui for logparser
-   Mandiant Highlighter
-   PsLogList MS
+* logparser - MS
+* Event Log Explorer - eventlogxp.com
+* Log Parser Lizard - gui for logparser
+* Mandiant Highlighter
+* PsLogList MS
 
 **Linux Event Log analysis**  
-   Lsevt,  evtx_parser, python-evtx
+* Lsevt, evtx_parser, python-evtx
 
 **Extract and Decode Artifacts**  
-    Deobfuscate: unXOR, XORStrings, ex_pe_xor, XORSearch, brxor.py, xortool, NoMoreXOR, XORBruteForcer, Balbuzard
-    Extract strings: strdeobj, pestr, strings
+* Deobfuscate: unXOR, XORStrings, ex_pe_xor, XORSearch, brxor.py, xortool, NoMoreXOR, XORBruteForcer, Balbuzard
+* Extract strings: strdeobj, pestr, strings.exe (wine)
 
 **Examine Document Files**  
 * PDF: AnalyzePDF, Pdfobjflow, pdfid, pdf-parser, peepdf, Origami, PDF X-RAY, PDFtk, swf_mastah, qpdf, pdfresurrect
