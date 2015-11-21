@@ -1,0 +1,151 @@
+USB key forensics
+1) Write down vendor, Product, Version
+2) Write S/N
+3) Determine Parent Prefix ID (XP-)
+4) Determine Vendor-ID and Prod (VID/PID) for first use after reboot
+5) Determine drive letter (Windows Portable devices for Vista), (use ParentIDPref on MountedDevices for XP-)
+6) Record volume GUID's
+7) Find user that last mounted GUID. Reg write time is last mount time
+8) Discover first time ever connected from setupapi.[dev.]log
+
+Malware Infection Cycle
+1) Block initial exploits based on IOC signatures
+2) Detect payloads and unknown exploits in mail, web, or file transfer
+3) Block network callbacks and data exfiltration
+4) Block lateral spread through network shares scanning
+
+APT Phases
+1) Reconnaissance - target using social media for personalization
+2) Intrusion - Spear Phishing, purchased from attacker, watering hole attacks (infect common site)
+3) Infection - backdoor, maybe use dropper, begin gathering info
+4) Credential Theft
+5) Lateral Movement - Use stolen credentials, network shares, or internal email, can shift attention
+6) Data Exfiltration
+7) Persistence - repeated credential exfiltration, contin update tools, work outside bus hours, target strategic machines
+
+Malware types
+Downloaders/droppers
+Rogue utility and security products
+Trojans, RATs : Zeus, SpyEye, Citadel, GhostRAT, poison ivy, SpyNet
+Rootkit - stealthy, Trojan func, may damage, requires reinstalling, can exist in MBR. TDL/TDSS, ZeroAccess, Stuxnet
+Viruses - infect other binaries or boot sectors, requires reinstalling,  Sality, Virut
+Worms - spread using exploits, USB drives, email, shares. Reinstall systems
+
+
+Incidence Response Process - live forensics
+1) Preparation: Be ready with the tools and training for incidents before they happen.
+2) Identification: Identify incidents thoroughly; going through the IR process only to find a false alarm is no fun.
+3) Containment: Contain the incident to prevent possible collateral damage. eg. revoking user accounts, blocking access at FW, or updating AV rules
+4) Eradication: Get rid of the malicious code, unauthorized account, or bad employee that caused the incident.
+5) Recovery: Make sure the system meets company standards before returning it to service. Continue monitoring for any aberrant behavior
+6) Lessons Learned
+
+1) Prepare Evidence
+   Locally mount a working copy of images RO
+   Gather hashes and run against online repositories
+   Extract exe/dll from unallocated space
+
+2) Run multiple AV against extracted files
+
+3) Indicators of Compromise Search
+     Scan for known hashes, IP's, URL's
+
+4) Automated Memory Analysis - malfind
+
+5) Evidence of Persistence
+   Scheduled tasks
+   Service replacements / creations
+   auto-start registry (autoruns)
+   DLL search order hijacks
+   Trojaned legit sys libraries
+
+6) Packing / Entropy Checks
+   Scan for indication of packing, test entropy, signature id, signed driver checks
+
+7) Review event logs
+
+8) Super Timeline Exam
+   See if above malfind candidates appear
+
+9) Manual Memory Analysis
+   Volatility
+
+10) Manual 3rd party hash lookups
+
+11) MFT anomolies for file creation sequences
+
+12) File-time anomolies
+    analyzeMFT and log2timeline
+
+###################################
+# Lenny Zeltser
+###################################
+Analyzing a windows executable for Malware
+pescanner .exe or .dll
+  ssdeep fuzzy hash, md5 hash
+  checks packers which gives weight to suspicion
+  clamav
+  IAT alerts - Import Address Table - Look at external functions run
+  Sections - Entropy checked for randomness. High entropy might have packed contents
+  Signature scans - YARA
+  Resource Entries - can show other languages used to make it
+
+pyew to inspect malware
+  built-in hex viewer
+  pyew.imports shows commands it runs
+  url extracts urls
+  threat computes hash and queries it in threatexpert.com
+
+xorsearch -s .dll http: or https:
+  brute forces run byte long key values
+  research resulting urls 
+  Run produces *.05 containing all strings to view
+
+Exploring infection in a network capture
+  NetworkMiner pcap_file
+    Parses traffic and saves files into local file
+  jsunpackn.py -v -g image.png -s pcap_file
+    deobfuscates JS and saves files from pcap
+
+Examine malicious document/media files
+  pdfid file.pdf
+    Unusual to have JavaScript.  RichMedia could be for flash embedment
+    Launch can run remote programs.
+
+  pdfextract file.pdf
+    Extracts JS under dump/scripts. 
+    Payload could contain unicode. 
+    cat unicode.txt | unicode2hex-escaped | shellcode2exe
+    Examine resulting exe
+
+  swf_mastah -o ./ -f file.pdf
+    Extracts flash from pdf
+
+  swfdump -Ddu file.swf
+
+  xxxswf.py -xd file.doc
+    Extracts Flash from most formats
+
+#############################################################
+Behavioral Analysis - mold test envir to mimic infected one.
+#############################################################
+Add svcs to witness malware effects
+-Execute in isolated environment
+-Observe how it interacts with FS, registry, network
+  Regshot monitors registry changes using snapshots
+  Process Monitor filters by app to show events/registry changes
+  CaptureThat [-c] capture files [-n] network
+    Tries to hide normal windows activity
+    Creates zip of results.
+  FakeDNS shows queries executed to localhost
+  Mailpot is an email honeypot
+
+*Code Analysis
+OllyDbg on .exe
+  Run: Search for all referenced text strings
+  See what runs where that string is referenced in disassembler
+  Memory Access Breakpoints
+  Load app, hit run, alt-m for memory map. Binary search ctrl-b, 
+    search for string and see results.  ctrl-l repeats search.
+    Highlight string in disassembly. Dropdown, Breakpoint memory on access.
+    Step into per step and view assembly

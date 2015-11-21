@@ -1,0 +1,62 @@
+--Preparation in advance--
+
+IOC repo collection
+Hash repo if offline is required
+Tools thumbdrive/DVD and sterilized storage
+
+--Items run on a Windows OS--
+
+Memory image capture (online)
+Disk image capture (offline)
+FTK for application artifacts (offline)
+
+--Items run on a Linux OS offline--
+
+Volatility shotgun - check for common scenarios
+  Create pstree -v output
+  Create/Check schtasks module output
+  Create/sort shimcachemem by date
+  Check malfind processes
+  Check for services without drivers
+  Find processes with FALSE in psxview
+  View cmdline/consoles for manual activity
+  Check shellbags for MRU's
+
+Collected IOC scans: IP, URL, domain, scraped hashes 
+
+File scraping
+  clamscan
+  Pull logs based on running apps
+  extract application logs
+  Check for unsigned signatures of libraries
+  missidentify to find renamed exe's
+  Generate md5/fuzzy hashes for pre-examination
+  Hash scans against VT or localized repo
+  Entropy checks
+  Check for suspicious remote sites in netscan
+
+Deobfuscation techniques (when to use)
+Java analysis
+Javascript analysis
+
+Test against strings
+
+Analyze Windows metadata (hachoir / exif dump)
+  Does FTK do this well since you use it already?
+
+Document Analysis (pdf, Office, etc)
+
+Unpacking PE/DLL
+Dynamic malware analysis
+Static malware analysis
+
+-- pcap analysis --
+
+Trim to include only suspect IP to start
+Networkminer to quick look at binaries
+Scan any upfront suspicious binaries
+Analyze sessions and theorize based on traffic protocols and contents
+Check http for malicious JS routines looking for encoded routines
+Shellcode analysis
+Attempt SSL decode for encrypted traffic?
+Locate external actors
