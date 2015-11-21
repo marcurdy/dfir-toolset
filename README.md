@@ -4,24 +4,29 @@ I'm a long time UNIX administrator with a newfound shift into the DFIR world.  I
 In addition to tools, I'll include scripts that I've developed or incorporated from my work on forensic challenges.
 
 **Mounting disk images**
+
   guestmount / libguestfs-tools  
 
 **Checking on-disk signatures Windows**
+
   Authenticode Tools
   sigcheck.exe with VT
   Process Manager (SysInternals)
   chktrust (Mono) for Linux
 
 **Rootkit detection**
+
   GMER (Windows)
   Rootkit revealer (Windows)
   Rootkit remover (mcafee win)
   chkrootkit
 
 **Penetrating - I'm not researching this**
+
 Dirbuster
 
 **Windows Misc**
+
   usbdeview - see s/n of drives inserted
   samdump2 (pull pw hashes)
   AccessData's registry viewer
@@ -42,6 +47,8 @@ Dirbuster
   Forensic toolkit (view files without touching metadata, Mcafee)
 
 **Examine Browser Artifacts**
+
+
     History: monk.pl (firefox v2 history)
     Cookies: galleta (parse IE cookies)
     Cache:   pasco (IE cache analysis)
@@ -50,6 +57,8 @@ Dirbuster
     JavaScript: Rhino Debugger, ExtractScripts, Firebug, SpiderMonkey, V8, js Beautifier, JSDetox
 
 **Examine File Properties and Contents**
+
+
     Parse sigs from reports: IOCextractor, ioc-parser
     Define signatures: YaraGenerator, Autorule, Rule Editor
     Scan: yara, clamAV, jottiq (malware), trID (like "file"), exifTool, missidentify (find exe from group)
@@ -58,6 +67,7 @@ Dirbuster
       virustotal-search, VirusTotalApi, vtTool, Automater (search by URL,IP,Hash)
 
 **File Forensics**
+
   Sleuthkit using Autopsy front-end
   foremost, scalpel, photorec (file restore based on headers, footers, and data structures)
   safecopy (file restore from damaged sources)
@@ -69,6 +79,8 @@ Dirbuster
   extundelete (ext3/4 file rest), recoverjpeg, vinetto (thumbs.db examiner)
 
 **Handle Network Interactions**
+
+
     Sniffing: ngrep, tcpdump, tcpick(passive sniffer), tcptrack, driftnet, tshark (termainl wshark),
       dsniff(captures user data over common protos), aircrack-ng (WEP and WPA-PSK keys cracking), 
       yaraPcap.py (http streams)
@@ -86,6 +98,7 @@ Dirbuster
       Thug (docker based honeypot), Dionaea (honeypot)
 
 **Windows Event Logger analysis**
+
    logparser - MS
    Event Log Explorer - eventlogxp.com
    Log Parser Lizard - gui for logparser
@@ -93,22 +106,30 @@ Dirbuster
    PsLogList MS
 
 **Linux Event Log analysis**
+
    Lsevt,  evtx_parser, python-evtx
 
 **Extract and Decode Artifacts**
+
+
     Deobfuscate: unXOR, XORStrings, ex_pe_xor, XORSearch, brxor.py, xortool, NoMoreXOR, XORBruteForcer, Balbuzard
     Extract strings: strdeobj, pestr, strings
 
 **Examine Document Files**
+
+
     PDF: AnalyzePDF, Pdfobjflow, pdfid, pdf-parser, peepdf, Origami, PDF X-RAY, PDFtk, swf_mastah, qpdf, pdfresurrect
     Microsoft Office: officeparser, pyOLEScanner.py, oletools, libolecf, oledump, emldump, MSGConvert, base64dump.py
     Shellcode: sctest, unicode2hex-escaped, unicode2raw, dism-this, shellcode2exe
 
 **Mail**
+
   libpff, readpst, Digital Forensic Framework by Arxsys
   mpack/munpack for mime
 
 **Edit and View Files**
+
+
     Text: SciTE, Geany, Vim
     Images: feh, ImageMagick
     Binary: wxHexEditor, VBinDiff
@@ -116,11 +137,15 @@ Dirbuster
     Hex: bless, exhexeditor
 
 **Examine Memory Snapshots**
+
+
     Evolve (vol framework), Volatility, vshot, findaes, AESKeyFinder, RSAKeyFinder, VolDiff, Rekall, mantaray (automates processing images),
     log2timeline (Timeline Generation Tool), bulk-extractor, beviewer (frontend to BE)
     pdgmail (gmail from mem)
 
 **Investigate Linux Malware**
+
+
     System: Unhide(detect hidden processes), sysdig (strace + tcpdump + htop + iftop + lsof)
     Find anomalies: signsrch, pescanner, exescan, pev suite, peframe, pedump, disitool (alter digsig)
     Trace: strace, ltrace
@@ -134,12 +159,18 @@ Dirbuster
     Behavioral analysis: Procdot, ThreatExpert (online behavioral analysis), Cuckoo (sandbox)
 
 **Password cracking**
+
+
     hydra (brute force pw cracker), samdump(dumps windows password hashes), wce (pw retrieval), patator
 
 **Visual Reporting**
+
+
     afterglow (graphs complex datasets)
 
 **Memory Capture**
+
+
     dumpit, WinPMem, Mandiant Memoryze to dump on Windows
     pmemsave to dump qemu VM
     Snapshot to take dump of ESX VM
