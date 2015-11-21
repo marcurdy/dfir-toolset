@@ -4,34 +4,33 @@ I'm a long time UNIX administrator with a newfound shift into the DFIR world.  I
 In addition to tools, I'll include scripts that I've developed or incorporated from my work on forensic challenges.  
 
 **Mounting dd or vm snapshot disk images**  
-  guestmount / libguestfs-tools  
+* guestmount / libguestfs-tools  
 
 **Checking file signed signatures**  
-  Authenticode Tools
-  sigcheck.exe with VT
-  Process Manager (Windows SysInternals)
-  chktrust (Mono) for Linux
+* Authenticode Tools (Didier Stevens)
+* sigcheck.exe with VirusTotal
+* Process Manager (Windows SysInternals)
+* chktrust (Mono) for Linux
 
 **Linux-based Browser Artifact tools omitted since toolkits like FTK and Encase dwarf them**  
     
-**Examine File Properties and Contents**  
-    Parse sigs from reports: IOCextractor, ioc-parser
-    Define signatures: YaraGenerator, Autorule, Rule Editor
-    Scan: yara, clamAV, jottiq (malware), trID (like "file"), exifTool, missidentify (find exe from group)
-    Gen Hashes: ssdeep(fuzzy hashes), md5deep (recursive md5 checks) / hashdeep (audit across multiple sets)
-    Lookup Hashes: nsrllookup, Hash Identifier (determine algorithm used), totalhash (miopic),
-      virustotal-search, VirusTotalApi, vtTool, Automater (search by URL,IP,Hash)
+**Scan for IOC, hashing, and hash lookups**  
+* Parse IOC's from reports: IOCextractor, ioc-parser
+* Define signatures: YaraGenerator, Autorule, Rule Editor
+* Offline-Scan: yara (IOC), clamAV
+* Metadata: trID (determine filetype), exifTool, missidentify (find PE in files not named exe)
+* Gen Hashes: ssdeep(fuzzy hashes), md5deep (recursive md5 checks) / hashdeep (audit across multiple sets), hash_id (guess hash algorithm used)
+* Lookup Hashes: nsrllookup (map against known good files), virustotal-search, vtTool.py, Automater (search by URL, IP, Hash)
 
 **File Forensics**  
-  Sleuthkit using Autopsy front-end
-  foremost, scalpel, photorec (file restore based on headers, footers, and data structures)
-  safecopy (file restore from damaged sources)
-  analyze mft (parse the mft from an ntfs FS)
-  hachoir (Read windows metadata)
-  Rifiuti (recycle bin analysis)
-  testdisk (restore lost partitions), kpartx
-  dcfldd (enhanced dd), gddrescue/ddrescueview, ddrutility (complements ddrescue), rdd
-  extundelete (ext3/4 file rest), recoverjpeg, vinetto (thumbs.db examiner)
+* Sleuthkit using Autopsy front-end
+* scalpel (not foremost anymore)
+* safecopy (file restore from damaged sources)
+* analyze mft (parse the mft from an ntfs FS)
+* hachoir (Read windows metadata)
+* Rifiuti (recycle bin analysis)
+* testdisk (restore lost partitions), kpartx
+* extundelete (ext3/4 file rest), recoverjpeg, vinetto (thumbs.db examiner)
 
 **Handle Network Interactions**  
     Sniffing: ngrep, tcpdump, tcpick(passive sniffer), tcptrack, driftnet, tshark (termainl wshark),
@@ -83,9 +82,9 @@ In addition to tools, I'll include scripts that I've developed or incorporated f
 
 **Examine Memory Snapshots**  
 * Volatility frameworks/wrappers
-* * Evolve - Creates sqllite db output and web frontend
-* * vshot - becoming antiquated.  Hand edit to add modules
-* * Mantaray - becoming antiquated
+  * Evolve - Creates sqllite db output and web frontend
+  * vshot - becoming antiquated.  Hand edit to add modules
+  * Mantaray - becoming antiquated
 * Rekall (Volatility fork)
 * findaes, AESKeyFinder, RSAKeyFinder, VolDiff
 * log2timeline - Super Timelines 
@@ -119,6 +118,11 @@ In addition to tools, I'll include scripts that I've developed or incorporated f
 * pmemsave to dump qemu VM
 * Snapshot to take dump of ESX VM
 * LiME to extract on Linux
+
+**Disk Capture**  
+* dcfldd (enhanced dd)
+* gddrescue/ddrescueview, ddrutility (complements ddrescue)
+* rdd
 
 **Rootkit detection**  
 * GMER (Windows)  
