@@ -1,54 +1,19 @@
 # dfir-toolset
-I'm a long time UNIX administrator with a newfound shift into the DFIR world.  I'm absorbing whatever I can to help collect, sort, and make sense of the InfoSec ecosystem.  I plan to house my experience with opensource tools with an emphasis on Linux as the host OS.  Much of this comes from Remnux and SIFT.  A few come from Kali.  Others are lone wolves from GIT.  I am working to separate the wheat from the chaff and eliminate the noise caused by orphaned, redundant, or superceded all-in-one software.  e.g. Using Cuckoo or an online sandboxing service vs performing manual behavioral analysis.
+I'm a long time UNIX administrator with a newfound shift into the DFIR world.  I'm absorbing whatever I can to help collect, sort, and make sense of the InfoSec ecosystem.  I plan to house my experience with opensource tools with an emphasis on Linux (WINE as needed) as the host OS.  Much of this comes from Remnux and SIFT.  A few come from Kali.  Others are lone wolves from GIT.  I am working to separate the wheat from the chaff and eliminate the noise caused by orphaned, redundant, or superceded all-in-one software.  e.g. Using Cuckoo or an online sandboxing service vs performing manual behavioral analysis.  
 
-In addition to tools, I'll include scripts that I've developed or incorporated from my work on forensic challenges.
+In addition to tools, I'll include scripts that I've developed or incorporated from my work on forensic challenges.  
 
-**Mounting disk images**  
+**Mounting dd or vm snapshot disk images**  
   guestmount / libguestfs-tools  
 
-**Checking on-disk signatures Windows**  
+**Checking file signed signatures**  
   Authenticode Tools
   sigcheck.exe with VT
-  Process Manager (SysInternals)
+  Process Manager (Windows SysInternals)
   chktrust (Mono) for Linux
 
-**Rootkit detection**  
-  GMER (Windows)  
-  Rootkit revealer (Windows)  
-  Rootkit remover (mcafee win)  
-  chkrootkit  
-
-**Penetrating - I'm not researching this**  
-Dirbuster  
-
-**Windows Misc**  
-  usbdeview - see s/n of drives inserted
-  samdump2 (pull pw hashes)
-  AccessData's registry viewer
-  regripper
-  MiTec Windows File Analyzer (view lnk metadata)
-  pstpassword
-  Yaru (undelete reg keys)
-  uvcview (pull sn off usb), usbdeviceforensics
-  exiftool, thumbcache parser
-  Magnet's IEF (Scraping for chat/webmail logs)
-  dumpzilla (windows)
-  DumpAutoComplete (firefox autocomplete dump)
-  rifiuti (recycle bin examination of info2)
-  Mandiant web historian
-  IEPassView on live system for protected to recover protected browser artifacts
-  shoWin (reveal passwords, Mcafee)
-  Vision (maps net ports to apps, Mcafee)
-  Forensic toolkit (view files without touching metadata, Mcafee)
-
-**Examine Browser Artifacts**  
-    History: monk.pl (firefox v2 history)
-    Cookies: galleta (parse IE cookies)
-    Cache:   pasco (IE cache analysis)
-    Flash: xxxswf, SWF Tools, RABCDAsm, extract_swf, Flare(decompiler of Flash), flasm(disassembles Flash)
-    Java: Java Cache IDX Parser, JD-GUI Java Decompiler, JAD Java Decompiler, Javassist, CFR
-    JavaScript: Rhino Debugger, ExtractScripts, Firebug, SpiderMonkey, V8, js Beautifier, JSDetox
-
+**Linux-based Browser Artifact tools omitted since toolkits like FTK and Encase dwarf them**  
+    
 **Examine File Properties and Contents**  
     Parse sigs from reports: IOCextractor, ioc-parser
     Define signatures: YaraGenerator, Autorule, Rule Editor
@@ -100,49 +65,86 @@ Dirbuster
     Extract strings: strdeobj, pestr, strings
 
 **Examine Document Files**  
-    PDF: AnalyzePDF, Pdfobjflow, pdfid, pdf-parser, peepdf, Origami, PDF X-RAY, PDFtk, swf_mastah, qpdf, pdfresurrect
-    Microsoft Office: officeparser, pyOLEScanner.py, oletools, libolecf, oledump, emldump, MSGConvert, base64dump.py
+* PDF: AnalyzePDF, Pdfobjflow, pdfid, pdf-parser, peepdf, Origami, PDF X-RAY, PDFtk, swf_mastah, qpdf, pdfresurrect
+* MS Office: officeparser, pyOLEScanner.py, oletools, libolecf, oledump, emldump, MSGConvert, base64dump.py
     Shellcode: sctest, unicode2hex-escaped, unicode2raw, dism-this, shellcode2exe
-
+    Flash: xxxswf, SWF Tools, RABCDAsm, extract_swf, Flare(decompiler of Flash), flasm(disassembles Flash)
+* Java: Java Cache IDX Parser, JD-GUI Java Decompiler, JAD Java Decompiler, Javassist, CFR
+* JavaScript: Rhino Debugger, ExtractScripts, Firebug, SpiderMonkey, V8, js Beautifier, JSDetox
+    
 **Mail**  
-  libpff, readpst, Digital Forensic Framework by Arxsys
-  mpack/munpack for mime
+* readpst
+* Digital Forensic Framework by Arxsys
+* mpack/munpack for mime
 
-**Edit and View Files**  
-    Text: SciTE, Geany, Vim
-    Images: feh, ImageMagick
-    Binary: wxHexEditor, VBinDiff
-    Documents: Xpdf
-    Hex: bless, exhexeditor
+**Binary/Hex Editors**  
+* Binary: wxHexEditor, VBinDiff
+* Hex: bless, exhexeditor
 
 **Examine Memory Snapshots**  
-    Evolve (vol framework), Volatility, vshot, findaes, AESKeyFinder, RSAKeyFinder, VolDiff, Rekall, mantaray (automates processing images),
-    log2timeline (Timeline Generation Tool), bulk-extractor, beviewer (frontend to BE)
-    pdgmail (gmail from mem)
+* Volatility frameworks/wrappers
+* * Evolve - Creates sqllite db output and web frontend
+* * vshot - becoming antiquated.  Hand edit to add modules
+* * Mantaray - becoming antiquated
+* Rekall (Volatility fork)
+* findaes, AESKeyFinder, RSAKeyFinder, VolDiff
+* log2timeline - Super Timelines 
+* bulk-extractor with beviewer (frontend to BE)
+* pdgmail (gmail from mem)
 
 **Investigate Linux Malware**  
-    System: Unhide(detect hidden processes), sysdig (strace + tcpdump + htop + iftop + lsof)
-    Find anomalies: signsrch, pescanner, exescan, pev suite, peframe, pedump, disitool (alter digsig)
-    Trace: strace, ltrace
-    Static Analysis: Radare, Pyew, Bokken(front-end to radare/pyew), m2elf
-    Disassemblers: Vivisect, Udis86, objdump, jad (java decom), recstudio, mastiff, captone, EmilPRO, distorm, 
-       Decompyle++ (python disassembler)
-    Debug: Evan s Debugger (EDB), GNU Project Debugger (GDB)
-    Packers: UPX, Bytehist, Density Scout, PackerID
-    Investigate: RATDecoders, readpe.py, PyInstaller Extractor, DC3-MWCP
-      Maltrieve (DL Malware samples), Viper (managing and exploring malware samples), 
-    Behavioral analysis: Procdot, ThreatExpert (online behavioral analysis), Cuckoo (sandbox)
+* System: Unhide(detect hidden processes), sysdig (strace + tcpdump + htop + iftop + lsof)
+* Find anomalies: signsrch, pescanner, exescan, pev suite, peframe, pedump, disitool (alter digsig)
+* Trace: strace, ltrace
+* Static Analysis: Radare, Pyew, Bokken(front-end to radare/pyew), m2elf
+* Disassemblers: Vivisect, Udis86, objdump, jad (java decom), recstudio, mastiff, captone, EmilPRO, distorm, Decompyle++ (python disassembler)
+* Debug: Evan s Debugger (EDB), GNU Project Debugger (GDB)
+* Packers: UPX, Bytehist, Density Scout, PackerID
+* Investigate: RATDecoders, readpe.py, PyInstaller Extractor, DC3-MWCP
+* Maltrieve (DL Malware samples), Viper (managing and exploring malware samples), 
+* Behavioral analysis: Procdot for visual report, ThreatExpert (online), Cuckoo (offline)
 
 **Password cracking**  
-    hydra (brute force pw cracker), samdump(dumps windows password hashes), wce (pw retrieval), patator
+* hydra (brute force pw cracker)
+* samdump (dumps windows password hashes)
+* wce.exe (pw retrieval)
+* patator
 
 **Visual Reporting**  
-    afterglow (graphs complex datasets), mantego
+* afterglow (graphs complex datasets)
+* mantego
 
 **Memory Capture**  
-    dumpit, WinPMem, Mandiant Memoryze to dump on Windows
-    pmemsave to dump qemu VM
-    Snapshot to take dump of ESX VM
-    memdump
-    LiME to extract on Linux
-      insmod ./lime-3.13.0-62-generic.ko format=padded path=/root/mem.dump
+* dumpit, WinPMem, Mandiant Memoryze to dump on Windows
+* pmemsave to dump qemu VM
+* Snapshot to take dump of ESX VM
+* LiME to extract on Linux
+
+**Rootkit detection**  
+* GMER (Windows)  
+* Rootkit revealer (Windows)  
+* Rootkit remover (mcafee win)  
+* chkrootkit  
+
+**Penetrating - I'm not researching this**  
+* Dirbuster  
+
+**Windows Misc for later consideration**  
+  usbdeview - see s/n of drives inserted
+  samdump2 (pull pw hashes)
+  AccessData's registry viewer
+  regripper
+  MiTec Windows File Analyzer (view lnk metadata)
+  pstpassword
+  Yaru (undelete reg keys)
+  uvcview (pull sn off usb), usbdeviceforensics
+  exiftool, thumbcache parser
+  Magnet's IEF (Scraping for chat/webmail logs)
+  dumpzilla (windows)
+  DumpAutoComplete (firefox autocomplete dump)
+  rifiuti (recycle bin examination of info2)
+  Mandiant web historian
+  IEPassView on live system for protected to recover protected browser artifacts
+  shoWin (reveal passwords, Mcafee)
+  Vision (maps net ports to apps, Mcafee)
+  Forensic toolkit (view files without touching metadata, Mcafee)
