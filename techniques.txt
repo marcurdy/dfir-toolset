@@ -8,6 +8,14 @@ USB key forensics
 7) Find user that last mounted GUID. Reg write time is last mount time
 8) Discover first time ever connected from setupapi.[dev.]log
 
+Investigation for Malware methodology
+1) Identify Rogue Processes
+2) Analyze process DLL's and handles
+3) Review network artifacts
+4) Look for evidence of code injection
+5) Check for signs of a rootkit
+6) Dump suspicious processes and drivers
+
 Malware Infection Cycle
 1) Block initial exploits based on IOC signatures
 2) Detect payloads and unknown exploits in mail, web, or file transfer
