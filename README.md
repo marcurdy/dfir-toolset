@@ -100,6 +100,7 @@ yaraPcap.py (http streams)
 * hydra (brute force pw cracker)
 * samdump (dumps windows password hashes)
 * wce.exe (pw retrieval)
+* icacls.exe (check for perm to write to dir of system process)
 * patator
 
 **Visual Reporting**  
