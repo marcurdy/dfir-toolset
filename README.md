@@ -127,6 +127,9 @@ yaraPcap.py (http streams)
 **Penetrating - I'm not researching this**  
 * Dirbuster  
 
+**Malware creation**
+*ghostRAT, Poison Ivy
+
 **Windows Misc for later consideration**  
   usbdeview - see s/n of drives inserted
   samdump2 (pull pw hashes)
