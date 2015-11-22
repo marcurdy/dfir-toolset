@@ -1,12 +1,9 @@
-https://github.com/binglot/misc/blob/master/schtasks.py
-https://github.com/tomchop/volatility-autoruns/blob/master/autoruns.py
-
 Create new profile on Linux
  cd ~/volatility/tools/linux && make
  zip /usr/local/lib/python2.7/dist-packages/volatility/plugins/overlays/myos.zip \
     /boot/System.map-3.13.0-62-generic ~/volatility/tools/linux/module.dwarf 
 
-Security Onion Interactions
+Security Onion Breakdown
 -ELSA receives or queries local syslog data and stores into mysql.  Any regex against it is searched with sphinxsearch.
 -OSSEC looks at the local OS and writes to a local file. A tcl daemon then writes it to the squil database.
 -Snort looks at the network and writes to a unified2 file. There's a rule-=update command to update emerging threats rules.
@@ -18,6 +15,3 @@ Security Onion Interactions
 -squil holds the harvested packets
 -squert is a frontend to squil data.
    getpcap plug on elsa http traffic shows full http transactions using capme
-
-Malware creation
-  ghostRAT, Poison Ivy
