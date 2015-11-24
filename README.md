@@ -15,7 +15,7 @@ In addition to tools, I'll include scripts that I've developed or incorporated f
 **Linux-based Browser Artifact tools omitted since toolkits like FTK and Encase dwarf them**  
     
 **Scan for IOC, hashing, and hash lookups**  
-* Parse IOC's from reports: IOCextractor, ioc-parser
+* Parse IOC's from reports: IOCextractor, ioc-parser, * bulk-extractor with beviewer
 * Define signatures: YaraGenerator, Autorule, Rule Editor
 * Offline-Scan: yara (IOC), clamAV
 * Metadata: trID (determine filetype), exifTool, missidentify (find PE in files not named exe)
@@ -78,10 +78,8 @@ yaraPcap.py (http streams)
   * Evolve - Creates sqllite db output and web frontend
   * vshot - becoming antiquated.  Hand edit to add modules
   * Mantaray - becoming antiquated
-* Rekall (Volatility fork)
+* Rekall (Volatility fork relying on API's and not scanning to find evidence)
 * findaes, AESKeyFinder, RSAKeyFinder, VolDiff
-* log2timeline - Super Timelines 
-* bulk-extractor with beviewer (frontend to BE)
 * pdgmail (gmail from mem)
 
 **Investigate Linux Malware**  
