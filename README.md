@@ -5,6 +5,7 @@ In addition to tools, I'll include scripts that I've developed or incorporated f
 
 **Mounting dd or vm snapshot disk images**  
 * guestmount / libguestfs-tools  
+* log2timeline/dfvfs (transparent mounting of evidence types)  
 
 **Checking file signed signatures**  
 * Authenticode Tools (Didier Stevens)
