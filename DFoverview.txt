@@ -21,6 +21,7 @@ Volatility shotgun - check for common scenarios
   Find processes with FALSE in psxview
   View cmdline/consoles for manual activity
   Check shellbags for MRU's
+Run bulk_extractor to more quickly pull pcaps from images
 
 Collected IOC scans: IP, URL, domain, scraped hashes 
 
