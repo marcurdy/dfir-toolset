@@ -41,7 +41,9 @@ yaraPcap.py (http streams)
 * Services: FakeDNS, Nginx, fakeMail, Honeyd, INetSim
 * Reporting: etherape(graphical network monitor), Wireshark
 * MITM: Burp Proxy (manipulate http between web and client), ettercap (content filtering on fly), sslsniff (MITM attacker), mitmproxy, sslcaudit (test ssl), sslstrip, sslsplit
-* Miscellaneous network: prettyping, Netcat, stunnel, p0f(passive remote fingerprinting), netwox(swiss-army knife of routines), lft(smart traceroute), passivedns, tcpstat(stats on NIC), Thug (docker based honeypot), Dionaea (honeypot)
+* Honeypots: Thug (docker based honeypot), Dionaea (honeypot), Kippo (SSH), Modern Honeypot Network
+* Miscellaneous network: prettyping, Netcat, stunnel, p0f(passive remote fingerprinting), netwox(swiss-army knife of routines), lft(smart traceroute), passivedns, tcpstat(stats on NIC), 
+
 
 **Windows Event Logger analysis**  
 * logparser - MS
