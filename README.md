@@ -105,6 +105,7 @@ yaraPcap.py (http streams)
 
 **Backend tools to use for string search**
 * wce.exe (pw retrieval)
+* mimikatz.exe (windows exploiter. pull hashes, forge kerberos tickets)
 * depends.exe (walk DLL path)
 * icacls.exe (check for perm to write to dir of system process)
 
@@ -136,6 +137,7 @@ yaraPcap.py (http streams)
 *ghostRAT, Poison Ivy
 
 **Windows Misc for later consideration**  
+  fastIR (collect artifacts)
   usbdeview - see s/n of drives inserted
   samdump2 (pull pw hashes)
   AccessData's registry viewer
