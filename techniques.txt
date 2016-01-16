@@ -112,6 +112,36 @@ SPN Scanning Service Discovery without network port scanning
 - User requests service which requires kerberos service ticket
     Includes SQL, RDP, WinRM, FIM, SCCM
 
+Event Log Explorer FSPro Labs
+
+Logon Type
+2 - Interactive
+3 - Remote
+10 - RDP
+
+======LATERAL MOVEMENT #1=======
+4624 Network login
+4672 Admin login
+4688 Token elevation - Shows executable name
+5140 Network share
+Task / AT job - 106 (task sched) followed by 200 (task exe)
+201 Task finishes.
+141 Task removed else task remains to be viewed
+4634 Logoff
+
+=======Domain Controller RDP/Remote access=======
+Little for security.evtx in DC due to wrapping log buffer
+*TerminalServices Remote Connection Manager
+1149 - Remote RDP authentication
+*TerminalServices Local Connection Manager
+21 - Successful login - could follow 1149
+23 - Logoff
+24 - Disconnect after logoff
+25 - Reconnect - could follow 1149
+
+Persistence - Current Version Run key executes at login
+7045 - Service registered - ImagePath for executable in unusual path
+
 Regaining User account
 - Autorun Malware to regain user access
    Autoruns will show unsigned code as red (vbscript)
