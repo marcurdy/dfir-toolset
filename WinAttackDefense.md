@@ -1,5 +1,5 @@
 ---
-## Domain Attacks, Persistence, and Persistence
+### Domain Attacks, Persistence, and Persistence
 ---
 
 PowerSploit
@@ -41,20 +41,20 @@ Task / AT job - 106 (task sched) followed by 200 (task exe)
 141 Task removed else task remains to be viewed  
 4634 Logoff  
 
-** Domain Controller RDP/Remote access  
+### Domain Controller RDP/Remote access  
 Little for security.evtx in DC due to wrapping log buffer  
-*TerminalServices Remote Connection Manager  
+#### TerminalServices Remote Connection Manager  
 1149 - Remote RDP authentication  
-** TerminalServices Local Connection Manager  
+#### TerminalServices Local Connection Manager  
 21 - Successful login - could follow 1149  
 23 - Logoff  
 24 - Disconnect after logoff  
 25 - Reconnect - could follow 1149  
 
-Persistence - Current Version Run key executes at login  
+####Persistence - Current Version Run key executes at login  
 7045 - Service registered - ImagePath for executable in unusual path  
   
-Regaining User account  
+####Regaining User account  
 * Autorun Malware to regain user access  
    Autoruns will show unsigned code as red (vbscript)  
      Malicious code could be appended to existing vbs's  
@@ -106,12 +106,12 @@ Regaining User account
    5136 Directory Service changes - DS object was modified - Value deleted/added  
    Changing DACL requires VB script  
   
-Owning Domain Controller  
+#### Owning Domain Controller  
 - Get Access to the NTDS.dit file and extract data  
 - Dump Credentials on DC (local or remote)  
   + Mimikatz, Invoke-Mimikatz, Mimikatz DCSync  
   
-Defense:   
+#### Defense:   
 MS LAPS - automatic local admin pw change - random for each pw  
 Enable proper logging plus command-shell and power shell logging  
 Forged Kerberos Tickets: Potential domain field anomolies in events  
@@ -120,7 +120,7 @@ AdminSDHolder: Check Object Permissions
 DCSync: IDS Sig of "DRSUAPI" or "DsGetNCCChanges request" where src != DC IP  
 DSRM v2: Change DSRM PW regularly & monitor reg key & DSRM events  
   
-Powershell attack detection  
+#### Powershell attack detection  
 Log all powershell activity  
 Interesting activity  
   -Downloads via .NET  
