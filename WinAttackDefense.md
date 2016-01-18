@@ -61,7 +61,7 @@ Regaining User account
      Yellow lines are where files aren't found
 * Create registry based backdoors
    False startups links call [power]shellcode dropper
-1) Creating a Domain Account
+1. Creating a Domain Account
    net user USER PASSWD /add /domain
    net group "Domain Admins" user /add /domain
    4720 User account created
@@ -69,14 +69,14 @@ Regaining User account
    4724 Reset account password
    4728 Member added to security enabled global group Domain Admin
    4737 Security enabled global group was changed
-2) Skeleton Key Patch
+2. Skeleton Key Patch
    Use mimikatz to run (AV could catch binary)
    New LSA security provider added to (LSASS)
    net user \\XXX\c$ /user:domain\admin mimikatz
    Domain Admin abilities granted
    4673 A Privileged service was called - Register logon process
      Occurs during reboot
-3) Creating Golden Tickets
+3. Creating Golden Tickets
    Golden Ticket - Forged TGT (Ticket to get tickets)
    Silver Ticket - Forged TGS (Ticket Granting Service)
    Tickets allow to connect to LDAP service and perform DCSync to pull passwords
@@ -84,19 +84,19 @@ Regaining User account
    Hacker needs to be NT Authority Systems then scrapes krbtgt hash
    Ticket does not register with domain ctrl for 20 minutes
    Can use kerberroast for offline cracking of service tickets
-     - No admin rights
-     - No traffic sent to target
-     - Get service tickets to each SPN
-     - Mimikatz to save svc ticket to a file
-     - Kerberoast brute forces the ticket
+* No admin rights
+* No traffic sent to target
+* Get service tickets to each SPN
+* Mimikatz to save svc ticket to a file
+* Kerberoast brute forces the ticket
    Log event is not unique. Only found by error - casing issues, wrong values
    IDS signature involving ARCFOUR-HMAC-MD5 NTLM enc type
    To cleanup, rotate password of krbtkt twice.  Win2008+ require all in domain
      to reboot.
-4) Tamper with SID History
+4. Tamper with SID History
    Requires mimikatz. No sign user has secondary SID.
    4765 User Acct Mgmt - Sid history was added to an account
-5) Tamper with AD DACL's
+5. Tamper with AD DACL's
    AD Objects have ACL's like files.  Not exposed in UI. 
    VB is required to modify AD Objects
    Add user to a built-in object group like Terminal Services
