@@ -27,9 +27,9 @@ SPN Scanning Service Discovery without network port scanning
 Event Log Explorer FSPro Labs
 
 Logon Type  
-2 - Interactive 
-3 - Remote 
-10 - RDP 
+2 - Interactive  
+3 - Remote  
+10 - RDP  
   
 ** LATERAL MOVEMENT
 4624 Network login
