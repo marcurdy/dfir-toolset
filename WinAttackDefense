@@ -1,28 +1,27 @@
 #################################################
-# **Domain Attacks, Persistence, and Persistence
+** Domain Attacks, Persistence, and Persistence
 #################################################
 
 PowerSploit
-- Invoke-Shellcode/TokenManipulation/Mimikatz
-- Get-GPPPassword
-- Add-Persistence
+* Invoke-Shellcode/TokenManipulation/Mimikatz
+* Get-GPPPassword
+*- Add-Persistence
 
 Empire:
-- Pure PowerShell agent with secure comms
-- Run PS code with PowerShell.exe
-- Wraps func of most popular attack tools
-    Macros, DLL, HDA
-- Injects into processes
-- Leverages Python
+* Pure PowerShell agent with secure comms
+* Run PS code with PowerShell.exe
+* Wraps func of most popular attack tools ex. Macros, DLL, HDA
+* Injects into processes
+* Leverages Python
 
 Scan Domains in environments
 Finding Privileged Accounts recursively finds:
-  - Domain Admins, Administrators, RODC Denied Replication GRoups
+* Domain Admins, Administrators, RODC Denied Replication GRoups
 Enumerate Trusts and Contact Objects in Forest to find partner orgs
 
 SPN Scanning Service Discovery without network port scanning
-- Service Principle Name is required for Kerberos to function
-- User requests service which requires kerberos service ticket
+* Service Principle Name is required for Kerberos to function
+* User requests service which requires kerberos service ticket
     Includes SQL, RDP, WinRM, FIM, SCCM
 
 Event Log Explorer FSPro Labs
@@ -32,7 +31,7 @@ Logon Type
 3 - Remote
 10 - RDP
 
-======LATERAL MOVEMENT #1=======
+** LATERAL MOVEMENT
 4624 Network login
 4672 Admin login
 4688 Token elevation - Shows executable name
@@ -42,11 +41,11 @@ Task / AT job - 106 (task sched) followed by 200 (task exe)
 141 Task removed else task remains to be viewed
 4634 Logoff
 
-=======Domain Controller RDP/Remote access=======
+** Domain Controller RDP/Remote access
 Little for security.evtx in DC due to wrapping log buffer
 *TerminalServices Remote Connection Manager
 1149 - Remote RDP authentication
-*TerminalServices Local Connection Manager
+** TerminalServices Local Connection Manager
 21 - Successful login - could follow 1149
 23 - Logoff
 24 - Disconnect after logoff
@@ -56,11 +55,11 @@ Persistence - Current Version Run key executes at login
 7045 - Service registered - ImagePath for executable in unusual path
 
 Regaining User account
-- Autorun Malware to regain user access
+* Autorun Malware to regain user access
    Autoruns will show unsigned code as red (vbscript)
      Malicious code could be appended to existing vbs's
      Yellow lines are where files aren't found
-- Create registry based backdoors
+* Create registry based backdoors
    False startups links call [power]shellcode dropper
 1) Creating a Domain Account
    net user USER PASSWD /add /domain
