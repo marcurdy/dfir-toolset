@@ -15,6 +15,7 @@ image_data = ''
 for packet in pkts:
     if DNSQR in packet:
         if packet[DNS].id == 0x1337:
+        #if packet[DNS].qd.qname == "reply.sg1.atnascorp.com.":
             data = packet[DNS].an.rdata
             decoded = base64.b64decode(data)
             if 'JFIF' in decoded or image:
