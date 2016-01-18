@@ -29,7 +29,12 @@ Event Log Explorer FSPro Labs
 Logon Type  
 2 - Interactive  
 3 - Remote  
+4 - Batch / Scheduled Task  
+5 - Service  
+7 - Unlock  
+9 - New Credentials (RunAs)  
 10 - RDP  
+11 - Cached Interactive  
   
 ** LATERAL MOVEMENT  
 4624 Network login  
