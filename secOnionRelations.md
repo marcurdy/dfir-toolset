@@ -1,0 +1,12 @@
+## Security Onion SW Relationships 
+* ELSA receives or queries local syslog data and stores into mysql.  Any regex against it is searched with sphinxsearch.
+* OSSEC looks at the local OS and writes to a local file. A tcl daemon then writes it to the squil database.
+* Snort looks at the network and writes to a unified2 file. There's a rule-=update command to update emerging threats rules.
+* netsniff is running also writing to a dailylogs directory that I can't tell how this pcap generator fits into it all.
+* barnyard2 is used to scrape the raw snort logs and write to squil's database.
+* Bro queries squil from a tcl daemon and writes to its own bro logs. bro entries are within within sguil
+** Bro will decode several protocols, find protocol anomalies (bad checksums), capture X.509 certs, and plugin capable.. 
+** Bro has an intel framework to detect and alert on IP, domains, MD5s, others
+* squil holds the harvested packets
+* squert is a frontend to squil data.
+* getpcap plug on elsa http traffic shows full http transactions using capme
