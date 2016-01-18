@@ -1,3 +1,13 @@
+#!/bin/sh
+######################################
+# Input = volatility extracted files
+# 1) Check if file is a renamed PE
+# 2) Check if the file is signed
+# 3) If yes to 2) or 3),
+#    i) send to ClamAV
+#    i) send to VirusTotal
+######################################
+
 if [ -n "`ls *.img 2>/dev/null`" ]; 
   echo Found dumpfiles output. Renaming files to remove the .img suffix
   ls -1 *.img | while read f; do
@@ -20,12 +30,11 @@ if [ -n "`ls *.img 2>/dev/null`" ];
   echo Sending found files to clamscan. Reporting only infected.
   CLAMSCAN=`which clamscan`
   if [ -f $CLAMSCAN ]; then
+    clamscan -i -f saved.txt
   fi
 
-  clamscan -i -f saved.txt
-
   echo Send found files to VT. Reporting only infected.
-  cat saved | while read f; do
+  cat saved.txt | while read f; do
     sum=`md5sum $f | awk '{ print $1 }'`
     echo $f
     vtTool.py -hash $sum 2>&1 | grep 'Most frequent word:' | grep -v 'count=0'
