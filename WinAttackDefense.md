@@ -5,7 +5,7 @@
 PowerSploit
 * Invoke-Shellcode/TokenManipulation/Mimikatz
 * Get-GPPPassword
-*- Add-Persistence
+* Add-Persistence
 
 Empire:
 * Pure PowerShell agent with secure comms
