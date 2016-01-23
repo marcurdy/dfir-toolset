@@ -185,8 +185,9 @@ Implement RDP Restricted Admin Mode
 4618	N/A	High	A monitored security event pattern has occurred.
 4649	N/A	High	A replay attack was detected. May be a harmless false positive due to misconfiguration error. This event indicates that a Kerberos replay attack was detected- a request was received twice with identical information. This condition could be caused by network misconfiguration.  
   
-General include for SIEM's
-Event ID | Legacy ID | Severity | Description
+++ General include for SIEM's
+  
+Event ID | Legacy ID | Severity | Description  
 -------- | --------- | -------- | -----------
 4718 | N/A | Low | System security access was removed from an account
 4719 | 612 | High | System audit policy was changed.
