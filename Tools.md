@@ -1,18 +1,23 @@
 # dfir-toolset
 I'm a long time UNIX administrator with a newfound shift into the DFIR world.  I'm absorbing whatever I can to help collect, sort, and make order out of the InfoSec ecosystem.  I plan to house my experience with opensource tools with an emphasis on Linux (WINE as needed) as the host OS.  Much of this comes from Remnux and SIFT.  A few come from Kali.  Others are lone wolves from GIT.  I am working to separate the wheat from the chaff and eliminate the noise caused by orphaned, redundant, or superceded all-in-one software.  e.g. Using Cuckoo or an online sandboxing service vs performing manual behavioral analysis.  
-
+  
 In addition to tools, I'll include scripts that I've developed or incorporated from my work on forensic challenges.  
-
+  
+**Distributions for Security tools**
+* Security Onion
+* SIFT + Remnux
+* DEFT
+  
 **Mounting dd or vm snapshot disk images**  
 * guestmount / libguestfs-tools  
-* log2timeline/dfvfs (transparent mounting of evidence types)  
-
+* log2timeline/dfvfs (transparent mounting of evidence types)
+  
 **Checking file signed signatures**  
 * Authenticode Tools (Didier Stevens)
 * sigcheck.exe with VirusTotal
 * Process Manager (Windows SysInternals)
 * chktrust (Mono) for Linux
-
+  
 **Linux-based Browser Artifact tools omitted since toolkits like FTK and Encase dwarf them**  
     
 **Scan for IOC, hashing, and hash lookups**  
@@ -22,7 +27,7 @@ In addition to tools, I'll include scripts that I've developed or incorporated f
 * Metadata: trID (determine filetype), exifTool, missidentify (find PE in files not named exe)
 * Gen Hashes: ssdeep(fuzzy hashes), md5deep (recursive md5 checks) / hashdeep (audit across multiple sets), hash_id (guess hash algorithm used)
 * Hashes Query: nsrllookup (Whitelist of known good), virustotal-search, vtTool.py, Automater (search by URL, IP, Hash)
-
+  
 **File Forensics**  
 * Sleuthkit using Autopsy front-end
 * scalpel (not foremost anymore)
@@ -32,7 +37,7 @@ In addition to tools, I'll include scripts that I've developed or incorporated f
 * Rifiuti (recycle bin analysis)
 * testdisk (restore lost partitions), kpartx
 * extundelete (ext3/4 file rest), recoverjpeg, vinetto (thumbs.db examiner)
-
+  
 **Handle Network Interactions**  
 * Sniffing: ngrep, tcpdump, tcpick(passive sniffer), tcptrack, driftnet, tshark (termainl wshark),
 dsniff(captures user data over common protos), aircrack-ng (WEP and WPA-PSK keys cracking), 
@@ -43,18 +48,17 @@ yaraPcap.py (http streams)
 * MITM: Burp Proxy (manipulate http between web and client), ettercap (content filtering on fly), sslsniff (MITM attacker), mitmproxy, sslcaudit (test ssl), sslstrip, sslsplit
 * Honeypots: Thug (docker based honeypot), Dionaea (honeypot), Kippo (SSH), Modern Honeypot Network
 * Miscellaneous network: prettyping, Netcat, stunnel, p0f(passive remote fingerprinting), netwox(swiss-army knife of routines), lft(smart traceroute), passivedns, tcpstat(stats on NIC), 
-
-
+  
 **Windows Event Logger analysis**  
-* logparser - MS
 * Event Log Explorer - eventlogxp.com
+* logparser - MS
 * Log Parser Lizard - gui for logparser
 * Mandiant Highlighter
 * PsLogList MS
-
+  
 **Linux Event Log analysis**  
 * Lsevt, evtx_parser, python-evtx
-
+  
 **Extract and Decode Artifacts**  
 * Deobfuscate: unXOR, XORStrings, ex_pe_xor, XORSearch, brxor.py, xortool, NoMoreXOR, XORBruteForcer, Balbuzard
 * Extract strings: strdeobj, pestr, strings.exe (wine)
@@ -82,6 +86,9 @@ yaraPcap.py (http streams)
   * vshot - becoming antiquated.  Hand edit to add modules
   * Mantaray - becoming antiquated
   * Bulk_extractor modules for grabbing types of data
+  * Volatility module add-ons of notability
+  ** mimikatz detection - RealityNet/hotoloti
+  ** Rat detection - FabienPerigaud
 * Rekall (Volatility fork relying on API's and not scanning to find evidence)
 * findaes, AESKeyFinder, RSAKeyFinder, VolDiff
 * pdgmail (gmail from mem)
@@ -112,17 +119,24 @@ yaraPcap.py (http streams)
 **Visual Reporting**  
 * afterglow (graphs complex datasets)
 * mantego
+* ELK suite
 
 **Memory Capture**  
 * dumpit, WinPMem, Mandiant Memoryze to dump on Windows
 * pmemsave to dump qemu VM
 * Snapshot to take dump of ESX VM
 * LiME to extract on Linux
+* Linux Memory Grabber - Hal Pomeranz
+* PMDump - dump memory of a process
 
 **Disk Capture**  
 * dcfldd (enhanced dd)
 * gddrescue/ddrescueview, ddrutility (complements ddrescue)
 * rdd
+
+**Timelining**  
+* log2timeline w/ plaso
+* Timesketch
 
 **Rootkit detection**  
 * GMER (Windows)  
@@ -156,3 +170,4 @@ yaraPcap.py (http streams)
   shoWin (reveal passwords, Mcafee)
   Vision (maps net ports to apps, Mcafee)
   Forensic toolkit (view files without touching metadata, Mcafee)
+  Prefetch XP->Win10 Eric Zimmerman
