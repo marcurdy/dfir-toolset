@@ -81,17 +81,17 @@ yaraPcap.py (http streams)
 * Hex: bless, exhexeditor
 
 **Examine Memory Snapshots**  
-* Volatility frameworks/wrappers
-  * Evolve - Creates sqllite db output and web frontend
-  * vshot - becoming antiquated.  Hand edit to add modules
-  * Mantaray - becoming antiquated
-  * Bulk_extractor modules for grabbing types of data
-  * Volatility module add-ons of notability
-  ** mimikatz detection - RealityNet/hotoloti
-  ** Rat detection - FabienPerigaud
-* Rekall (Volatility fork relying on API's and not scanning to find evidence)
-* findaes, AESKeyFinder, RSAKeyFinder, VolDiff
-* pdgmail (gmail from mem)
+* Volatility frameworks/wrappers  
+  * Evolve - Creates sqllite db output and web frontend  
+  * vshot - becoming antiquated.  Hand edit to add modules  
+  * Mantaray - becoming antiquated  
+  * Bulk_extractor modules for grabbing types of data  
+  * Volatility module add-ons of notability  
+  ..* mimikatz detection - RealityNet/hotoloti  
+  ..* Rat detection - FabienPerigaud
+* Rekall (Volatility fork relying on API's and not scanning to find evidence)  
+* findaes, AESKeyFinder, RSAKeyFinder, VolDiff  
+* pdgmail (gmail from mem)  
 
 **Investigate Linux Malware**  
 * System: Unhide(detect hidden processes), sysdig (strace + tcpdump + htop + iftop + lsof)
@@ -151,23 +151,23 @@ yaraPcap.py (http streams)
 *ghostRAT, Poison Ivy
 
 **Windows Misc for later consideration**  
-  fastIR (collect artifacts)
-  usbdeview - see s/n of drives inserted
-  samdump2 (pull pw hashes)
-  AccessData's registry viewer
-  regripper
-  MiTec Windows File Analyzer (view lnk metadata)
-  pstpassword
-  Yaru (undelete reg keys)
-  uvcview (pull sn off usb), usbdeviceforensics
-  exiftool, thumbcache parser
-  Magnet's IEF (Scraping for chat/webmail logs)
-  dumpzilla (windows)
-  DumpAutoComplete (firefox autocomplete dump)
-  rifiuti (recycle bin examination of info2)
-  Mandiant web historian
-  IEPassView on live system for protected to recover protected browser artifacts
-  shoWin (reveal passwords, Mcafee)
-  Vision (maps net ports to apps, Mcafee)
-  Forensic toolkit (view files without touching metadata, Mcafee)
-  Prefetch XP->Win10 Eric Zimmerman
+  fastIR (collect artifacts)  
+  usbdeview - see s/n of drives inserted  
+  samdump2 (pull pw hashes)  
+  AccessData's registry viewer  
+  regripper  
+  MiTec Windows File Analyzer (view lnk metadata)  
+  pstpassword  
+  Yaru (undelete reg keys)  
+  uvcview (pull sn off usb), usbdeviceforensics  
+  exiftool, thumbcache parser  
+  Magnet's IEF (Scraping for chat/webmail logs)  
+  dumpzilla (windows)  
+  DumpAutoComplete (firefox autocomplete dump)  
+  rifiuti (recycle bin examination of info2)  
+  Mandiant web historian  
+  IEPassView on live system for protected to recover protected browser artifacts  
+  shoWin (reveal passwords, Mcafee)  
+  Vision (maps net ports to apps, Mcafee)  
+  Forensic toolkit (view files without touching metadata, Mcafee)  
+  Prefetch XP->Win10 Eric Zimmerman  
