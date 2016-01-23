@@ -87,8 +87,11 @@ yaraPcap.py (http streams)
   * Mantaray - becoming antiquated  
   * Bulk_extractor modules for grabbing types of data  
   * Volatility module add-ons of notability  
-  ..* mimikatz detection - RealityNet/hotoloti  
-  ..* Rat detection - FabienPerigaud
+    * mimikatz detection - RealityNet/hotoloti  
+    * Rat detection - FabienPerigaud  
+    * At jobs - binglot/misc  
+    * ShimcacheMemory  
+    * IOC scan - openioc_scan  
 * Rekall (Volatility fork relying on API's and not scanning to find evidence)  
 * findaes, AESKeyFinder, RSAKeyFinder, VolDiff  
 * pdgmail (gmail from mem)  
@@ -147,9 +150,9 @@ yaraPcap.py (http streams)
 **Penetrating - I'm not researching this**  
 * Dirbuster  
 
-**Malware creation**
-*ghostRAT, Poison Ivy
-
+**Malware creation**  
+*ghostRAT, Poison Ivy  
+  
 **Windows Misc for later consideration**  
   fastIR (collect artifacts)  
   usbdeview - see s/n of drives inserted  
@@ -162,7 +165,7 @@ yaraPcap.py (http streams)
   uvcview (pull sn off usb), usbdeviceforensics  
   exiftool, thumbcache parser  
   Magnet's IEF (Scraping for chat/webmail logs)  
-  dumpzilla (windows)  
+  dumpzilla
   DumpAutoComplete (firefox autocomplete dump)  
   rifiuti (recycle bin examination of info2)  
   Mandiant web historian  
