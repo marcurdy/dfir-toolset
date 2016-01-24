@@ -15,9 +15,9 @@ Run sostat check the status of the running processes.
  
 * Snort configurations
 ** Rules downloaded by Pulledpork are stored in:  
-   /etc/nsm/rules/downloaded.rules  
+/etc/nsm/rules/downloaded.rules  
 ** You can have PulledPork modify the downloaded rules by modifying the files in:  
-   /etc/nsm/pulledpork/     
+/etc/nsm/pulledpork/     
 ** Local snort rules can be added to:  
 /etc/nsm/rules/local.rules  
 ** Rules will be updated every morning. You can manually update them by running:  
