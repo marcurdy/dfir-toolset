@@ -1,26 +1,45 @@
 ## Security Onion SW Relationships 
-* ELSA receives or queries local syslog data and stores into mysql.  Any regex against it is searched with sphinxsearch.
-  * getpcap plug on ELSA shows full http transactions using capme
-* OSSEC collects syslog traffic and writes locally. A tcl daemon then writes it to the squil database.
-* Snort packet captures and writes to a unified2 file. There's a rule-update command to update emerging threats rules.
-* barnyard2 is used to scrape the raw snort logs and write to squil's database.
-* Bro listens on net iface. Bro entries are presented within sguil
-  * Bro will decode several protocols, find protocol anomalies (bad checksums), capture X.509 certs, and plugin capable.. 
-  * Bro has an intel framework to detect and alert on IP, domains, MD5s, others
-* squil pulls in data from Snort for collection, analysis, and escalation of indications
-* squert is a frontend to squil data.
-* netsniff is writing to a dailylogs directory. I can't tell how this pcap generator fits into it all.
-  
+
 Run sostat check the status of all SecOnion's running processes.  
+
+* PCAP generation with netsniff
+  * netsniff is writing to a dailylogs directory /nsm/sensor_data/<instance>/dailylogs/
+
+* OSSEC 
+  * collects syslog traffic and writes analyzed findings to its own logs
+
+* Snort 
+  * Full PCAP captures and writen to disk in a unified2 file.
+  * Rules downloaded by Pulledpork = /etc/nsm/rules/downloaded.rules
+  * PulledPork modification of downloaded rules = /etc/nsm/pulledpork/
+  * Local snort rules = /etc/nsm/rules/local.rules
+  * Manually rules update = sudo rule-update
+  * Snort/Squil/Barnyard Sensor configurations =  /etc/nsm/NAME-OF-SENSOR/
+   
+* Bro NSM
+  * Listens on the raw network iface, processes input and writes to log files
+  * Bro will decode several protocols, find protocol anomalies, capture certs, and plugin capable
+  * Bro has an intel framework to detect and alert on IP, domains, MD5s, others
+  * Configuration = /opt/bro/etc
+  * Current log files = /nsm/bro/spool
+  * Daily rotated log files = /nsm/bro/logs
   
-* Snort configurations
-  * Rules downloaded by Pulledpork are stored in:  
-/etc/nsm/rules/downloaded.rules
-  * You can have PulledPork modify the downloaded rules by modifying the files in:  
-/etc/nsm/pulledpork/
-  * Local snort rules can be added to:  
-/etc/nsm/rules/local.rules
-  * Rules will be updated every morning. You can manually update them by running:  
-sudo rule-update
-  * Sensors can be tuned by modifying the files in:  
- /etc/nsm/NAME-OF-SENSOR/
+* Syslog-ng
+  * configuration = /opt/elsa/contrib/securityonion/contrib/securityonion-syslog-ng.conf
+  * Bro and OSSEC written logs and general syslog is piped into a script:   
+    * /opt/elsa/contrib/securityonion/contrib/securityonion-elsa-syslog-ng.sh
+  * Standard syslog input is also written to standard local logs
+
+* SQUIL
+  * barnyard2 is used to scrape the raw snort logs and write to squil's database.
+  * tclsh scripts run to pull data from Snort, raw pcap, and OSSEC logs
+  * squert is a frontend to squil data.
+
+* ELSA
+  * All data is piped directly into engine from syslog-ng.
+  * Analyses are written to mysql DB
+  * Any regex against it is searched with sphinx search.
+  * getpcap plug on ELSA shows full http transactions using capme
+  * Config = /etc/elsa_node.conf
+  * Logs   = /nsm/elsa/data/elsa/log
+  * Mysql  = /nsm/elsa/data/elsa/mysql && /nsm/elsa/data/sphinx
