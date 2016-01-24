@@ -11,8 +11,8 @@
 * squert is a frontend to squil data.
 * netsniff is writing to a dailylogs directory. I can't tell how this pcap generator fits into it all.
   
-Run sostat check the status of the running processes.  
- 
+Run sostat check the status of all SecOnion's running processes.  
+  
 * Snort configurations
 ** Rules downloaded by Pulledpork are stored in:
 /etc/nsm/rules/downloaded.rules
