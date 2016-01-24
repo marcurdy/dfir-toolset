@@ -12,18 +12,15 @@
 * netsniff is writing to a dailylogs directory. I can't tell how this pcap generator fits into it all.
   
 Run sostat check the status of the running processes.  
-  
-Rules downloaded by Pulledpork are stored in:  
+ 
+* Snort configurations
+** Rules downloaded by Pulledpork are stored in:  
  /etc/nsm/rules/downloaded.rules  
-   
- Local rules can be added to:  
- /etc/nsm/rules/local.rules  
-   
- You can have PulledPork modify the downloaded rules by modifying the files in:  
- /etc/nsm/pulledpork/  
-   
- Rules will be updated every morning. You can manually update them by running:  
- sudo rule-update  
-   
- Sensors can be tuned by modifying the files in:  
+** You can have PulledPork modify the downloaded rules by modifying the files in:  
+ /etc/nsm/pulledpork/     
+** Local snort rules can be added to:  
+/etc/nsm/rules/local.rules  
+** Rules will be updated every morning. You can manually update them by running:  
+sudo rule-update  
+** Sensors can be tuned by modifying the files in:  
  /etc/nsm/NAME-OF-SENSOR/  
