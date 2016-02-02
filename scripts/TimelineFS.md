@@ -1,8 +1,10 @@
 ## Mounting an image and running a timeline against an offline FS  
   
-### Setup mounts
+### Setup mounts  
+#### xmount creates a cache to add pseudo RW to many image types  
+#### kpartx auto-creates loopback devices based intelligently on an image (requires rw)  
 1. xmount –in FILENAME.E?? –cache /data/sternwindow/HOSTNAME/cache /MOUNTPOINT
- * the ?? is required to get all of the E01s
+ * the ?? is a regex that will allow bulk processing of all the images  
 2. kpartx –a –v /MOUNTPOINT/HOSTNAME.dd
  * this creates the /dev/mapper/loop0p1 etc for the next step
 3. mount /dev/mapper/loop0p2 /MOUNTPOINT2 –o ro,show_sys_files,streams_interface=windows
