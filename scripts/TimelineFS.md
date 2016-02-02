@@ -1,6 +1,6 @@
-# Mounting an image and running a timeline against an offline FS  
+## Mounting an image and running a timeline against an offline FS  
   
-## Setup mounts
+### Setup mounts
 1. xmount –in FILENAME.E?? –cache /data/sternwindow/HOSTNAME/cache /MOUNTPOINT
  * the ?? is required to get all of the E01s
 2. kpartx –a –v /MOUNTPOINT/HOSTNAME.dd
