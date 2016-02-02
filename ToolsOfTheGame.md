@@ -6,8 +6,8 @@ In addition to tools, I'll include scripts that I've developed or incorporated f
 **Distributions for Security tools**
 * Security Onion
 * SIFT + Remnux
-* DEFT
-  ns
+* DEFT  
+    
 **Mounting dd or vm snapshot disk images**  
 * guestmount / libguestfs-tools  
 * mount_ewf.py (Expert Witness E01, etc)
