@@ -7,7 +7,7 @@ In addition to tools, I'll include scripts that I've developed or incorporated f
 * Security Onion
 * SIFT + Remnux
 * DEFT
-  
+  ns
 **Mounting dd or vm snapshot disk images**  
 * guestmount / libguestfs-tools  
 * mount_ewf.py (Expert Witness E01, etc)
@@ -29,7 +29,7 @@ In addition to tools, I'll include scripts that I've developed or incorporated f
 * Offline-Scan: yara (IOC), clamAV
 * Metadata: trID (determine filetype), exifTool, missidentify (find PE in files not named exe)
 * Gen Hashes: ssdeep(fuzzy hashes), md5deep (recursive md5 checks) / hashdeep (audit across multiple sets), hash_id (guess hash algorithm used)
-* Hashes Query: nsrllookup (Whitelist of known good), virustotal-search, vtTool.py, Automater (search by URL, IP, Hash)
+* Hashes Query: nsrllookup (Whitelist of non-malicious hashes) requiring nsrlsvr, virustotal-search, vtTool.py, Automater (search by URL, IP, Hash)
   
 **File Forensics**  
 * Sleuthkit using Autopsy front-end
