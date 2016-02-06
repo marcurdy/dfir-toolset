@@ -28,7 +28,7 @@ In addition to tools, I'll include scripts that I've developed or incorporated f
 * Define signatures: YaraGenerator, Autorule, Rule Editor
 * Offline-Scan: yara (IOC), clamAV
 * Metadata: trID (determine filetype), exifTool, missidentify (find PE in files not named exe)
-* Gen Hashes: ssdeep(fuzzy hashes), md5deep (recursive md5 checks) / hashdeep (audit across multiple sets), hash_id (guess hash algorithm used)
+* Gen Hashes: ssdeep(fuzzy hashes) w pydeep for bindings, md5deep (recursive md5 checks) / hashdeep (audit across multiple sets), hash_id (guess hash algorithm used), 
 * Hashes Query: nsrllookup (Whitelist of non-malicious hashes) requiring nsrlsvr, virustotal-search, vtTool.py, Automater (search by URL, IP, Hash)
   
 **File Forensics**  
@@ -68,7 +68,7 @@ yaraPcap.py (http streams)
 
 **Examine Document Files**  
 * PDF: AnalyzePDF, Pdfobjflow, pdfid, pdf-parser, peepdf, Origami, PDF X-RAY, PDFtk, swf_mastah, qpdf, pdfresurrect
-* MS Office: officeparser, pyOLEScanner.py, oletools, libolecf, oledump, emldump, MSGConvert, base64dump.py
+* MS Office: officeparser, pyOLEScanner.py, oletools, libolecf, oledump, emldump, MSGConvert, base64dump.py, olefile
     Shellcode: sctest, unicode2hex-escaped, unicode2raw, dism-this, shellcode2exe
     Flash: xxxswf, SWF Tools, RABCDAsm, extract_swf, Flare(decompiler of Flash), flasm(disassembles Flash)
 * Java: Java Cache IDX Parser, JD-GUI Java Decompiler, JAD Java Decompiler, Javassist, CFR
@@ -177,3 +177,9 @@ yaraPcap.py (http streams)
   Vision (maps net ports to apps, Mcafee)  
   Forensic toolkit (view files without touching metadata, Mcafee)  
   Prefetch XP->Win10 Eric Zimmerman  
+
+**Sweet Python API Modules Found along the way
+requesocks (http calls for humans)
+fuzzywuzzy (fuzzy string comparison)
+pypdns (passive dns)
+pypssl (passive ssl, waaaaht)
