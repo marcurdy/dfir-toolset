@@ -46,9 +46,3 @@
 11. psort -analysis tagging -o l2tcsv -w /data/HOSTNAME/HOSTNAME_1.csv /data/HOSTNAME/HOSTNAME_1.pb
 12. psort -analysis tagging --tagging-file /usr/share/plaso/tag_windows.txt -o l2tcsv -w /data/HOSTNAME/HOSTNAME_2.csv /data/HOSTNAME/HOSTNAME_2.pb
  * extra argument needed because it is not OS root drive  
-  
-### Cleanup  
-13. umount /MOUNTPOINT2  
-14. umount /MOUNTPOINT3  
-15. umount /MOUNTPOINT   
-16. kpartx -d /MOUNTPOINT/HOSTNAME.dd  
