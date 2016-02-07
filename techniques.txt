@@ -1,3 +1,28 @@
+1) Prepare Evidence
+   Locally mount a working copy of images RO
+   Gather hashes and compare to hash db's
+   Extract exe/dll from unallocated space
+2) Run multiple AV against extracted files
+3) Indicators of Compromise Search
+     Run yara scan and sort by number of findings per file
+     Scan for known hashes, IP's, URL's
+4) Automated Memory Analysis - malfind
+5) Evidence of Persistence
+   Scheduled tasks
+   Service replacements / creations
+   auto-start registry (autoruns)
+   DLL search order hijacks
+   Trojaned legit sys libraries
+5) File integrity - Authenticode signature scan
+6) Packing / Entropy Checks
+   Scan for indication of packing and test entropy
+7) Super Timeline with analyzeMFT and log2timeline
+   See if above malfind candidates appear
+   MFT anomolies for file creation sequences
+8) Manual Memory Analysis with Volatility
+   Analyze hibernation file
+9) Review event logs
+
 USB key forensics
 1) Write down vendor, Product, Version
 2) Write S/N
@@ -39,7 +64,6 @@ Rootkit - stealthy, Trojan func, may damage, requires reinstalling, can exist in
 Viruses - infect other binaries or boot sectors, requires reinstalling,  Sality, Virut
 Worms - spread using exploits, USB drives, email, shares. Reinstall systems
 
-
 Incidence Response Process - live forensics
 1) Preparation: Be ready with the tools and training for incidents before they happen.
 2) Identification: Identify incidents thoroughly; going through the IR process only to find a false alarm is no fun.
@@ -48,47 +72,8 @@ Incidence Response Process - live forensics
 5) Recovery: Make sure the system meets company standards before returning it to service. Continue monitoring for any aberrant behavior
 6) Lessons Learned
 
-1) Prepare Evidence
-   Locally mount a working copy of images RO
-   Gather hashes and run against online repositories
-   Extract exe/dll from unallocated space
+# Lenny Zeltser tips
 
-2) Run multiple AV against extracted files
-
-3) Indicators of Compromise Search
-     Scan for known hashes, IP's, URL's
-
-4) Automated Memory Analysis - malfind
-
-5) Evidence of Persistence
-   Scheduled tasks
-   Service replacements / creations
-   auto-start registry (autoruns)
-   DLL search order hijacks
-   Trojaned legit sys libraries
-
-6) Packing / Entropy Checks
-   Scan for indication of packing, test entropy, signature id, signed driver checks
-
-7) Review event logs
-
-8) Super Timeline Exam
-   See if above malfind candidates appear
-
-9) Manual Memory Analysis
-   Volatility
-
-10) Manual 3rd party hash lookups
-
-11) MFT anomolies for file creation sequences
-
-12) File-time anomolies
-    analyzeMFT and log2timeline
-
-
-###################################
-# Lenny Zeltser
-###################################
 Analyzing a windows executable for Malware
 pescanner .exe or .dll
   ssdeep fuzzy hash, md5 hash
