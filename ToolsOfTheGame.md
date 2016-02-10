@@ -10,11 +10,10 @@ In addition to tools, I'll include scripts that I've developed or incorporated f
     
 **Mounting dd or vm snapshot disk images**  
 * guestmount / libguestfs-tools  
-* mount_ewf.py (Expert Witness E01, etc)
-* xmount (rw w cache mount EW,VMDK,etc)
+* xmount (rw w cache mount EWF,VMDK,etc)
+* kpartx
 * mount -o offset=X
-* log2timeline/dfvfs (transparent mounting of evidence types)
-  
+
 **Checking file signed signatures**  
 * Authenticode Tools (Didier Stevens)
 * sigcheck.exe with VirusTotal
