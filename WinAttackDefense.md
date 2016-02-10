@@ -189,23 +189,13 @@ Implement RDP Restricted Admin Mode
   
 Event ID | Legacy ID | Severity | Description  
 -------- | --------- | -------- | -----------
-4718 | N/A | Low | System security access was removed from an account
-4719 | 612 | High | System audit policy was changed.
-4730 |  |  | A security-enabled global group was deleted.
-4737 |  |  | A security-enabled global group was changed.
-4739 |  |  | Domain Policy was changed.
-4755 |  |  | A security-enabled universal group was changed.
-4758 |  |  | A security-enabled universal group was deleted.
-4765 | N/A | High | SID History was added to an account.
-4766 | N/A | High | An attempt to add SID History to an account failed.
-4794 | N/A | High | An attempt was made to set the Directory Services Restore Mode.
-4897 | 801 | High | Role separation enabled:
-4950 |  |  | A Windows Firewall setting has changed.
-4964 | N/A | High | Special groups have been assigned to a new logon.
-5124 | N/A | High | A security setting was updated on the OCSP Responder Service
+N/A | 106,140,141 | High | Task Schedler Event
 N/A | 550 | Medium to High | Possible denial-of-service (DoS) attack
+- | 619 | Medium | Quality of Service Policy changed
+- | 640 | Medium | General account database changed
 1102 | 517 | Medium to High | The audit log was cleared
 4621 | N/A | Medium | Administrator recovered system from CrashOnAuditFail. Users who are not administrators will now be allowed to log on. Some auditable activity might not have been recorded.
+4624 | N/A | Medium | Type 3 login event scheduled task
 4675 | N/A | Medium | SIDs were filtered.
 4692 | N/A | Medium | Backup of data protection master key was attempted.
 4693 | N/A | Medium | Recovery of data protection master key was attempted.
@@ -214,8 +204,11 @@ N/A | 550 | Medium to High | Possible denial-of-service (DoS) attack
 4714 | 618 | Medium | Encrypted data recovery policy was changed.
 4715 | N/A | Medium | The audit policy (SACL) on an object was changed.
 4716 | 620 | Medium | Trusted domain information was modified.
+4718 | N/A | Low | System security access was removed from an account
+4719 | 612 | High | System audit policy was changed.
 4724 | 628 | Medium | An attempt was made to reset an account’s password.
 4727 | 631 | Medium | A security-enabled global group was created.
+4730 |  |  | A security-enabled global group was deleted.
 4735 | 639 | Medium | A security-enabled local group was changed.
 4737 | 641 | Medium | A security-enabled global group was changed.
 4739 | 643 | Medium | Domain Policy was changed.
@@ -223,7 +216,13 @@ N/A | 550 | Medium to High | Possible denial-of-service (DoS) attack
 4755 | 659 | Medium | A security-enabled universal group was changed.
 4764 | 667 | Medium | A security-disabled group was deleted
 4764 | 668 | Medium | A group’s type was changed.
-4780 | 684 | Medium | The ACL was set on accounts which are members of administrators groups.
+4780 | 684 | Medium | The ACL was set on accounts which are members of ad
+4739 |  |  | Domain Policy was changed.
+4755 |  |  | A security-enabled universal group was changed.
+4758 |  |  | A security-enabled universal group was deleted.
+4765 | N/A | High | SID History was added to an account.
+4766 | N/A | High | An attempt to add SID History to an account failed.
+4794 | N/A | High | An attempt was made to set the Directory Services Restore Mode.
 4816 | N/A | Medium | RPC detected an integrity violation while decrypting an incoming message.
 4865 | N/A | Medium | A trusted forest information entry was added.
 4866 | N/A | Medium | A trusted forest information entry was removed.
@@ -235,10 +234,13 @@ N/A | 550 | Medium to High | Possible denial-of-service (DoS) attack
 4890 | 794 | Medium | The certificate manager settings for Certificate Services changed.
 4892 | 796 | Medium | A property of Certificate Services changed.
 4896 | 800 | Medium | One or more rows have been deleted from the certificate database.
+4897 | 801 | High | Role separation enabled:
 4906 | N/A | Medium | The CrashOnAuditFail value has changed.
 4907 | N/A | Medium | Auditing settings on object were changed.
 4908 | N/A | Medium | Special Groups Logon table modified.
 4912 | 807 | Medium | Per User Audit Policy was changed.
+4950 |  |  | A Windows Firewall setting has changed.
+4964 | N/A | High | Special groups have been assigned to a new logon.
 4960 | N/A | Medium | "IPsec dropped an inbound packet that failed an integrity check. If this problem persists |  it could indicate a network issue or that packets are being modified in transit to this computer. Verify that the packets sent from the remote computer are the same as those received by this computer. This error might also indicate interoperability problems with other IPsec implementations."
 4961 | N/A | Medium | "IPsec dropped an inbound packet that failed a replay check. If this problem persists |  it could indicate a replay attack against this computer."
 4962 | N/A | Medium | IPsec dropped an inbound packet that failed a replay check. The inbound packet had too low a sequence number to ensure it was not a replay.
@@ -260,6 +262,8 @@ N/A | 550 | Medium to High | Possible denial-of-service (DoS) attack
 5121 | N/A | Medium | OCSP Responder Service Stopped
 5122 | N/A | Medium | A configuration entry changed in OCSP Responder Service
 5123 | N/A | Medium | A configuration entry changed in OCSP Responder Service
+5124 | N/A | High | A security setting was updated on the OCSP Responder Service
+ministrators groups.
 5376 | N/A | Medium | Credential Manager credentials were backed up.
 5377 | N/A | Medium | Credential Manager credentials were restored from a backup.
 5453 | N/A | Medium | An IPsec negotiation with a remote computer failed because the IKE and AuthIP IPsec Keying Modules (IKEEXT) service is not started.
@@ -276,8 +280,7 @@ N/A | 550 | Medium to High | Possible denial-of-service (DoS) attack
 6278 | N/A | Medium | Network Policy Server granted full access to a user because the host met the defined health policy.
 6279 | N/A | Medium | Network Policy Server locked the user account due to repeated failed authentication attempts.
 6280 | N/A | Medium | Network Policy Server unlocked the user account.
-- | 640 | Medium | General account database changed
-- | 619 | Medium | Quality of Service Policy changed
+N/A | 7035,7036,7045 | Unknown | Service control manager needed for RAT
 24586 | N/A | Medium | An error was encountered converting volume
 24592 | N/A | Medium | An attempt to automatically restart conversion on volume %2 failed.
 24593 | N/A | Medium | "Metadata write: Volume %2 returning errors while trying to modify metadata. If failures continue |  decrypt volume"
