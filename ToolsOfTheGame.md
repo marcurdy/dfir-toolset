@@ -144,6 +144,9 @@ yaraPcap.py (http streams)
 * log2timeline w/ plaso
 * Timesketch
 
+**Registry Manipulation**  
+* FRED
+  
 **Rootkit detection**  
 * GMER (Windows)  
 * Rootkit revealer (Windows)  
