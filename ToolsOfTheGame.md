@@ -180,8 +180,8 @@ yaraPcap.py (http streams)
   Forensic toolkit (view files without touching metadata, Mcafee)  
   Prefetch XP->Win10 Eric Zimmerman  
 
-**Sweet Python API Modules Found along the way
-requesocks (http calls for humans)
-fuzzywuzzy (fuzzy string comparison)
-pypdns (passive dns)
-pypssl (passive ssl, waaaaht)
+**Sweet Python API Modules Found along the way  
+requesocks (http calls for humans)  
+fuzzywuzzy (fuzzy string comparison)  
+pypdns (passive dns)  
+pypssl (passive ssl)  
