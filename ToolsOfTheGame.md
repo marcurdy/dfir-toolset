@@ -9,8 +9,7 @@ In addition to tools, I'll include scripts that I've developed or incorporated f
 * DEFT  
     
 **Mounting dd or vm snapshot disk images**  
-* guestmount / libguestfs-tools  
-* xmount (rw w cache mount EWF,VMDK,etc)
+* xmount (rw w/ cache mount EWF,VMDK,etc)
 * kpartx
 * mount -o offset=X
 
