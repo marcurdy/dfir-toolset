@@ -196,7 +196,9 @@ N/A | 550 | Medium to High | Possible denial-of-service (DoS) attack
 1102 | 517 | Medium to High | The audit log was cleared
 4621 | N/A | Medium | Administrator recovered system from CrashOnAuditFail. Users who are not administrators will now be allowed to log on. Some auditable activity might not have been recorded.
 4624 | N/A | Medium | Type 3 login event scheduled task
+4648 |     |        | Logon with explicit credentials - mapping drives/RunAs/lateral
 4675 | N/A | Medium | SIDs were filtered.
+4688 |     |        | Command Line Process Creation 
 4692 | N/A | Medium | Backup of data protection master key was attempted.
 4693 | N/A | Medium | Recovery of data protection master key was attempted.
 4706 | 610 | Medium | A new trust was created to a domain.
