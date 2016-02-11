@@ -263,7 +263,6 @@ N/A | 550 | Medium to High | Possible denial-of-service (DoS) attack
 5122 | N/A | Medium | A configuration entry changed in OCSP Responder Service
 5123 | N/A | Medium | A configuration entry changed in OCSP Responder Service
 5124 | N/A | High | A security setting was updated on the OCSP Responder Service
-ministrators groups.
 5376 | N/A | Medium | Credential Manager credentials were backed up.
 5377 | N/A | Medium | Credential Manager credentials were restored from a backup.
 5453 | N/A | Medium | An IPsec negotiation with a remote computer failed because the IKE and AuthIP IPsec Keying Modules (IKEEXT) service is not started.
