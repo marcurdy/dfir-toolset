@@ -11,5 +11,4 @@ TZ=CST6CDT
    
 **Generate CSVs**  
   
-5. psort --analysis tagging -o l2tcsv -w ${DATADIR}/${HOSTNAME}_1.csv ${DATADIR}/${HOSTNAME}_1.pb  
-6. psort --analysis tagging --tagging-file /usr/share/plaso/tag_windows.txt -o l2tcsv -w ${DATADIR}/${HOSTNAME}_2.csv ${DATADIR}/${HOSTNAME}_2.pb  
+5. psort.py --analysis tagging --tagging-file /usr/share/plaso/tag_windows.txt -o l2tcsv -w ${DATADIR}/${HOSTNAME}_1.csv ${DATADIR}/${HOSTNAME}_1.pb  
