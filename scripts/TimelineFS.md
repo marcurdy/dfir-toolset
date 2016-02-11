@@ -8,6 +8,7 @@ MOUNTPOINT=/media/loop0p2
 2. analyzeMFT.py --bodyfull -b ${DATADIR}/${HOSTNAME} \/${HOSTNAME}.bodyfile -f ${MOUNTPOINT}/\$MFT  
 3. log2timeline.py  ${DATADIR}/${HOSTNAME}/${HOSTNAME}_1.pb ${DATADIR}/${HOSTNAME} /${HOSTNAME}1.bodyfile  
    
-** Generate CSVs **
+**Generate CSVs**  
+  
 5. psort -analysis tagging -o l2tcsv -w ${DATADIR}/${HOSTNAME}/${HOSTNAME}_1.csv ${DATADIR}/${HOSTNAME}/${HOSTNAME}_1.pb  
 6. psort -analysis tagging --tagging-file /usr/share/plaso/tag_windows.txt -o l2tcsv -w ${DATADIR}/${HOSTNAME}/${HOSTNAME}_2.csv ${DATADIR}/${HOSTNAME}/${HOSTNAME}_2.pb  
