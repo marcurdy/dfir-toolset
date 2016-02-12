@@ -144,6 +144,7 @@ yaraPcap.py (http streams)
 
 **Registry Manipulation**  
 * FRED
+* regripper (wine friendly)
   
 **Rootkit detection**  
 * GMER (Windows)  
@@ -162,7 +163,6 @@ yaraPcap.py (http streams)
   usbdeview - see s/n of drives inserted  
   samdump2 (pull pw hashes)  
   AccessData's registry viewer  
-  regripper  
   MiTec Windows File Analyzer (view lnk metadata)  
   pstpassword  
   Yaru (undelete reg keys)  
