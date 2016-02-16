@@ -159,8 +159,8 @@ yaraPcap.py (http streams)
 *ghostRAT, Poison Ivy  
 
 **Viewing Windows Internals  
--------- | --------- | --------
 Tool|Image Name|Origin
+-------- | --------- | --------
 Startup Programs Viewer|AUTORUNS|Sysinternals
 Access Check|ACCESSCHK|Sysinternals
 Dependency Walker|DEPENDS|www.dependencywalker.com
