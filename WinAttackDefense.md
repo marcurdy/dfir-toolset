@@ -27,6 +27,8 @@ SPN Scanning Service Discovery without network port scanning
 Event Log Explorer FSPro Labs
 
 Logon Type  
+0 - Services
+1 - Physical console
 2 - Interactive  
 3 - Remote  
 4 - Batch / Scheduled Task  
