@@ -6,7 +6,8 @@ MOUNTPOINT=/media/loop0p2
  #TZ="-z CST6CDT"  
   
 **Generate a timeline**  
-1. log2timeline.py --status_view window --parsers webhist,win_gen --hashers MD5 ${TZ} ${DATADIR}/${HOSTNAME}.pb ${MOUNTPOINT}  
+1. log2timeline.py --status_view window --parsers webhist,win_gen --hashers MD5 ${TZ} ${DATADIR}/${HOSTNAME}.pb ${MOUNTPOINT}
+  
 **Parse the MFT into a bodyfile format**  
 2. analyzeMFT.py --bodyfull -b ${DATADIR}/${HOSTNAME}.bodyfile -f ${MOUNTPOINT}/\$MFT  
   
