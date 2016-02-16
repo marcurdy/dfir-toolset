@@ -18,7 +18,7 @@ In addition to tools, I'll include scripts that I've developed or incorporated f
 * sigcheck.exe with VirusTotal
 * Process Manager (Windows SysInternals)
 * chktrust (Mono) for Linux
-  
+
 **Linux-based Browser Artifact tools omitted since toolkits like FTK and Encase dwarf them**  
     
 **Scan for IOC, hashing, and hash lookups**  
@@ -157,6 +157,22 @@ yaraPcap.py (http streams)
 
 **Malware creation**  
 *ghostRAT, Poison Ivy  
+
+**Viewing Windows Internals  
+|Tool|Image Name|Origin|
+|Startup Programs Viewer|AUTORUNS|Sysinternals|
+|Access Check|ACCESSCHK|Sysinternals|
+|Dependency Walker|DEPENDS|www.dependencywalker.com|
+|Global Flags|GFLAGS|Debugging tools|
+|Handle Viewer|HANDLE|Sysinternals|
+|Kernel debuggers|"WINDBG| KD"|"Debugging tools| Windows SDK"|
+|Object Viewer|WINOBJ|Sysinternals|
+|Performance Monitor|PERFMON.MSC|Windows built-in tool|
+|Pool Monitor|POOLMON|Windows Driver Kit|
+|Process Explorer|PROCEXP|Sysinternals|
+|Process Monitor|PROCMON|Sysinternals|
+|Task (Process) List|TLIST|Debugging tools|
+|Task Manager|TASKMGR|Windows built-in tool|
   
 **Windows Misc for later consideration**  
   fastIR (collect artifacts)  
