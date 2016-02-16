@@ -160,8 +160,7 @@ yaraPcap.py (http streams)
 
 **Viewing Windows Internals  
 Tool | Image Name | Origin
--------- | --------- | --------
-Tool | Image Name | Origin
+---- | ---------- | ------
 Startup Programs Viewer | AUTORUNS | Sysinternals
 Access Check | ACCESSCHK | Sysinternals
 Dependency Walker | DEPENDS | www.dependencywalker.com
