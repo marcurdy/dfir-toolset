@@ -183,9 +183,9 @@ Implement RDP Restricted Admin Mode
   Win7/Win2k8R2: KB2984972 / KB2984976 / KB2984981  
   Win8/Win 2012: KB2973501  
   
-  Current Windows Event ID	Legacy Windows Event ID	Potential Criticality	Event Summary
-4618	N/A	High	A monitored security event pattern has occurred.
-4649	N/A	High	A replay attack was detected. May be a harmless false positive due to misconfiguration error. This event indicates that a Kerberos replay attack was detected- a request was received twice with identical information. This condition could be caused by network misconfiguration.  
+Event ID | Legacy Event ID | Potential Criticality | Event Summary
+4618 | N/A | High | A monitored security event pattern has occurred.
+4649 | N/A | High | A replay attack was detected. May be a harmless false positive due to misconfiguration error. This event indicates that a Kerberos replay attack was detected- a request was received twice with identical information. This condition could be caused by network misconfiguration.  
   
 ## General include for SIEM's
   
