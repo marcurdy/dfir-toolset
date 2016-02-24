@@ -24,9 +24,9 @@
 9) Review event logs
 10) Examine Volume Shadow copies  
 11) File Analysis  
- * MFT: compare dates within to check tampering. 
- ** data fields contain resident files up to 744b in length. Hex dump data record  
- * Jump List; DestList; Prefetch; Scheduled Tasks; Recycle Bin; hibernation  
+* MFT: compare dates within to check tampering. 
+** data fields contain resident files up to 744b in length. Hex dump data record  
+* Jump List; DestList; Prefetch; Scheduled Tasks; Recycle Bin; hibernation  
   
 USB key forensics
 1) Write down vendor, Product, Version
