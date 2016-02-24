@@ -13,6 +13,9 @@ In addition to tools, I'll include scripts that I've developed or incorporated f
 * kpartx
 * mount -o offset=X
 
+**Volume Shadow Copy browsing  
+* libvshadow FUSE mounting  
+  
 **Checking file signed signatures**  
 * Authenticode Tools (Didier Stevens)
 * sigcheck.exe with VirusTotal
