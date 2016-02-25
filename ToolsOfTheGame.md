@@ -161,8 +161,13 @@ yaraPcap.py (http streams)
 **Malware creation**  
 *ghostRAT, Poison Ivy  
   
+**Prefetch analysis  
+* PECmd by Eric Zimmerman  
+  
+**LNK parsing
+* LECmd  
+  
 **Viewing Windows Internals**
-
 Tool | Image Name | Origin
 ---- | ---------- | ------
 Startup Programs Viewer | AUTORUNS | Sysinternals
@@ -192,13 +197,12 @@ Task Manager            | TASKMGR | Windows built-in tool
   Magnet's IEF (Scraping for chat/webmail logs)  
   dumpzilla
   DumpAutoComplete (firefox autocomplete dump)  
-  rifiuti (recycle bin examination of info2)  
   Mandiant web historian  
   IEPassView on live system for protected to recover protected browser artifacts  
   shoWin (reveal passwords, Mcafee)  
   Vision (maps net ports to apps, Mcafee)  
   Forensic toolkit (view files without touching metadata, Mcafee)  
-  Prefetch XP->Win10 Eric Zimmerman  
+  
 
 **Sweet Python API Modules Found along the way  
 requesocks (http calls for humans)  
