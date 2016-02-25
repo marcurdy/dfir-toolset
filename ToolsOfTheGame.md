@@ -167,6 +167,9 @@ yaraPcap.py (http streams)
 **LNK parsing
 * LECmd  
   
+**Jumplist parsing  
+* JECmd  
+  
 **Viewing Windows Internals**
 Tool | Image Name | Origin
 ---- | ---------- | ------
