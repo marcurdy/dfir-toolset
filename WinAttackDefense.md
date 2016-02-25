@@ -192,6 +192,7 @@ Event ID | Legacy Event ID | Potential Criticality | Event Summary
 Event ID | Legacy ID | Severity | Description  
 -------- | --------- | -------- | -----------
 N/A | 106,140,141 | High | Task Schedler Event
+N/A | 517 | Medium to High | Logs cleared
 N/A | 550 | Medium to High | Possible denial-of-service (DoS) attack
 - | 619 | Medium | Quality of Service Policy changed
 - | 640 | Medium | General account database changed
