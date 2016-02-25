@@ -22,6 +22,7 @@
 8) Manual Memory Analysis with Volatility
    Analyze hibernation file
 9) Review event logs
+   Sluthkit scrape if missing or emptied
 10) Examine Volume Shadow copies  
 11) File Analysis  
     a) MFT: compare dates within to check tampering. 
