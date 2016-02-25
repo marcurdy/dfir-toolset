@@ -27,7 +27,12 @@
 11) File Analysis  
     a) MFT: compare dates within to check tampering. 
             data fields contain resident files up to 744b in length. Hex dump data record  
-    b) Jump List; DestList; Prefetch; Scheduled Tasks; Recycle Bin; hibernation  
+    b) Recycle Bin: date in index reflects delete date  
+    c) Prefetch: Not enabled by default on server OS's. \Windows\Prefetch\Appname-Hash.pf  
+    d) Scheduled Tasks: 2003- C:\Windows\Tasks. Vista+ C:\Windows\System32\Tasks  
+       at.exe, schtasks.exe
+    e) Jump List: Win7, Win8; AppData\Roaming\Microsoft\Windows\Recent\AutomaticDestinations,CustomDestinations(pinned)
+    f) DestList; Scheduled Tasks; hibernation  
   
 USB key forensics
 1) Write down vendor, Product, Version
