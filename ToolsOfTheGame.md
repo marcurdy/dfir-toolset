@@ -1,7 +1,5 @@
 # dfir-toolset
-I'm a long time UNIX administrator with a newfound shift into the DFIR world.  I'm absorbing whatever I can to help collect, sort, and make order out of the InfoSec ecosystem.  I plan to house my experience with opensource tools with an emphasis on Linux (WINE as needed) as the host OS.  Much of this comes from Remnux and SIFT.  A few come from Kali.  Others are lone wolves from GIT.  I am working to eliminate the noise caused by orphaned, redundant, or superceded all-in-one software.  e.g. Using Cuckoo or an online sandboxing service vs performing manual behavioral analysis.
-  
-In addition to tools, I'll include scripts that I've developed or incorporated from my work on forensic challenges.  
+I'm a long time UNIX administrator with a newfound shift into DF.  I'm collecting, sorting, and making order out of the available tools.  I'm housing my experience with opensource tools with an emphasis on Linux (WINE as needed) as the client host.  Much of this comes from Remnux and SIFT.  A few come from Kali.  Others are lone wolves from GIT.  I am working to eliminate the noise caused by orphaned, redundant, or superceded all-in-one software.  e.g. Using Cuckoo or an online sandboxing service vs performing manual behavioral analysis.
   
 **Distributions for Security tools**
 * Security Onion
@@ -13,7 +11,7 @@ In addition to tools, I'll include scripts that I've developed or incorporated f
 * kpartx
 * mount -o offset=X
 
-**Volume Shadow Copy browsing  
+**Volume Shadow Copy browsing**  
 * libvshadow FUSE mounting  
   
 **Checking file signed signatures**  
