@@ -39,14 +39,7 @@
          Defender: C:\ProgramData\Microsoft\Windows Defender\Support  
   
 USB key forensics
-1) Write down vendor, Product, Version
-2) Write S/N
-3) Determine Parent Prefix ID (XP-)
-4) Determine Vendor-ID and Prod (VID/PID) for first use after reboot
-5) Determine drive letter (Windows Portable devices for Vista), (use ParentIDPref on MountedDevices for XP-)
-6) Record volume GUID's
-7) Find user that last mounted GUID. Reg write time is last mount time
-8) Discover first time ever connected from setupapi.[dev.]log
+    http://blogs.sans.org/computer-forensics/files/2009/09/USBKEY-Guide.pdf
 
 Investigation for Malware methodology
 1) Identify Rogue Processes
