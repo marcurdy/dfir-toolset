@@ -168,9 +168,10 @@ yaraPcap.py (http streams)
 **Jumplist parsing  
 * JECmd  
   
-**Viewing Windows Internals**
-Tool | Image Name | Origin
----- | ---------- | ------
+**Viewing Windows Internals**  
+
+Tool | Image Name | Origin 
+---- | ---------- | ------  
 Startup Programs Viewer | AUTORUNS | Sysinternals
 Access Check            | ACCESSCHK | Sysinternals
 Dependency Walker       | DEPENDS | www.dependencywalker.com
@@ -183,7 +184,6 @@ Process Explorer        | PROCEXP | Sysinternals
 Process Monitor         | PROCMON | Sysinternals
 Task (Process) List     | TLIST | Debugging tools
 Task Manager            | TASKMGR | Windows built-in tool
-
   
 **Windows Misc for later consideration**  
   fastIR (collect artifacts)  
