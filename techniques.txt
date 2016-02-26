@@ -32,7 +32,8 @@
     d) Scheduled Tasks: 2003- C:\Windows\Tasks. Vista+ C:\Windows\System32\Tasks  
        at.exe, schtasks.exe
     e) Jump List: Win7, Win8; AppData\Roaming\Microsoft\Windows\Recent\AutomaticDestinations,CustomDestinations(pinned)
-    f) DestList; Scheduled Tasks; hibernation  
+    f) Hibernation files: Analyze with Volatility  
+    g) DestList  
   
 USB key forensics
 1) Write down vendor, Product, Version
