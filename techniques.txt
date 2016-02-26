@@ -33,7 +33,10 @@
        at.exe, schtasks.exe
     e) Jump List: Win7, Win8; AppData\Roaming\Microsoft\Windows\Recent\AutomaticDestinations,CustomDestinations(pinned)
     f) Hibernation files: Analyze with Volatility  
-    g) DestList  
+    g) Error reporting WER - C:\ProgramData\Microsoft\Windows\WER  
+    h) Anti-virus logs
+         MSRT: \Windows\Debug\mrt.log
+         Defender: C:\ProgramData\Microsoft\Windows Defender\Support  
   
 USB key forensics
 1) Write down vendor, Product, Version
