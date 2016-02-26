@@ -23,6 +23,7 @@
    Analyze hibernation file
 9) Review event logs
    Sluthkit scrape if missing or emptied
+   regripper with plugins
 10) Examine Volume Shadow copies  
 11) File Analysis  
     a) MFT: compare dates within to check tampering. 
@@ -32,9 +33,8 @@
     d) Scheduled Tasks: 2003- C:\Windows\Tasks. Vista+ C:\Windows\System32\Tasks  
        at.exe, schtasks.exe
     e) Jump List: Win7, Win8; AppData\Roaming\Microsoft\Windows\Recent\AutomaticDestinations,CustomDestinations(pinned)
-    f) Hibernation files: Analyze with Volatility  
-    g) Error reporting WER - C:\ProgramData\Microsoft\Windows\WER  
-    h) Anti-virus logs
+    f) Error reporting WER - C:\ProgramData\Microsoft\Windows\WER  
+    g) Anti-virus logs
          MSRT: \Windows\Debug\mrt.log
          Defender: C:\ProgramData\Microsoft\Windows Defender\Support  
   
