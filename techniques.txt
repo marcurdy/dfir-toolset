@@ -25,6 +25,7 @@
    Sluthkit scrape if missing or emptied
    regripper with plugins
 10) Examine Volume Shadow copies  
+11) Services - System/Enum/Root/LEGACY_* First use, 0000=Most recent use
 11) File Analysis  
     a) MFT: compare dates within to check tampering. 
             data fields contain resident files up to 744b in length. Hex dump data record  
@@ -40,6 +41,8 @@
   
 USB key forensics
     http://blogs.sans.org/computer-forensics/files/2009/09/USBKEY-Guide.pdf
+    Use System Event log for UserMode/Operational Event to correlate USB activity
+    If no S/N is baked into usb, OS assigns one with "&" as 2nd char
 
 Investigation for Malware methodology
 1) Identify Rogue Processes
