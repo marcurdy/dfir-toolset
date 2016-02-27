@@ -26,7 +26,7 @@
    regripper with plugins
 10) Examine Volume Shadow copies  
 11) Services - System/Enum/Root/LEGACY_* First use, 0000=Most recent use
-11) File Analysis  
+12) File Analysis  
     a) MFT: compare dates within to check tampering. 
             data fields contain resident files up to 744b in length. Hex dump data record  
     b) Recycle Bin: date in index reflects delete date  
@@ -38,6 +38,8 @@
     g) Anti-virus logs
          MSRT: \Windows\Debug\mrt.log
          Defender: C:\ProgramData\Microsoft\Windows Defender\Support  
+13) Registry Data Pull
+    a) USB Drives, Applications, File Extension Associations, WorldWheelQuery
   
 USB key forensics
     http://blogs.sans.org/computer-forensics/files/2009/09/USBKEY-Guide.pdf
