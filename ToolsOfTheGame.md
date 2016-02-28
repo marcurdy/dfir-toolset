@@ -16,7 +16,6 @@ I'm a long time UNIX administrator with a newfound shift into DF.  I'm collectin
   
 **Checking file signed signatures**  
 * Authenticode Tools (Didier Stevens)
-* sigcheck.exe with VirusTotal
 * Process Manager (Windows SysInternals)
 * chktrust (Mono) for Linux
 
