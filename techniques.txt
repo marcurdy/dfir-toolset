@@ -39,7 +39,7 @@
          MSRT: \Windows\Debug\mrt.log
          Defender: C:\ProgramData\Microsoft\Windows Defender\Support  
 13) Registry Data Pull
-    a) USB Drives, Applications, File Extension Associations, WorldWheelQuery
+    a) USB Drives, Applications, File Extension Associations, WordWheelQuery/RecentDocs, Network usage, Shellbags
   
 USB key forensics
     http://blogs.sans.org/computer-forensics/files/2009/09/USBKEY-Guide.pdf
