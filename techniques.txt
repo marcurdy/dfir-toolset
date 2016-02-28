@@ -1,8 +1,11 @@
+A to Z on evidence discovery not necessarily in order of execution
+
 1) Prepare Evidence
    Locally mount a working copy of images RO
    Gather hashes and compare to hash db's
    Extract exe/dll from unallocated space
-2) Run multiple AV against extracted files
+2) Check what AV is installed and its logs.
+   Run multiple AV against extracted files
 3) Indicators of Compromise Search
      Run yara scan and sort by number of findings per file
      Scan for known hashes, IP's, URL's
@@ -44,6 +47,7 @@
     b) Consider finding deltas from historic registry copies: "RegBack" and Volume Shadow Copies 
   
 USB key forensics
+TZWorks listed in ToolsOfTheGame on this github, but other details albeit old found here:
     http://blogs.sans.org/computer-forensics/files/2009/09/USBKEY-Guide.pdf
     Use System Event log for UserMode/Operational Event to correlate USB activity
     If no S/N is baked into usb, OS assigns one with "&" as 2nd char
