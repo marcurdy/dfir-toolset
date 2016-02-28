@@ -145,12 +145,6 @@ yaraPcap.py (http streams)
 * Rootkit revealer (Windows)  
 * Rootkit remover (mcafee win)  
 * chkrootkit  
-
-**Penetrating - I'm not researching this**  
-* Dirbuster  
-
-**Malware creation**  
-*ghostRAT, Poison Ivy  
   
 **Prefetch analysis**  
 * PECmd by Eric Zimmerman  
