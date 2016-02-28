@@ -4,7 +4,7 @@ I'm a long time UNIX administrator with a newfound shift into DF.  I'm collectin
 **Distributions for Security tools**
 * Security Onion
 * SIFT + Remnux
-* DEFT  
+* DEFT (Windows)   
     
 **Mounting dd or vm snapshot disk images**  
 * xmount (rw w/ cache mount EWF,VMDK,etc)
@@ -111,15 +111,9 @@ yaraPcap.py (http streams)
 * Behavioral analysis: Procdot for visual report, ThreatExpert (online), Cuckoo (offline)
 
 **Password cracking**  
-* hydra (brute force pw cracker)
-* samdump (dumps windows password hashes)
-* patator
-
-**Backend tools to use for string search**
-* wce.exe (pw retrieval)
-* mimikatz.exe (windows exploiter. pull hashes, forge kerberos tickets)
-* depends.exe (walk DLL path)
-* icacls.exe (check for perm to write to dir of system process)
+* hydra (brute force pw cracker)  
+* samdump2 (dumps windows password hashes)  
+* patator  
 
 **Visual Reporting**  
 * afterglow (graphs complex datasets)
@@ -159,16 +153,24 @@ yaraPcap.py (http streams)
 **Malware creation**  
 *ghostRAT, Poison Ivy  
   
-**Prefetch analysis  
+**Prefetch analysis**  
 * PECmd by Eric Zimmerman  
   
-**LNK parsing
+**LNK parsing**  
 * LECmd  
   
-**Jumplist parsing  
+**Jumplist parsing**  
 * JECmd  
   
-**Viewing Windows Internals**  
+**TZWorks suite**  
+* sbags (shell bags prser)  
+* shims (shim cache parser)  
+* usp (usb parser)  
+* Yaru (undelete reg keys)  
+* cafae (pull reg values uses VSC)  
+* wisp (slack parser)  
+  
+** Windows Internals Suite**  
 
 Tool | Image Name | Origin 
 ---- | ---------- | ------  
@@ -185,28 +187,32 @@ Process Monitor         | PROCMON | Sysinternals
 Task (Process) List     | TLIST | Debugging tools
 Task Manager            | TASKMGR | Windows built-in tool
   
-**Windows Misc for later consideration**  
+**Windows client evidence collection
   fastIR (collect artifacts)  
   usbdeview - see s/n of drives inserted  
-  samdump2 (pull pw hashes)  
-  AccessData's registry viewer  
-  MiTec Windows File Analyzer (view lnk metadata)  
-  pstpassword  
-  Yaru (undelete reg keys)  
   uvcview (pull sn off usb), usbdeviceforensics  
-  exiftool, thumbcache parser  
-  Magnet's IEF (Scraping for chat/webmail logs)  
   dumpzilla
   DumpAutoComplete (firefox autocomplete dump)  
   Mandiant web historian  
   IEPassView on live system for protected to recover protected browser artifacts  
+  Magnet's IEF $$$ (Scraping for chat/webmail logs)  
+  
+**Windows Miscellaneous  
+  Forensic toolkit (view files without touching metadata, Mcafee)  
   shoWin (reveal passwords, Mcafee)  
   Vision (maps net ports to apps, Mcafee)  
-  Forensic toolkit (view files without touching metadata, Mcafee)  
-  
+  AccessData's registry viewer  
+  MiTec Windows File Analyzer (view lnk metadata)  
+  pstpassword  
 
 **Sweet Python API Modules Found along the way  
 requesocks (http calls for humans)  
 fuzzywuzzy (fuzzy string comparison)  
 pypdns (passive dns)  
 pypssl (passive ssl)  
+
+**Backend tools to use for string search**
+* wce.exe (pw retrieval)
+* mimikatz.exe (windows exploiter. pull hashes, forge kerberos tickets)
+* depends.exe (walk DLL path)
+* icacls.exe (check for perm to write to dir of system process)
