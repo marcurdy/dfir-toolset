@@ -39,7 +39,7 @@ A to Z on evidence discovery not necessarily in order of execution
     e) Jump List: Win7, Win8; AppData\Roaming\Microsoft\Windows\Recent\AutomaticDestinations,CustomDestinations(pinned)
     f) Error reporting WER - C:\ProgramData\Microsoft\Windows\WER  
     g) Anti-virus logs
-         MSRT: \Windows\Debug\mrt.log
+         MSRT: Check date of last update + positives. \Windows\Debug\mrt.log
          Defender: C:\ProgramData\Microsoft\Windows Defender\Support  
 13) Registry Data Pull
     a) USB Drives, Applications, File Extension Associations, WordWheelQuery/RecentDocs, Network usage, Shellbags, 
