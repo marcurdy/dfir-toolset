@@ -19,6 +19,7 @@ A to Z on evidence discovery not necessarily in order of execution
 5) File integrity - Authenticode signature scan
 6) Packing / Entropy Checks
    Scan for indication of packing and test entropy
+   Compare PE header compile time versus created/modified timestamp 
 7) Super Timeline with analyzeMFT and log2timeline
    See if above malfind candidates appear
    MFT anomolies for file creation sequences
@@ -27,7 +28,7 @@ A to Z on evidence discovery not necessarily in order of execution
 9) Review event logs
    Sluthkit scrape if missing or emptied
    regripper with plugins
-10) Examine Volume Shadow copies  
+10) Examine Volume Shadow copies deltas  
 11) Services - System/Enum/Root/LEGACY_* First use, 0000=Most recent use
 12) File Analysis  
     a) MFT: compare dates within to check tampering. 
@@ -45,9 +46,10 @@ A to Z on evidence discovery not necessarily in order of execution
     a) USB Drives, Applications, File Extension Associations, WordWheelQuery/RecentDocs, Network usage, Shellbags, 
        MUICache, Menulists, UserAssist, TypedPath
     b) Consider finding deltas from historic registry copies: "RegBack" and Volume Shadow Copies 
+14) MBR scraping for non-zero values before the first partition  
   
 USB key forensics
-TZWorks listed in ToolsOfTheGame on this github, but other details albeit old found here:
+TZWorks has a tool listed in ToolsOfTheGame on this github, but other details albeit old found here:
     http://blogs.sans.org/computer-forensics/files/2009/09/USBKEY-Guide.pdf
     Use System Event log for UserMode/Operational Event to correlate USB activity
     If no S/N is baked into usb, OS assigns one with "&" as 2nd char
