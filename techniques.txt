@@ -46,7 +46,7 @@ A to Z on evidence discovery not necessarily in order of execution
     a) USB Drives, Applications, File Extension Associations, WordWheelQuery/RecentDocs, Network usage, Shellbags, 
        MUICache, Menulists, UserAssist, TypedPath
     b) Consider finding deltas from historic registry copies: "RegBack" and Volume Shadow Copies 
-14) MBR scraping for non-zero values before the first partition  
+14) MBR mmls scraping for non-zero values before the first partition  
   
 USB key forensics
 TZWorks has a tool listed in ToolsOfTheGame on this github, but other details albeit old found here:
