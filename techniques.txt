@@ -46,6 +46,7 @@ A to Z on evidence discovery not necessarily in order of execution
     a) USB Drives, Applications, File Extension Associations, WordWheelQuery/RecentDocs, Network usage, Shellbags, 
        MUICache, Menulists, UserAssist, TypedPath
     b) Consider finding deltas from historic registry copies: "RegBack" and Volume Shadow Copies 
+14) Parse internet activities
 14) MBR mmls scraping for non-zero values before the first partition  
   
 USB key forensics
