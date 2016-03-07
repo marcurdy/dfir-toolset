@@ -31,3 +31,10 @@
         done
         mount | grep loop
     fi
+
+# For bitlocker images, you need to additionally perform similar steps to these
+# Run mmls against the partition
+# note the starting block for the partition you want to process
+# NOTE for the -o setting in the next step  is obtained by using the starting block from the step above and multiplying it by the block size (typically 512, starting block 2048=1048576)
+# run “bdemount -o {starting block} -r {password recovery key} ewf1 /mnt/bde  (NOTE:  the information following the -r represents the recovery key for the device.  
+# Now start mantaray follow the normal process for doing a bit-stream image, when it is time to select the image file to process, browse to /mnt/bde and select bde1
