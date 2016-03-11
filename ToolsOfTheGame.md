@@ -30,7 +30,7 @@ I'm a long time UNIX administrator with a newfound shift into DF.  I'm collectin
 * Hashes Query: nsrllookup (Whitelist of non-malicious hashes) requiring nsrlsvr, virustotal-search, vtTool.py, Automater (search by URL, IP, Hash)
   
 **File Forensics**  
-* Sleuthkit using Autopsy front-end
+* Sleuthkit with Autopsy 
 * scalpel (not foremost anymore)
 * safecopy (file restore from damaged sources)
 * analyze mft (parse the mft from an ntfs FS)
