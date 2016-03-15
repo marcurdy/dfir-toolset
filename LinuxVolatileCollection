@@ -8,7 +8,7 @@ VOLATILE DATA COLLECTION STEPS
 • Gather system status and environment details.  
 • Identify users logged onto the system.  
 • Inspect network connections and open ports and associated activity.  
-• Examine running processes.  
+• Examine running processes, tree format, and pmap or lsof  
 • Correlate open ports to associated processes and programs.  
 • Determine what files and sockets are being accessed.  
 • Examine loaded modules and drivers.  
