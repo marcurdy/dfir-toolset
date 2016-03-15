@@ -1,0 +1,21 @@
+VOLATILE DATA COLLECTION STEPS  
+• On the compromised machine, run a trusted command shell from a toolkit with statically compiled binaries (e.g., on older nonproprietary versions of the Helix CD, or other distributions).  
+• Run script to start a log of your keystrokes.  
+• Document the date and time of the computer and compare it with a reliable time source.  
+• Acquire contents of physical memory.  
+• Gather hostname, IP address, and operating system details.  
+• Gather system status and environment details.  
+• Identify users logged onto the system.  
+• Inspect network connections and open ports and associated activity.  
+• Examine running processes.  
+• Correlate open ports to associated processes and programs.  
+• Determine what files and sockets are being accessed.  
+• Examine loaded modules and drivers.  
+• Examine connected host names.  
+• Examine command-line history.  
+• Identify mounted shares.  
+• Check for unauthorized accounts, groups, shares, and other system resources and configurations.  
+• Determine scheduled tasks.  
+• Collect clipboard contents.  
+• Determine audit policy configuration.  
+• Terminate script to finish logging of your keystrokes by typing exit.  
