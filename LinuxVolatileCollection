@@ -1,4 +1,5 @@
 VOLATILE DATA COLLECTION STEPS  
+• System date and time
 • On the compromised machine, run a trusted command shell from a toolkit with statically compiled binaries (e.g., on older nonproprietary versions of the Helix CD, or other distributions).  
 • Run script to start a log of your keystrokes.  
 • Document the date and time of the computer and compare it with a reliable time source.  
@@ -19,3 +20,9 @@ VOLATILE DATA COLLECTION STEPS
 • Collect clipboard contents.  
 • Determine audit policy configuration.  
 • Terminate script to finish logging of your keystrokes by typing exit.  
+• File listing of each partition during the live response using The SleuthKit (e.g., /media/cdrom/Linux-IR/fls /dev/hda1 –lr -m /
+• /proc/kcore for an ELF formatted memory for use with gdb  
+• printenv
+• /proc/verions for compiler version
+• sa command if auditd is running
+linux-explorer.sh
