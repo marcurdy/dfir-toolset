@@ -7,6 +7,7 @@ VOLATILE DATA COLLECTION STEPS
 • Gather hostname, IP address, and operating system details.  
 • Gather system status and environment details.  
 • Identify users logged onto the system.  
+  wtmpx and archived versions using last
 • Inspect network connections and open ports and associated activity.  
 • Examine running processes, tree format, and pmap or lsof  
 • Correlate open ports to associated processes and programs.  
@@ -16,7 +17,8 @@ VOLATILE DATA COLLECTION STEPS
 • Examine command-line history.  
 • Identify mounted shares.  
 • Check for unauthorized accounts, groups, shares, and other system resources and configurations.  
-• Determine scheduled tasks.  
+  rhosts, fstab, export, /etc/hosts.*, /etc/X*hosts and ~home/.Xauthority, ~home/.ssh/authorized_keys
+• Determine scheduled tasks.  /var/spool and /etc/crontabs.*
 • Collect clipboard contents.  
 • Determine audit policy configuration.  
 • Terminate script to finish logging of your keystrokes by typing exit.  
