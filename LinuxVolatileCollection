@@ -27,4 +27,11 @@ VOLATILE DATA COLLECTION STEPS
 • printenv
 • /proc/verions for compiler version
 • sa command if auditd is running
-linux-explorer.sh
+• linux-explorer.sh
+• Harvest available metadata including process details, loaded modules, network connections, and other information that is associated with potential malware, for analysis and comparison with volatile data preserved from the live system.
+• Perform keyword searches for any specific, known details relating to a malware incident and look through strings for any suspicious items.
+• Look for common indicators of malicious code including memory injection and hooking.
+• For each process of interest, if feasible, recover the executable code from memory for further analysis.
+• For each process of interest, extract associated data from memory, including related encryption keys and captured data such as usernames and passwords.
+• Extract contextual details such as URIs, system logs, and configuration values pertaining to the installation and activities associated with malicious code.
+• Perform temporal and relational analysis of information extracted from memory, including a time line of events and a process tree diagram, to obtain a more comprehensive understanding of a malware incident.
