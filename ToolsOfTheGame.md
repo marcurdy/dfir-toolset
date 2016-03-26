@@ -97,13 +97,13 @@ yaraPcap.py (http streams)
 * findaes, AESKeyFinder, RSAKeyFinder, VolDiff  
 * pdgmail (gmail from mem)  
 
-**Investigate Linux Malware**  
+**Investigate Malware**  
 * System: Unhide(detect hidden processes), sysdig (strace + tcpdump + htop + iftop + lsof)
 * Find anomalies: signsrch, pescanner, exescan, pev suite, peframe, pedump, disitool (alter digsig)
 * Trace: strace, ltrace
 * Static Analysis: Radare, Pyew, Bokken(front-end to radare/pyew), m2elf
 * Disassemblers: Vivisect, Udis86, objdump, jad (java decom), recstudio, mastiff, captone, EmilPRO, distorm, Decompyle++ (python disassembler)
-* Debug: Evan s Debugger (EDB), GNU Project Debugger (GDB)
+* Debug: Evan s Debugger (EDB), GNU Project Debugger (GDB), pyelftools (ELF parsing)
 * Packers: UPX, Bytehist, Density Scout, PackerID, Packer Attacker
 * Investigate: RATDecoders, readpe.py, PyInstaller Extractor, DC3-MWCP
 * Maltrieve (DL Malware samples), Viper (managing and exploring malware samples), 
