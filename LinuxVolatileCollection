@@ -24,10 +24,14 @@ VOLATILE DATA COLLECTION STEPS
 • Terminate script to finish logging of your keystrokes by typing exit.  
 • File listing of each partition during the live response using The SleuthKit (e.g., /media/cdrom/Linux-IR/fls /dev/hda1 –lr -m /
 • /proc/kcore for an ELF formatted memory for use with gdb  
+• gcore <pid> to dump individual process for use in gdb
+• memfetch on github to dump processes
 • printenv
 • /proc/verions for compiler version
+• /proc/<pid>/fd and maps
 • sa command if auditd is running
 • linux-explorer.sh
+• Look if eth is in permiscuous mode
 • Harvest available metadata including process details, loaded modules, network connections, and other information that is associated with potential malware, for analysis and comparison with volatile data preserved from the live system.
 • Perform keyword searches for any specific, known details relating to a malware incident and look through strings for any suspicious items.
 • Look for common indicators of malicious code including memory injection and hooking.
@@ -35,3 +39,22 @@ VOLATILE DATA COLLECTION STEPS
 • For each process of interest, extract associated data from memory, including related encryption keys and captured data such as usernames and passwords.
 • Extract contextual details such as URIs, system logs, and configuration values pertaining to the installation and activities associated with malicious code.
 • Perform temporal and relational analysis of information extracted from memory, including a time line of events and a process tree diagram, to obtain a more comprehensive understanding of a malware incident.
+
+Cold disk techniques
+• Search for Known Malware
+  NSRL, hashes, packaging system self-verifies (Rpm -Va)
+  rkhunter, chkrootkit
+  AV, keywords
+• Survey Installed Programs
+• Inspect Executables
+• Review Services, Modules, and Auto-start Locations
+• Review Scheduled Jobs
+• Examine Logs (system logs, AntiVirus logs, Web browser history, etc.)
+• Review User Accounts
+• Examine File System
+• Examine Configuration Files
+• Perform keyword searches for any specific, known details relating to a malware incident. Useful keywords may come from other forms of analysis, including memory forensics and analysis of the malware itself.
+• Harvest available metadata including file system date-time stamps, modification times of configuration files, e-mails, entries in Web browser history, system logs, and other logs such as those created by AntiVirus, crash dump monitoring, and patch management programs. Use this information to determine when the malware incident occurred and what else was done to the system around that time, ultimately generating a time line of potentially malicious events.
+• Look for common indicators of anti-forensics including file system date-time stamp alteration, log manipulation, and log deletion.
+• Look for links to other systems that may be involved.
+• Look for data that should not be on the system such as directories full of illegal materials and software or data stolen from other organizations.
