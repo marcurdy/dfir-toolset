@@ -58,3 +58,4 @@ Cold disk techniques
 • Look for common indicators of anti-forensics including file system date-time stamp alteration, log manipulation, and log deletion.
 • Look for links to other systems that may be involved.
 • Look for data that should not be on the system such as directories full of illegal materials and software or data stolen from other organizations.
+Don't eat spoiled food.
