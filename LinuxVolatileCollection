@@ -1,7 +1,7 @@
 VOLATILE DATA COLLECTION STEPS  
 • System date and time
-• On the compromised machine, run a trusted command shell from a toolkit with statically compiled binaries (e.g., on older nonproprietary versions of the Helix CD, or other distributions).  
-• Run script to start a log of your keystrokes.  
+• On the compromised machine, run a trusted command shell with statically compiled binaries
+• Run script to start a log of your keystrokes. Terminate at completion by typing exit.  
 • Document the date and time of the computer and compare it with a reliable time source.  
 • Acquire contents of physical memory.  
 • Gather hostname, IP address, and operating system details.  
@@ -19,26 +19,26 @@ VOLATILE DATA COLLECTION STEPS
 • Check for unauthorized accounts, groups, shares, and other system resources and configurations.  
   rhosts, fstab, export, /etc/hosts.*, /etc/X*hosts and ~home/.Xauthority, ~home/.ssh/authorized_keys
 • Determine scheduled tasks.  /var/spool and /etc/crontabs.*
-• Collect clipboard contents.  
 • Determine audit policy configuration.  
-• Terminate script to finish logging of your keystrokes by typing exit.  
-• File listing of each partition during the live response using The SleuthKit (e.g., /media/cdrom/Linux-IR/fls /dev/hda1 –lr -m /
-• /proc/kcore for an ELF formatted memory for use with gdb  
-• gcore <pid> to dump individual process for use in gdb
-• memfetch on github to dump processes
-• printenv
-• /proc/verions for compiler version
+• printenv to print environment variables
+• /proc/version for compiler version
 • /proc/<pid>/fd and maps
 • sa command if auditd is running
-• linux-explorer.sh
-• Look if eth is in permiscuous mode
-• Harvest available metadata including process details, loaded modules, network connections, and other information that is associated with potential malware, for analysis and comparison with volatile data preserved from the live system.
-• Perform keyword searches for any specific, known details relating to a malware incident and look through strings for any suspicious items.
+• Look if eth is in permiscuous mode - netstat -i  - flag = P
+• Harvest process details, loaded modules, network connections and compare against memory dump forensics
+• File listing of each partition during the live response using The SleuthKit
+  (e.g., fls /dev/hda1 –lr -m /
+
+Optional during live response for data gathering
+• gcore <pid> to dump individual process for use in gdb
+• memfetch on github to dump processes for strings searching
+
+Post Collection Forensics
 • Look for common indicators of malicious code including memory injection and hooking.
-• For each process of interest, if feasible, recover the executable code from memory for further analysis.
-• For each process of interest, extract associated data from memory, including related encryption keys and captured data such as usernames and passwords.
-• Extract contextual details such as URIs, system logs, and configuration values pertaining to the installation and activities associated with malicious code.
-• Perform temporal and relational analysis of information extracted from memory, including a time line of events and a process tree diagram, to obtain a more comprehensive understanding of a malware incident.
+• Recover the executable code and process memory from capture for further analysis
+• Perform keyword searches for known details relating to a malware incident
+• Extract contextual details such as URIs, system logs, and configuration values
+• Perform temporal and relational analysis of information including a timeline
 
 Cold disk techniques
 • Search for Known Malware
@@ -58,4 +58,3 @@ Cold disk techniques
 • Look for common indicators of anti-forensics including file system date-time stamp alteration, log manipulation, and log deletion.
 • Look for links to other systems that may be involved.
 • Look for data that should not be on the system such as directories full of illegal materials and software or data stolen from other organizations.
-Don't eat spoiled food.
