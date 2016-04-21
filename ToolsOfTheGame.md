@@ -117,7 +117,7 @@ yaraPcap.py (http streams)
 **Visual Reporting**  
 * afterglow (graphs complex datasets)
 * mantego
-* ELK suite
+* Elastic Stack
 
 **Memory Capture**  
 * dumpit, WinPMem, Mandiant Memoryze to dump on Windows

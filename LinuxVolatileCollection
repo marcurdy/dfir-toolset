@@ -52,9 +52,35 @@ Cold disk techniques
 • Examine Logs (system logs, AntiVirus logs, Web browser history, etc.)
 • Review User Accounts
 • Examine File System
+  Histogram of activity spikes
+  Search for archives to indicate possible exfiltration
+  Search for files round the time of know breach
+  Look for non-block or char devices in /dev
+  Look for suid files find /mnt/evidence -user root -perm -04000 –print
+  Inodes are assigned sequentially. Look at neighbor inodes to suspicious files.  Look for outliers in OS binary directories
+  For non-root suspicious files, look for other files with the same ownership
+  The journal on EXT3 and EXT4 contains references to file system records that can be examined using the jls and jcat utilities in TSK
 • Examine Configuration Files
 • Perform keyword searches for any specific, known details relating to a malware incident. Useful keywords may come from other forms of analysis, including memory forensics and analysis of the malware itself.
 • Harvest available metadata including file system date-time stamps, modification times of configuration files, e-mails, entries in Web browser history, system logs, and other logs such as those created by AntiVirus, crash dump monitoring, and patch management programs. Use this information to determine when the malware incident occurred and what else was done to the system around that time, ultimately generating a time line of potentially malicious events.
 • Look for common indicators of anti-forensics including file system date-time stamp alteration, log manipulation, and log deletion.
 • Look for links to other systems that may be involved.
 • Look for data that should not be on the system such as directories full of illegal materials and software or data stolen from other organizations.
+• Examine Application Traces
+  ssh: ~/.ssh/authorized_keys and known_keys
+  gnome: recently_userd.xbel or similar source
+  vim: ~/.viminfo
+  All ~home/.config's
+• Keyword Searches
+  Malware characteristics, command-line commands, IP's, URL's, Passwords, hostnames, file extensions, date timestamps, 
+
+File Identification and Profiling
+• Compilation details
+  Static or Dynamically linked
+  Debug information in executables may contain names and addresses of all functions; the names, data types, and addresses of global and local variables; and the line numbers in the source code that correspond to each binary instruction
+• FS timestamps
+  stat shows the MACB dates.  istat against the inode gives more details. debugfs gives birth time
+• FS extensions vs content with "file" or "TriD" where the latter gives % of confidence against many types
+• bytehist makes a histogram out of the ELF components
+
+  
