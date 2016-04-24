@@ -66,11 +66,12 @@ yaraPcap.py (http streams)
 
 **Examine Document Files**  
 * PDF: AnalyzePDF, Pdfobjflow, pdfid, pdf-parser, peepdf, Origami, PDF X-RAY, PDFtk, swf_mastah, qpdf, pdfresurrect
-* MS Office: officeparser, pyOLEScanner.py, oletools, libolecf, oledump, emldump, MSGConvert, base64dump.py, olefile
+* MS Office: officeparser, pyOLEScanner.py, oletools, libolecf, oledump, emldump, MSGConvert, base64dump.py, olefile, offcat/offviz(Win)
     Shellcode: sctest, unicode2hex-escaped, unicode2raw, dism-this, shellcode2exe
     Flash: xxxswf, SWF Tools, RABCDAsm, extract_swf, Flare(decompiler of Flash), flasm(disassembles Flash)
 * Java: Java Cache IDX Parser, JD-GUI Java Decompiler, JAD Java Decompiler, Javassist, CFR
-* JavaScript: Rhino Debugger, ExtractScripts, Firebug, SpiderMonkey, V8, js Beautifier, JSDetox
+* JavaScript: Extract/unpack: Extractscripts, extractjs.rb (Oragami), jsunpack-n (pdf.py)
+              Debug/manip: Rhino Debugger, Firebug, Didier's SpiderMonkey, V8, js Beautifier, JSDetox, 
     
 **Mail**  
 * readpst
@@ -103,8 +104,8 @@ yaraPcap.py (http streams)
 * Trace: strace, ltrace
 * Static Analysis: Radare, Pyew, Bokken(front-end to radare/pyew), m2elf
 * Disassemblers: Vivisect, Udis86, objdump, jad (java decom), recstudio, mastiff, captone, EmilPRO, distorm, Decompyle++ (python disassembler)
-* Debug: Evan s Debugger (EDB), GNU Project Debugger (GDB), pyelftools (ELF parsing)
-* Packers: UPX, Bytehist, Density Scout, PackerID, Packer Attacker
+* Debug: Evan s Debugger (EDB), GNU Project Debugger (GDB), pyelftools (ELF parsing), elfutils: Object Viewer, lida
+* Packers: UPX, Bytehist, Density Scout, PackerID, Packer Attacker, Burneye (vs burncrack, burninhell, burndump)
 * Investigate: RATDecoders, readpe.py, PyInstaller Extractor, DC3-MWCP
 * Maltrieve (DL Malware samples), Viper (managing and exploring malware samples), 
 * Behavioral analysis: Procdot for visual report, ThreatExpert (online), Cuckoo (offline)

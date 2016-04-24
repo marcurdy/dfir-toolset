@@ -78,9 +78,19 @@ File Identification and Profiling
 • Compilation details
   Static or Dynamically linked
   Debug information in executables may contain names and addresses of all functions; the names, data types, and addresses of global and local variables; and the line numbers in the source code that correspond to each binary instruction
+  nm to identify debug and symbolic information in ELF that can expose source code filenames. LC symbol is local. UC is global.
+  eu-nm includes the designation and listing of the symbol name, value, class, type, size, line, and respective ELF section
+  When examining nm output, be mindful of references to:
+  -ELF sections
+  -Function calls
+  -Attack commands
+  -Compiler type and version used to create the program
+  exiftools can view ELF metadata
 • FS timestamps
   stat shows the MACB dates.  istat against the inode gives more details. debugfs gives birth time
 • FS extensions vs content with "file" or "TriD" where the latter gives % of confidence against many types
 • bytehist makes a histogram out of the ELF components
-
-  
+• Packed binary detection
+  strings returns nothing
+  file shows corrupt section header
+  staticly compiled
