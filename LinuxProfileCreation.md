@@ -1,7 +1,7 @@
-##First check the volatility plugin github for existing profiles.  If yours is not there, roll your own.
+###First check the volatility plugin github for existing profiles.  If yours is not there, roll your own.
 
-###Download the distro whose release, architecture, and kernel version match that of the target server
-#### HPE has all distros at blofly.us.rdlabs.hpecorp.net
+####Download the distro whose release, architecture, and kernel version match that of the target server
+HPE has all distros at blofly.us.rdlabs.hpecorp.net
 
 **Install the OS as a VM
 
