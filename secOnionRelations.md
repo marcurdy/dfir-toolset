@@ -50,3 +50,5 @@ sostat checks the status of all SecOnion's running processes.
   * Config = /etc/elsa_node.conf
   * Logs   = /nsm/elsa/data/elsa/log
   * Mysql  = /nsm/elsa/data/elsa/mysql && /nsm/elsa/data/sphinx
+
+* Network samples in /opt/samples
