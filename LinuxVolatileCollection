@@ -88,6 +88,31 @@ File Identification and Profiling
   exiftools can view ELF metadata
 • FS timestamps
   stat shows the MACB dates.  istat against the inode gives more details. debugfs gives birth time
+  fsstat -Displays details about the file system
+  # fsstat imagefile.dd
+  Data Layer Tools (Block or Cluster)
+  blkcat -Displays the contents of a disk block
+  # blkcat imagefile.dd block_num
+  blkls -Lists contents of deleted disk blocks
+  # blkls imagefile.dd > imagefile.blkls
+  blkcalc -Maps between dd images and blkls results
+  # blkcalc imagefile.dd -u blkls_num
+  blkstat -Display allocation status of block
+  # blkstat imagefile.dd cluster_number
+  MetaData Layer Tools (Inode, MFT, or Directry Entry)
+  ils -Displays inode details
+  # ils imagefile.dd
+  istat -Displays information about a specific inode
+  # istat imagefile.dd inode_num
+  icat -Displays contents of blocks allocated to an inode
+  # icat imagefile.dd inode_num
+  ifind -Determine which inode contains a specific block
+  # ifind imagefile.dd –d block_num
+  Filename Layer Tools
+  fls -Displays deleted file entries in a directory inode
+  # fls -rpd imagefile.dd
+  ffind -Find the filename that using the inode
+  # ffind imagefile.dd inode_num
 • FS extensions vs content with "file" or "TriD" where the latter gives % of confidence against many types
 • bytehist makes a histogram out of the ELF components
 • Packed binary detection
