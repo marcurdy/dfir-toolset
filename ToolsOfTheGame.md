@@ -1,5 +1,5 @@
 # dfir-toolset
-I'm a long time UNIX administrator with a newfound shift into DF.  I'm collecting, sorting, and making order out of the available tools.  I'm housing my experience with opensource tools with an emphasis on Linux (WINE as needed) as the client host.  Much of this comes from Remnux and SIFT.  A few come from Kali.  Others are lone wolves from GIT.  I am working to eliminate the noise caused by orphaned, redundant, or superceded all-in-one software.  e.g. Using Cuckoo or an online sandboxing service vs performing manual behavioral analysis.
+I'm a long time UNIX administrator shifted into DF.  I'm collecting, sorting, and making order out of the available tools.  I'm housing my experience with opensource tools with an emphasis on Linux as the DF host OS.  Much of this comes from Remnux and SIFT.  A few come from Kali.  Others are pulled straight from Github.  I am working to eliminate the noise caused by orphaned, redundant, or superceded all-in-one software.  
   
 **Distributions for Security tools**
 * Security Onion
