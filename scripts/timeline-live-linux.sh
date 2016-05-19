@@ -1,4 +1,4 @@
-ls -1d /proc/fs/ext*/* | awk -F/ '{ print $NF }' | while read PART; do
+ls -1d /proc/fs/ext*/* /proc/fs/xfs*/* | awk -F/ '{ print $NF }' | while read PART; do
   echo /dev/$PART
 done | while read DEV; do
   fls -m/ -r $DEV >> timeline.body
