@@ -147,14 +147,18 @@ yaraPcap.py (http streams)
 * Rootkit remover (mcafee win)  
 * chkrootkit  
   
+**Amcache parsing**  
+* amcache.py
+* AmcacheParser
+
 **Prefetch analysis**  
-* PECmd by Eric Zimmerman  
+* PECmd
   
 **LNK parsing**  
 * LECmd  
   
 **Jumplist parsing**  
-* JECmd  
+* JLECmd  
   
 **TZWorks suite**  
 * sbags (shell bags prser)  
