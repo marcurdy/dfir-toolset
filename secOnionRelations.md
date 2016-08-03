@@ -43,8 +43,11 @@ soup performs the OS and application updates gracefully *AVOID APT-GET!
   * Front-end to view Snort/Siricata alerts
   * barnyard2 is used to scrape the snort logs and write to squil's database.
   * tclsh scripts run to pull data from Snort, raw pcap, and OSSEC logs
-  * Configuration = /etc/nsm/NAME-OF-SENSOR/*
-  * squert is a frontend to squil data.
+  * Configuration = /etc/sguil/sguild.conf
+  * squert is an https frontend to squil data looking near identical to the sguil tcl/tk client
+  * Duplicating IDS alerts  
+    * If debug set to 2, alerts received are written to /var/log/nsm/securityonion/sguild.log
+    * Alternatively, set /etc/nsm/sensordir/barnyard.conf output to an alternate location
 
 * ELSA
   * All data is piped directly into the engine from syslog-ng.
