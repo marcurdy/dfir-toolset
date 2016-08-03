@@ -33,9 +33,9 @@ soup performs the OS and application updates gracefully *AVOID APT-GET!
   * Rules downloaded by Pulledpork = /etc/nsm/rules/downloaded.rules
   * Classification categories for rules: /etc/nsm/rules/classification.config
   * PulledPork defining all downloaded rules = /etc/nsm/pulledpork/pulledpork.conf
-  ** Location where rule classifications are set to be ignored  
-  ** Performs mapping of all rules  
-  ** Holds location of IP reputation blacklists
+    * Location where rule classifications are set to be ignored  
+    * Performs mapping of all rules  
+    * Holds location of IP reputation blacklists
   * Local snort rules = /etc/nsm/rules/local.rules
   * Manually rules update = sudo rule-update
   
