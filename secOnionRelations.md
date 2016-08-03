@@ -30,12 +30,13 @@ soup performs the OS and application updates gracefully *AVOID APT-GET!
 * Snort 
   * Captures all network traffic.  Alerts writen to disk in a unified2 format.
   * Snort configuration per interface = /etc/nsm/NAME-OF-SENSOR/snort*
-  * Rules downloaded by Pulledpork = /etc/nsm/rules/downloaded.rules
+  * Rules downloaded by Pulledpork = /etc/nsm/rules/downloaded.rules (do not edit)
   * Classification categories for rules: /etc/nsm/rules/classification.config
   * PulledPork defining all downloaded rules = /etc/nsm/pulledpork/pulledpork.conf
     * Location where rule classifications are set to be ignored  
     * Performs mapping of all rules  
     * Holds location of IP reputation blacklists
+  * Disable rule ranges by number or PCRE in /etc/nsm/pulledpork/disablesid.conf
   * Local snort rules = /etc/nsm/rules/local.rules
   * Manually rules update = sudo rule-update
   
