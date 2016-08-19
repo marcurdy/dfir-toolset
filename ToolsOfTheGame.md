@@ -22,7 +22,7 @@ I'm a long time UNIX administrator shifted into DF.  I'm collecting, sorting, an
 **Linux-based Browser Artifact tools omitted since toolkits like FTK and Encase dwarf them**  
     
 **Scan for IOC, hashing, and hash lookups**  
-* Parse IOC's from reports: IOCextractor, ioc-parser, bulk_extractor with beviewer
+* Parse IOC's from reports: IOCextractor, ioc-parser
 * Define signatures: YaraGenerator, Autorule, Rule Editor
 * Offline-Scan: yara (IOC), clamAV
 * Metadata: trID (determine filetype), exifTool, missidentify (find PE in files not named exe)
@@ -40,7 +40,7 @@ I'm a long time UNIX administrator shifted into DF.  I'm collecting, sorting, an
 * extundelete (ext3/4 file rest), recoverjpeg, vinetto (thumbs.db examiner)
   
 **Handle Network Interactions**  
-* Sniffing: ngrep, tcpdump, tcpick(passive sniffer), tcptrack, driftnet, tshark (termainl wshark),
+* Sniffing: ngrep, tcpdump, tcpick(passive sniffer), tcptrack, driftnet, tshark (terminal wshark),
 dsniff(captures user data over common protos), aircrack-ng (WEP and WPA-PSK keys cracking), 
 yaraPcap.py (http streams)
 * Analyze/Exec pcap: ssldump(decode ssl/tls records), tcpxtract, tcpreplay (can't estab session), tcptrace (stats on pcaps), tcpflow (deconstruct), tcpcopy (resend data), chaosreader.pl (dump http conversations), CapTipper (emulate web svr of what's in pcap), Xplico (extract data per protocol), networkminer, scapy (BYO packets), editcap (convert formats)
@@ -87,7 +87,7 @@ yaraPcap.py (http streams)
   * Evolve - Creates sqllite db output and web frontend  
   * vshot - becoming antiquated.  Hand edit to add modules  
   * Mantaray - becoming antiquated  
-  * Bulk_extractor modules for grabbing types of data  
+  * Bulk_extractor modules for grabbing types of data  with beviewer for viz
   * Volatility module add-ons of notability  
     * mimikatz detection - RealityNet/hotoloti  
     * Rat detection - FabienPerigaud  
