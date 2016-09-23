@@ -121,7 +121,7 @@ yaraPcap.py (http streams)
 * Elastic Stack
 
 **Memory Capture**  
-* dumpit, WinPMem, Mandiant Memoryze to dump on Windows
+* dumpit, PMem, fdpro, Mandiant Memoryze to dump on Windows
 * pmemsave to dump qemu VM
 * Snapshot to take dump of ESX VM
 * LiME to extract on Linux
