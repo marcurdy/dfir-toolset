@@ -1,15 +1,21 @@
 # dfir-toolset
 I'm collecting, sorting, and making order out of the available tools.  I'm housing my experience with opensource tools with an emphasis on Linux as the DF host OS.  Much of this comes from Remnux and SIFT.  A few come from Kali.  Others are pulled straight from Github.  I am working to eliminate the noise caused by orphaned, redundant, or superceded all-in-one software.  
-  
+
+**Links to other lists of awesome tools**
+* IR https://github.com/meirwah/awesome-incident-response
+* Malware Analysis https://github.com/rshipp/awesome-malware-analysis
+* Threat Intel https://github.com/hslatman/awesome-threat-intelligence
+* Sec Talks https://github.com/PaulSec/awesome-sec-talks
+
 **Distributions for Security tools**
-* Security Onion
 * SIFT + Remnux
 * DEFT (Windows)   
+* Security Onion
     
 **Mounting dd or vm snapshot disk images**  
-* xmount (rw w/ cache mount EWF,VMDK,etc)
-* kpartx
-* mount -o offset=X
+* My very own github provided VMDK mount tool!
+* For "read-write" mounts use xmount (rw w/ cache for EWF,VMDK,etc)
+* kpartx for automatic mounting of found filesystems (not a swiss army knife)
 
 **Volume Shadow Copy browsing**  
 * libvshadow FUSE mounting  
@@ -17,20 +23,21 @@ I'm collecting, sorting, and making order out of the available tools.  I'm housi
 **Checking file signed signatures**  
 * Authenticode Tools (Didier Stevens)
 * Process Manager (Windows SysInternals)
-* chktrust (Mono) for Linux
+* chktrust (Runs Mono for Linux)
 
-**Linux-based Browser Artifact tools omitted since toolkits like FTK and Encase dwarf them**  
+**Browser Artifact tools**
+* Not listing per artifact type tools.  See Plaso, FTK, Xways, Encase, and Autopsy
     
 **Scan for IOC, hashing, and hash lookups**  
 * Parse IOC's from reports: IOCextractor, ioc-parser
-* Define signatures: YaraGenerator, Autorule, Rule Editor
-* Offline-Scan: yara (IOC), clamAV
+* Define signatures: YaraGenerator, Autorule, Rule Editor, IOC writer, ioc_editor, pyioce
+* Offline-Scan: yara (IOC), clamAV, fenrir
 * Metadata: trID (determine filetype), exifTool, missidentify (find PE in files not named exe)
 * Gen Hashes: ssdeep(fuzzy hashes) w pydeep for bindings, md5deep (recursive md5 checks) / hashdeep (audit across multiple sets), hash_id (guess hash algorithm used), 
-* Hashes Query: nsrllookup (Whitelist of non-malicious hashes) requiring nsrlsvr, virustotal-search, vtTool.py, Automater (search by URL, IP, Hash)
+* Hashes Query: nsrllookup (Whitelist of non-malicious hashes) requiring nsrlsvr, virustotal-search, vtTool.py, Automater (search by URL, IP, Hash), fileintel
   
 **File Forensics**  
-* Sleuthkit with Autopsy 
+* Autopsy the Sleuthkit
 * scalpel (not foremost anymore)
 * safecopy (file restore from damaged sources)
 * analyze mft (parse the mft from an ntfs FS)
@@ -52,13 +59,13 @@ yaraPcap.py (http streams)
   
 **Windows Event Logger analysis**  
 * Event Log Explorer - eventlogxp.com
-* logparser - MS
 * Log Parser Lizard - gui for logparser
 * Mandiant Highlighter
-* PsLogList MS
   
 **Linux Event Log analysis**  
-* Lsevt, evtx_parser, python-evtx
+* python-evtx (WilliB) Can recover from corrupted evtx's
+* libevtx (Metz)
+* evtwalk: See tzworks section
   
 **Extract and Decode Artifacts**  
 * Deobfuscate: unXOR, XORStrings, ex_pe_xor, XORSearch, brxor.py, xortool, NoMoreXOR, XORBruteForcer, Balbuzard
@@ -129,16 +136,19 @@ yaraPcap.py (http streams)
 * PMDump - dump memory of a process
 
 **Disk Capture**  
+* ftk imager
 * dcfldd (enhanced dd)
 * gddrescue/ddrescueview, ddrutility (complements ddrescue)
 * rdd
 
-**Timelining**  
+**Super Timelining**  
 * log2timeline w/ plaso
+* CDQR
 * Timesketch
 
 **Registry Manipulation**  
 * FRED
+* Registry Decoder
 * regripper (wine friendly)
   
 **Rootkit detection**  
@@ -161,7 +171,8 @@ yaraPcap.py (http streams)
 * JLECmd  
   
 **TZWorks suite**  
-* sbags (shell bags prser)  
+* sbags (shell bags parser)
+* evtwalk (event log parser)
 * shims (shim cache parser)  
 * usp (usb parser)  
 * Yaru (undelete reg keys)  
