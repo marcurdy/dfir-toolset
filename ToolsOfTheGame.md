@@ -65,7 +65,7 @@ yaraPcap.py (http streams)
 **Linux Event Log analysis**  
 * python-evtx (WilliB) Can recover from corrupted evtx's
 * libevtx (Metz)
-* evtwalk: See tzworks section
+* evtwalk: See TZWorks section
   
 **Extract and Decode Artifacts**  
 * Deobfuscate: unXOR, XORStrings, ex_pe_xor, XORSearch, brxor.py, xortool, NoMoreXOR, XORBruteForcer, Balbuzard
@@ -171,13 +171,41 @@ yaraPcap.py (http streams)
 * JLECmd  
   
 **TZWorks suite**  
-* sbags (shell bags parser)
-* evtwalk (event log parser)
-* shims (shim cache parser)  
-* usp (usb parser)  
-* Yaru (undelete reg keys)  
-* cafae (pull reg values uses VSC)  
-* wisp (slack parser)  
+* Artifacts
+  shims (shim db parser)  
+  pf (Prefetch Parser)  
+  id (index.dat Parser)  
+  lp (LNK Parser)  
+  usp (USB Storage Parser)  
+  jmp (JumpList Parser)  
+* Registry based artifacts
+  cafae (query registry)  
+  sbags (shell bags parser)  
+  yaru (Yet Another Registry Utility)  
+  evtx_view (Event log viewer)  
+  evtwalk (event log parser)  
+  wacu (AppCompatCache)  
+* NTFS Analysis  
+  elmo (Event Log MessageTables Offline)  
+  jp (Journal Parser)  
+  ntfsdir (NTFS Directory Enum)  
+  ntfswalk (NTFS Metadata Extractor)  
+  wisp (INDX Slack Parser)  
+* Portable Executable Utilities  
+  pe_view (Portable Executable Viewer)  
+  pescan (Portable Executable Scanner)  
+
+Network Support Utilities
+DNS Query Utility (dqu)
+Packet Capture ICMP Carver (pic)
+Network Xfer Client/Server (nx)
+Portable Executable Utilities
+Portable Executable Viewer (pe_view)
+Portable Executable Scanner (pescan)
+Miscellaneous Tools
+Volume Shadow Snapshot Enum (vssenum) 
+CSV Data eXchange (csvdx) 
+Windows Symbol Fetch Utility (sf)
 
 **Scheduled Task (AT) job parser
 * jobparser.py
