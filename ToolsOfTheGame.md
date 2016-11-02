@@ -73,16 +73,19 @@ yaraPcap.py (http streams)
 
 **Examine Document Files**  
 * PDF: AnalyzePDF, Pdfobjflow, pdfid, pdf-parser, peepdf, Origami, PDF X-RAY, PDFtk, swf_mastah, qpdf, pdfresurrect
-* MS Office: officeparser, pyOLEScanner.py, oletools, libolecf, oledump, emldump, MSGConvert, base64dump.py, olefile, offcat/offviz(Win)
-    Shellcode: sctest, unicode2hex-escaped, unicode2raw, dism-this, shellcode2exe
-    Flash: xxxswf, SWF Tools, RABCDAsm, extract_swf, Flare(decompiler of Flash), flasm(disassembles Flash)
+* MS Office XML: officeparser.py, mastiff (Win Py modules require Visual Studio)
+* MS Office OLE: pyOLEScanner.py, oletools, libolecf, oledump, olefile, offviz(Win)
+* Shellcode: sctest, unicode2hex-escaped, unicode2raw, dism-this, shellcode2exe, base64dump.py
+* Flash: xxxswf, SWF Tools, RABCDAsm, extract_swf, Flare(decompiler of Flash), flasm(disassembles Flash)
 * Java: Java Cache IDX Parser, JD-GUI Java Decompiler, JAD Java Decompiler, Javassist, CFR
 * JavaScript: Extract/unpack: Extractscripts, extractjs.rb (Oragami), jsunpack-n (pdf.py)
               Debug/manip: Rhino Debugger, Firebug, Didier's SpiderMonkey, V8, js Beautifier, JSDetox, 
     
 **Mail**  
 * readpst
-* Digital Forensic Framework by Arxsys
+* MSGConvert
+* emldump
+* Digital Forensic Framework by Arxsys (Testing free version)
 * mpack/munpack for mime
 
 **Binary/Hex Editors**  
