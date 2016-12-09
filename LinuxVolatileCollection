@@ -119,3 +119,10 @@ File Identification and Profiling
   strings returns nothing
   file shows corrupt section header
   staticly compiled
+  
+Actiity tracker for Linux executables is InstallWatch7
+Look for new timestamps
+GLSOF is a gui monitor incorporating FileMonitor and Queries utilizing lsof.
+EtherApe for graphic visualization
+Capture impression evidence during ELF exec with SystemTap, inotify, FAM, Gamin
+Linux firewalls for per-application access to network: Leopard Flower, Program Guard pgrd
