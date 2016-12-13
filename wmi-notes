@@ -1,0 +1,55 @@
+Malicious MOF files may still be present on disk
+- Example: “C:\Windows\Addins\evil.mof”
+
+Check disk, MFT, and memory
+
+MOF files may be copied into the autorecovery directory after the originals were deleted
+- “C:\Windows\System32\wbem\autorecovery\[RAND].mof”
+
+References to MOF files may be found in the binary tree index.
+- “C:\Windows\System32\wbem\Repository\index.btr”
+
+New WMI classes are stored in the CIM repository. This is pulled by REAP
+- File location: “C:\Windows\System32\wbem\Repository\fs\objects.data”
+
+Strings to search for:
+- EventConsumer
+- EventFilter
+- FilterToConsumerBinding
+- Wscript.shell
+- Wscript.sleep
+- ActiveXObject
+- On Error Resume Next
+
+Check Shimcache, Prefetch, AppCompatCache for related executables:
+cscript.exe
+wscript.exe
+scrcons.exe
+mofcomp.exe
+wmic.exe
+
+The list of MOF files for autorecovery is stored in the following registry key:
+- “HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WBEM\CIMOM\autorecover mofs”
+
+Registering a WMI Event Filter useing “Win32_LocalTime” creates the following empty key
+- “HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WBEM\ESS\//./root/CIMV2\Win32ClockProvider”
+
+Command to enable WMI trace logs
+• ”wevtutil.exe sl Microsoft-Windows-WMI-Activity/Trace /e:true”
+- May generate a significant amount of log activity (WMI is often used by legit applications)
+- If enabled, logs:
+- WMI-Activity Windows event log
+- Pre-Vista, WMI Service logs stored in “%SYSTEMROOT%\wbem\logs\”
+  wbemcore.log
+  mofcomp.log
+  wbemprox.log
+  
+  Log sources you may find on pre-Vista systems
+- wbemcore.log
+  Logon activity and authentication failures (required setting: verbose)
+- mofcomp.log
+  Successful and failed MOF compile operations including the name and path of MOF files, whether it was
+imported, and failures (required setting: verbose)
+- wbemprox.log
+  Login failures based on incorrect credentials, service availability, or permissions issues (required setting:
+errors or verbose)
