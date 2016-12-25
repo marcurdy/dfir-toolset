@@ -18,7 +18,7 @@ I'm collecting, sorting, and making order out of the available tools.  I'm housi
 * kpartx for automatic mounting of found filesystems (not a swiss army knife)
 
 **Volume Shadow Copy browsing**  
-* libvshadow FUSE mounting  
+* libvshadow FUSE mounting (vshadowinfo, vshadowmount)
   
 **Checking file signed signatures**  
 * Authenticode Tools (Didier Stevens)
