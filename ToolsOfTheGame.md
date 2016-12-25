@@ -99,11 +99,13 @@ yaraPcap.py (http streams)
   * Mantaray - becoming antiquated  
   * Bulk_extractor modules for grabbing types of data  with beviewer for viz
   * Volatility module add-ons of notability  
-    * mimikatz detection - RealityNet/hotoloti  
-    * Rat detection - FabienPerigaud  
-    * At jobs - binglot/misc  
-    * ShimcacheMemory  
-    * IOC scan - openioc_scan  
+    * prefetch, shimcachemem, usnparser, idxparser
+    * autoruns, uninstallinfo, pstotal
+    * chromehistory, firefoxhistory
+    * hollowfind, psinfo
+    * apihooksdeep, malfinddeep, malprocfind, malsysproc
+    * mimikatz, openvpn rsakey, ssh_agent_key
+    * baseline, ssdeepscan  
 * Rekall (Volatility fork relying on API's and not scanning to find evidence)  
 * findaes, AESKeyFinder, RSAKeyFinder, VolDiff  
 * pdgmail (gmail from mem)  
