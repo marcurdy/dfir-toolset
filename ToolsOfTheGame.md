@@ -62,12 +62,11 @@ yaraPcap.py (http streams)
 * Log Parser Lizard - gui for logparser
 * Mandiant Highlighter
 
-
 **Registry Manipulation**  
-* FRED
+* Registry Explorer (Zimmerman, Windows)
 * Registry Decoder
 * regripper (wine friendly)
-* MiTeC Windows Registry Recovery
+* MiTeC Windows Registry Recovery (Windows)
 
 **Linux Event Log analysis**  
 * python-evtx (WilliB) Can recover from corrupted evtx's
