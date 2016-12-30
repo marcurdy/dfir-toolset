@@ -61,7 +61,14 @@ yaraPcap.py (http streams)
 * Event Log Explorer - eventlogxp.com
 * Log Parser Lizard - gui for logparser
 * Mandiant Highlighter
-  
+
+
+**Registry Manipulation**  
+* FRED
+* Registry Decoder
+* regripper (wine friendly)
+* MiTeC Windows Registry Recovery
+
 **Linux Event Log analysis**  
 * python-evtx (WilliB) Can recover from corrupted evtx's
 * libevtx (Metz)
@@ -150,11 +157,6 @@ yaraPcap.py (http streams)
 * log2timeline w/ plaso
 * CDQR
 * Timesketch
-
-**Registry Manipulation**  
-* FRED
-* Registry Decoder
-* regripper (wine friendly)
   
 **Rootkit detection**  
 * GMER (Windows)  
