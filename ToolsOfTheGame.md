@@ -57,21 +57,79 @@ yaraPcap.py (http streams)
 * Honeypots: Thug (docker based honeypot), Dionaea (honeypot), Kippo (SSH), Modern Honeypot Network
 * Miscellaneous network: prettyping, Netcat, stunnel, p0f(passive remote fingerprinting), netwox(swiss-army knife of routines), lft(smart traceroute), passivedns, tcpstat(stats on NIC), 
   
-**Windows Event Logger analysis**  
+**Windows Event Log analysis**  
 * Event Log Explorer - eventlogxp.com
 * Log Parser Lizard - gui for logparser
 * Mandiant Highlighter
+* python-evtx (WilliB) Can recover from corrupted evtx's
+* libevtx (Metz)
+* evtwalk/evtx_view (tzworks-commercial)
 
-**Registry Manipulation**  
+***Registry Viewing and Parsing***
+**Exploring the registry**
 * Registry Explorer (Zimmerman, Windows)
 * Registry Decoder
 * regripper (wine friendly)
 * MiTeC Windows Registry Recovery (Windows)
 
-**Linux Event Log analysis**  
-* python-evtx (WilliB) Can recover from corrupted evtx's
-* libevtx (Metz)
-* evtwalk: See TZWorks section
+**All-in-one registry**
+* cafae (tzworks-commercial)
+
+**Prefetch analysis**  
+* PECmd
+* pf (tzworks-commercial)  
+
+**Amcache parsing**  
+* amcache.py
+* AmcacheParser
+
+**LNK parsing**  
+* LECmd  
+* lp (tzworks-commercial)  
+  
+**Jumplist parsing**  
+* JLECmd  
+* jmp (tzworks-commercial)  
+
+**Shellbags parsing**
+* sbags (tzworks-commercial) 
+* Shellbags Explorer (Zimmerman)
+
+**AppCompatCache / Shimcache**
+* AppCompatCacheParser (Zimmerman)  
+* ShimCacheParser (Mandian)
+* wacu (tzworks-commercial) use -all_controlsets option  
+* shims (tzworks-commercial) 
+
+**NTFS MFT parsing**
+* jp (Journal Parser, tzworks-commercial)
+* ntfsdir (NTFS Directory Enum, tzworks-commercial))  
+* ntfswalk (NTFS Metadata Extractor, tzworks-commercial))  
+
+**TZWorks suite: Others**  
+* Artifacts
+  id (index.dat Parser)  
+  usp (USB Storage Parser)  
+* Registry based artifacts
+  yaru (Yet Another Registry Utility)   
+* NTFS Analysis  
+  elmo (Event Log MessageTables Offline)  
+  wisp (INDX Slack Parser)  
+* Portable Executable Utilities  
+  pe_view (Portable Executable Viewer)  
+  pescan (Portable Executable Scanner)  
+* Other
+  Network Support Utilities
+  DNS Query Utility (dqu)
+  Packet Capture ICMP Carver (pic)
+  Network Xfer Client/Server (nx)
+  Portable Executable Utilities
+  Portable Executable Viewer (pe_view)
+  Portable Executable Scanner (pescan)
+  Miscellaneous Tools
+  Volume Shadow Snapshot Enum (vssenum) 
+  CSV Data eXchange (csvdx) 
+  Windows Symbol Fetch Utility (sf)
   
 **Extract and Decode Artifacts**  
 * Deobfuscate: unXOR, XORStrings, ex_pe_xor, XORSearch, brxor.py, xortool, NoMoreXOR, XORBruteForcer, Balbuzard
@@ -163,56 +221,6 @@ yaraPcap.py (http streams)
 * Rootkit remover (mcafee win)  
 * chkrootkit  
   
-**Amcache parsing**  
-* amcache.py
-* AmcacheParser
-
-**Prefetch analysis**  
-* PECmd
-  
-**LNK parsing**  
-* LECmd  
-  
-**Jumplist parsing**  
-* JLECmd  
-  
-**TZWorks suite**  
-* Artifacts
-  shims (shim db parser)  
-  pf (Prefetch Parser)  
-  id (index.dat Parser)  
-  lp (LNK Parser)  
-  usp (USB Storage Parser)  
-  jmp (JumpList Parser)  
-* Registry based artifacts
-  cafae (query registry)  
-  sbags (shell bags parser)  
-  yaru (Yet Another Registry Utility)  
-  evtx_view (Event log viewer)  
-  evtwalk (event log parser)  
-  wacu (AppCompatCache)  
-* NTFS Analysis  
-  elmo (Event Log MessageTables Offline)  
-  jp (Journal Parser)  
-  ntfsdir (NTFS Directory Enum)  
-  ntfswalk (NTFS Metadata Extractor)  
-  wisp (INDX Slack Parser)  
-* Portable Executable Utilities  
-  pe_view (Portable Executable Viewer)  
-  pescan (Portable Executable Scanner)  
-
-Network Support Utilities
-DNS Query Utility (dqu)
-Packet Capture ICMP Carver (pic)
-Network Xfer Client/Server (nx)
-Portable Executable Utilities
-Portable Executable Viewer (pe_view)
-Portable Executable Scanner (pescan)
-Miscellaneous Tools
-Volume Shadow Snapshot Enum (vssenum) 
-CSV Data eXchange (csvdx) 
-Windows Symbol Fetch Utility (sf)
-
 **Scheduled Task (AT) job parser
 * jobparser.py
 
