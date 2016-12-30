@@ -13,9 +13,8 @@ I'm collecting, sorting, and making order out of the available tools.  I'm housi
 * Security Onion
     
 **Mounting dd or vm snapshot disk images**  
-* My very own github provided VMDK mount tool!
-* For "read-write" mounts use xmount (rw w/ cache for EWF,VMDK,etc)
-* kpartx for automatic mounting of found filesystems (not a swiss army knife)
+* evmount, my very own github provided VMDK, EWF, raw disk, and LVS friendly mount tool!
+* For "read-write" mounts use xmount (rw made available with cache)
 
 **Volume Shadow Copy browsing**  
 * libvshadow FUSE mounting (vshadowinfo, vshadowmount)
@@ -26,7 +25,7 @@ I'm collecting, sorting, and making order out of the available tools.  I'm housi
 * chktrust (Runs Mono for Linux)
 
 **Browser Artifact tools**
-* Not listing per artifact type tools.  See Plaso, FTK, Xways, Encase, and Autopsy
+* If Ediscovery, see Plaso, FTK, Xways, Encase, and Autopsy
     
 **Scan for IOC, hashing, and hash lookups**  
 * Parse IOC's from reports: IOCextractor, ioc-parser
@@ -37,8 +36,8 @@ I'm collecting, sorting, and making order out of the available tools.  I'm housi
 * Hashes Query: nsrllookup (Whitelist of non-malicious hashes) requiring nsrlsvr, virustotal-search, vtTool.py, Automater (search by URL, IP, Hash), fileintel
   
 **File Forensics**  
-* Autopsy the Sleuthkit
-* scalpel (not foremost anymore)
+* Sleuthkit suite
+* scalpel (image scraping)
 * safecopy (file restore from damaged sources)
 * analyze mft (parse the mft from an ntfs FS)
 * hachoir (Read windows metadata)
@@ -57,22 +56,25 @@ yaraPcap.py (http streams)
 * Honeypots: Thug (docker based honeypot), Dionaea (honeypot), Kippo (SSH), Modern Honeypot Network
 * Miscellaneous network: prettyping, Netcat, stunnel, p0f(passive remote fingerprinting), netwox(swiss-army knife of routines), lft(smart traceroute), passivedns, tcpstat(stats on NIC), 
   
-**Windows Event Log analysis**  
-* Event Log Explorer - eventlogxp.com
-* Log Parser Lizard - gui for logparser
+***Windows Event Log analysis***  
+**Windows only tools**
+* Event Log Explorer
+* Log Parser Lizard - gui for MS Logparser
 * Mandiant Highlighter
-* python-evtx (WilliB) Can recover from corrupted evtx's
-* libevtx (Metz)
-* evtwalk/evtx_view (tzworks-commercial)
+**Linux friendly**
+* python-evtx (WilliB) Can recover from corrupted evtx's  
+* libevtx (Metz)  
+* evtwalk/evtx_view (tzworks-commercial)  
 
 ***Registry Viewing and Parsing***
 **Exploring the registry**
 * Registry Explorer (Zimmerman, Windows)
-* Registry Decoder
+* Registry Decoder (Digitial Forensic Solutions)
 * regripper (wine friendly)
 * MiTeC Windows Registry Recovery (Windows)
+* Yaru (tzworks-commercial)
 
-**All-in-one registry**
+**All-in-one registry parser**
 * cafae (tzworks-commercial)
 
 **Prefetch analysis**  
@@ -109,24 +111,14 @@ yaraPcap.py (http streams)
 **TZWorks suite: Others**  
 * Artifacts
   id (index.dat Parser)  
-  usp (USB Storage Parser)  
-* Registry based artifacts
-  yaru (Yet Another Registry Utility)   
+  usp (USB Storage Parser)     
 * NTFS Analysis  
   elmo (Event Log MessageTables Offline)  
-  wisp (INDX Slack Parser)  
-* Portable Executable Utilities  
-  pe_view (Portable Executable Viewer)  
-  pescan (Portable Executable Scanner)  
+  wisp (INDX Slack Parser)    
 * Other
-  Network Support Utilities
   DNS Query Utility (dqu)
   Packet Capture ICMP Carver (pic)
   Network Xfer Client/Server (nx)
-  Portable Executable Utilities
-  Portable Executable Viewer (pe_view)
-  Portable Executable Scanner (pescan)
-  Miscellaneous Tools
   Volume Shadow Snapshot Enum (vssenum) 
   CSV Data eXchange (csvdx) 
   Windows Symbol Fetch Utility (sf)
@@ -176,7 +168,7 @@ yaraPcap.py (http streams)
 
 **Investigate Malware**  
 * System: Unhide(detect hidden processes), sysdig (strace + tcpdump + htop + iftop + lsof)
-* Find anomalies: signsrch, pescanner, exescan, pev suite, peframe, pedump, disitool (alter digsig)
+* Find anomalies: signsrch, pescanner, exescan, pev suite, peframe, pedump, disitool (alter digsig), pe_view/pescan (tzworks)
 * Trace: strace, ltrace
 * Static Analysis: Radare, Pyew, Bokken(front-end to radare/pyew), m2elf
 * Disassemblers: Vivisect, Udis86, objdump, jad (java decom), recstudio, mastiff, captone, EmilPRO, distorm, Decompyle++ (python disassembler)
