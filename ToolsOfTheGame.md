@@ -48,7 +48,7 @@ I'm collecting, sorting, and making order out of the available tools.  I'm housi
 **Handle Network Interactions**  
 * Sniffing: ngrep, tcpdump, tcpick(passive sniffer), tcptrack, driftnet, tshark (terminal wshark),
 dsniff(captures user data over common protos), aircrack-ng (WEP and WPA-PSK keys cracking), 
-yaraPcap.py (http streams)
+    yaraPcap.py (http streams)
 * Analyze/Exec pcap: ssldump(decode ssl/tls records), tcpxtract, tcpreplay (can't estab session), tcptrace (stats on pcaps), tcpflow (deconstruct), tcpcopy (resend data), chaosreader.pl (dump http conversations), CapTipper (emulate web svr of what's in pcap), Xplico (extract data per protocol), networkminer, scapy (BYO packets), editcap (convert formats)
 * Services: FakeDNS, Nginx, fakeMail, Honeyd, INetSim
 * Reporting: etherape(graphical network monitor), Wireshark
@@ -76,6 +76,8 @@ yaraPcap.py (http streams)
 
 **All-in-one registry parser**
 * cafae (tzworks-commercial)
+* RECmd
+* RegRipper
 
 **Prefetch analysis**  
 * PECmd
