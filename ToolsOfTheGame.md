@@ -8,9 +8,9 @@ I'm collecting, sorting, and making order out of the available tools.  I'm housi
 * Sec Talks https://github.com/PaulSec/awesome-sec-talks
 
 **Distributions for Security tools**
-* SIFT + Remnux
+* SIFT and/or Remnux on top of Ubuntu 14.04
 * DEFT (Windows)   
-* Security Onion
+* Security Onion (Network Security Monitor)
     
 **Mounting dd or vm snapshot disk images**  
 * evmount, my very own github provided VMDK, EWF, raw disk, and LVS friendly mount tool!
