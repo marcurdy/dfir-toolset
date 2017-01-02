@@ -109,14 +109,15 @@ dsniff(captures user data over common protos), aircrack-ng (WEP and WPA-PSK keys
 * jp (Journal Parser, tzworks-commercial)
 * ntfsdir (NTFS Directory Enum, tzworks-commercial))  
 * ntfswalk (NTFS Metadata Extractor, tzworks-commercial))  
+* INDXParse.py (W.Ballenthin)
+* wisp (INDX Slack Parser, tzworks-commercial)   
 
 **TZWorks suite: Others**  
 * Artifacts
   id (index.dat Parser)  
   usp (USB Storage Parser)     
 * NTFS Analysis  
-  elmo (Event Log MessageTables Offline)  
-  wisp (INDX Slack Parser)    
+  elmo (Event Log MessageTables Offline)   
 * Other
   DNS Query Utility (dqu)
   Packet Capture ICMP Carver (pic)
