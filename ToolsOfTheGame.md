@@ -216,6 +216,7 @@ dsniff(captures user data over common protos), aircrack-ng (WEP and WPA-PSK keys
 * dcfldd (enhanced dd)
 * gddrescue/ddrescueview, ddrutility (complements ddrescue)
 * rdd
+* dislocker (bitlocker decrypting for Linux)
 
 **Super Timelining**  
 * log2timeline w/ plaso
