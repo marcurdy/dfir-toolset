@@ -57,6 +57,11 @@ dsniff(captures user data over common protos), aircrack-ng (WEP and WPA-PSK keys
 * Honeypots: Thug (docker based honeypot), Dionaea (honeypot), Kippo (SSH), Modern Honeypot Network
 * Miscellaneous network: prettyping, Netcat, stunnel, p0f(passive remote fingerprinting), netwox(swiss-army knife of routines), lft(smart traceroute), passivedns, tcpstat(stats on NIC), 
   
+**Extracting protected files from Windows**
+* fget.exe (HBGary)
+* ftk imager (predefined protected entries)
+* ntfscopy
+  
 ***Windows Event Log analysis***  
 **Windows only tools**
 * Event Log Explorer
