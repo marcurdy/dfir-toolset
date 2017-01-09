@@ -40,7 +40,6 @@ I'm collecting, sorting, and making order out of the available tools.  I'm housi
 * Sleuthkit suite
 * scalpel (image scraping)
 * safecopy (file restore from damaged sources)
-* analyze mft (parse the mft from an ntfs FS)
 * hachoir (Read windows metadata)
 * Rifiuti (recycle bin analysis)
 * testdisk (restore lost partitions), kpartx
@@ -115,13 +114,13 @@ dsniff(captures user data over common protos), aircrack-ng (WEP and WPA-PSK keys
 * wacu (tzworks-commercial) use -all_controlsets option  
 * shims (tzworks-commercial) 
 
-**NTFS MFT parsing**
-* jp (Journal Parser, tzworks-commercial)
+**NTFS MFT, Journal, INDX **
 * ntfsdir (NTFS Directory Enum, tzworks-commercial))  
 * ntfswalk (NTFS Metadata Extractor, tzworks-commercial))  
-* INDXParse.py
 * AnalyzeMFT
+* INDXParse.py
 * wisp (INDX Slack Parser, tzworks-commercial)   
+* jp (Journal Parser, tzworks-commercial)
 
 **Scheduled Task (AT) job parser
 * jobparser.py
