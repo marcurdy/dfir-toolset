@@ -16,7 +16,7 @@ Empire:
 
 Scan Domains in environments
 Finding Privileged Accounts recursively finds:
-* Domain Admins, Administrators, RODC Denied Replication GRoups
+* Domain Admins, Administrators, RODC Denied Replication Groups
 Enumerate Trusts and Contact Objects in Forest to find partner orgs
 
 SPN Scanning Service Discovery without network port scanning
@@ -182,6 +182,7 @@ Implement RDP Restricted Admin Mode
    -monitor HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\Wdigest=0  
   Win7/Win2k8R2: KB2984972 / KB2984976 / KB2984981  
   Win8/Win 2012: KB2973501  
+Restrict who needs domain group member to seEnableDelegationPrivilege
   
 Event ID | Legacy Event ID | Potential Criticality | Event Summary
 4618 | N/A | High | A monitored security event pattern has occurred.
