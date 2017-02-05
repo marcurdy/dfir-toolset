@@ -245,6 +245,7 @@ dsniff(captures user data over common protos), aircrack-ng (WEP and WPA-PSK keys
 * Mandiant web historian  
 * IEPassView on live system for protected to recover protected browser artifacts  
 * Magnet's IEF $$$ (Scraping for chat/webmail logs)  
+* Hindsight - Chrome browser web artifacts
   
 **Windows Miscellaneous  
 * Forensic toolkit (view files without touching metadata by Mcafee)  
