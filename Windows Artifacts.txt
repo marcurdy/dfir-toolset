@@ -49,10 +49,9 @@ SYSTEM
 	PagingFiles
   NtfsDisableLastAccessUpdate
   NtfsDisable8dot3NameCreation
-  Prefetch (Workstation version by default only)
   AppCompatCache: last modify date and file path
   Legacy Registry Keys: First time service executed, DLL/driver path
-  EnablePrefetcher value under PrefetchParameters
+  Prefetch is disabled/enabled in key EnablePrefetcher under PrefetchParameters
   USB: Devices recorded under ControlSet00n\Enum\USBStor/USB
        Mounts of them under MountedDevices and Control\DeviceClasses
 
