@@ -119,3 +119,6 @@ Applets - eg. regedit, wordpad, ms paint
   regedit nas lastkey value
   wordpad has recent file list
   
+SRUM (System Resource Utilization Manager database)
+  Windows\sru
+  Network and length of connection, bytes written to HDD, applications executed with SID and runtimes
