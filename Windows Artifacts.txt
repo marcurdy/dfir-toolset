@@ -1,0 +1,121 @@
+===REGISTRIES===
+  
+NTUSER.dat
+  Location
+    For Win2003-, Document and Settings\
+    For Vista+, Users\
+  RecentDocs/MRU: each list could have a diff method for identifying order
+  UserAssist track user interaction within Explorer shell for clicks
+    including start-programs but not start-run and typing app name
+    Contains 2+ keys of GUIDs, 64-bit timestamp (last time run) and a occurance count
+	UEME_RUNPATH indicates an executable file was accessed
+	UEME_RUNPIDL is a pointer to an ItemIdList structure, i.e. a folder or shortcut
+	UEME_RUNCPL referring to Control Panel applets being clicked
+	NoLog value disables UserAssist logging
+	CurrentVersion\Policies\Explorer -> NoInstrumentation disables UserAssist
+  MUICache (XP, 2003), Executables w/o dates based on shell interactions
+  Shellbags (XP, 2003 only): Shell/BagMRU
+    Can contain GUID to folder, control panel, MFT reference number,
+	external storage devices, zipped archives, ftp via explorer.
+  TypedPath - Typed in Explorer or right of Windows icon
+  TypedURL - IE typed URL's
+  Favorites
+  MountPoints2
+  Map Network Drive MRU
+  ControlPanel
+  Shell Folders
+  Run key - starts at user login. Determine order w VSS/timeline
+  RunOnce - Deleted after running unless prepended with "!"
+  ProgramsCache
+  ComDlg32: OpenSaveMRU or OpenSavePidMRU (Vista+)
+    Contains MRU per file extension and overall
+  MS Office File MRU
+    Stored per Office application
+  TrustRecords - User clicked enable editing in Office
+  Autostart
+    InProcServer (Software, NTUser, USRClass)
+
+SECURITY
+  Auditpol query
+  
+SAM
+  Local Users and Groups
+  
+SYSTEM
+  Services
+  Memory Management
+    ClearPagefileAtShutdown
+	Existing Page Files
+	PagingFiles
+  NtfsDisableLastAccessUpdate
+  NtfsDisable8dot3NameCreation
+  Prefetch (Workstation version by default only)
+  AppCompatCache: last modify date and file path
+  Legacy Registry Keys: First time service executed, DLL/driver path
+  EnablePrefetcher value under PrefetchParameters
+  USB: Devices recorded under ControlSet00n\Enum\USBStor/USB
+       Mounts of them under MountedDevices and Control\DeviceClasses
+
+SOFTWARE
+  ProfileList both local and domain
+  Networking Config
+  Run key for persistence by administrator - boottime
+  Winlogin Notify key
+  Persistence
+    Image File Execution Options / StickyKeys  (runs app at other app exec)
+    appinit_DLLs (inject dll's into path)
+    Shell Extensions
+    Browser Helper Object (BHO)
+    Scheduled Tasks (can exec at login) schtasks & at
+    Autostart: InProcServer (Software, NTUser, USRClass)
+  SysInternals keys eg. Software\SysInternals\Strings = EulaAccepted
+    Time relates to when app was first run
+   
+USRCLASS.DAT
+  Win2003- : Local Settings\Application Data\Microsoft\Windows\
+  Vista+   : AppData\Local\Microsoft\Windows\
+  MUICache : (Vista+) Executables w/o dates based on shell interactions
+  Shellbags: (Vista+)
+  Autostart: InProcServer (Software, NTUser, USRClass)
+
+ SearchTerms
+   XP=Software hive: acmru
+   Vista=not in registry
+   Win7=NTUser hive: WordWheelQuery
+   Win8=NTUser hive: Charm
+   
+Jumplists in Win7+
+  Path: %AppData%\MicrosoftAppData\Roaming\Microsoft\Windows\Recent\AutomaticDestinations
+
+Amcache.hve Win7+
+  Windows\AppCompat\Programs
+  Subkey is GUID of mounted device
+  Next subkey is the MFT file reference number for a file
+  Contains SHA1
+  Program subkey contains MSI installed files
+
+===STANDALONE FILES===
+Prefetch
+  disabled on server builds 
+  Executable, run count, size of pf, files/dirs referenced, volume
+  pf creation is first execution
+  last modify time is last time it was executed
+  Examine files/dir mapped by this and for files in close time prox
+  
+MFT
+  Full filename
+  Parent directory
+  File size, Creation Date, Mod Date, MFT Change Date, Access Date
+  Change times cannot be edited with a Windows API
+  $File_name timestamps are based on movement in b-tree
+  $Standard_Information timestamps are for MACE. Easily timestomped
+  $I30 timestamps are FN not SI timestamps
+
+USNJrnl
+  Records file/folder changes
+  Time of Change, reason, file/dir name, MFT record number, 
+  
+Applets - eg. regedit, wordpad, ms paint
+  regedit nas lastkey value
+  wordpad has recent file list
+  
