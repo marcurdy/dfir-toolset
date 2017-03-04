@@ -1,3 +1,5 @@
+Turn wmi trace logging on
+
 Malicious MOF files may still be present on disk
 - Example: “C:\Windows\Addins\evil.mof”
 
