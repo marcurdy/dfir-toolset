@@ -1,7 +1,6 @@
 ===REGISTRIES===
   
-NTUSER.dat  Location:Win2003-: Document and Settings\
-                     Vista+: Users\
+NTUSER.dat  Location:Win2003-: Document and Settings\, Vista+: Users\
   OpenSaveMRU: Tracks files opened or saved within a Windows shell dialog box
     Location: XP NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\ComDlg32\OpenSaveMRU
               Win7 NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\ComDlg32\OpenSavePIDlMRU
@@ -17,13 +16,12 @@ NTUSER.dat  Location:Win2003-: Document and Settings\
   RunMRU: Tracks app run under start->programs choice
     Location: NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU
   UserAssist track user interaction within Explorer shell for clicks
+    Location: NTUSER.DAT\Software\Microsoft\Windows\Currentversion\Explorer\UserAssist\{GUID}\Count
     including start-programs but not start-run and typing app name
     Contains 2+ keys of GUIDs, 64-bit timestamp (last time run) and a occurance count
 	UEME_RUNPATH indicates an executable file was accessed
 	UEME_RUNPIDL is a pointer to an ItemIdList structure, i.e. a folder or shortcut
 	UEME_RUNCPL referring to Control Panel applets being clicked
-	NoLog value disables UserAssist logging
-	CurrentVersion\Policies\Explorer -> NoInstrumentation disables UserAssist
   MUICache (XP, 2003), Executables w/o dates based on shell interactions
   Shellbags (XP, 2003 only): Tracks Explorer viewing preferences
     Can contain GUID to folder MRU, control panel, MFT reference number, external storage, zipped archives, explorer ftp
@@ -35,48 +33,53 @@ NTUSER.dat  Location:Win2003-: Document and Settings\
               Win7 USRCLASS.DAT\Local Settings\Software\Microsoft\Windows\Shell\BagMRU
               Win7 NTUSER.DAT\Software\Microsoft\Windows\Shell\BagMRU
               Win7 NTUSER.DAT\Software\Microsoft\Windows\Shell\Bags
+  XPSearch: NTUSER.DAT\Software\Microsoft\SearchAssistant\ACMru\####
+  Win7Search (WordWheelQuery): NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\WordWheelQuery
   TypedPath - Typed in Explorer or right of Windows icon
-  TypedURL - IE typed URL's
-  Favorites
-  MountPoints2
-  Map Network Drive MRU
-  ControlPanel
-  Shell Folders
-  Run key - starts at user login. Determine order w VSS/timeline
-  RunOnce - Deleted after running unless prepended with "!"
+    Location: ntuser.dat\Software\Microsoft\Windows\CurrentVersion\Explorer\TypedPaths
+  TypedURL - IE url's entered
+    Location: NTUSER.DAT\Software\Microsoft\Internet Explorer\TypedURLs
+  MountPoints2: Find users that accessed a USB device
+    Last write time of key is the last time the USB device was attached
+    Location: NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\MountPoints2
+  Runkey: starts at user login. Too many locations to list.
+  RunOnce: Deleted after running unless prepended with "!"
   ProgramsCache
-  ComDlg32: OpenSaveMRU or OpenSavePidMRU (Vista+)
-    Contains MRU per file extension and overall
-  MS Office File MRU
-    Stored per Office application
-  TrustRecords - User clicked enable editing in Office
-  Autostart
-    InProcServer (Software, NTUser, USRClass)
+    TrustRecords - User clicked enable editing in Office. Not indicator of Enable Macros.
+    Location: HKCU\Software\Microsoft\Office\15\Word\Security\Trusted Documents\TrustRecords
 
 SECURITY
   Auditpol query
   
 SAM
-  Local Users and Groups
+  Local Users and Groups and their security identifiers
+  Location: \windows\system32\config\SAM
+  Key: SAM\Domains\Account\Users
   
 SYSTEM
   Services
   Memory Management
-    ClearPagefileAtShutdown
+    Contains: ClearPagefileAtShutdown
 	Existing Page Files
 	PagingFiles
-  NtfsDisableLastAccessUpdate
-  NtfsDisable8dot3NameCreation
+  Contains: NtfsDisableLastAccessUpdate
+  Contains: NtfsDisable8dot3NameCreation
   AppCompatCache: App compatibility db
-    Location: XP   SYSTEM\CurrentControlSet\Control\SessionManager\AppCompatibility\
-              Win7 SYSTEM\CurrentControlSet\Control\Session Manager\AppCompatCache
+    Location: XP           SYSTEM\CurrentControlSet\Control\SessionManager\AppCompatibility
+              Win7,Win2003 SYSTEM\CurrentControlSet\Control\Session Manager\AppCompatCache
     Provides: last modify date and file path
+    For Win7 and later, this moved out of registry to Amcache and RecentFileCache.bcf
   Legacy Registry Keys: First time service executed, DLL/driver path
-  Prefetch is disabled/enabled in key EnablePrefetcher under PrefetchParameters
-  USB: Devices recorded under ControlSet00n\Enum\USBStor/USB
+  Prefetch is disabled/enabled in HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SessionManager\
+      Memory Management\PrefetchParameters
+  USB: Devices recorded under ControlSet00#\Enum\USBStor/USB
        Mounts of them under MountedDevices and Control\DeviceClasses
 
 SOFTWARE
+  Vista/Win7 Network History: Tracks networks, last access time, SSID, domain name, gateway MAC
+    Location: SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Signatures\Unmanaged
+              SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Signatures\Managed
+              SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Nla\Cache
   ProfileList both local and domain
   Networking Config
   Run key for persistence by administrator - boottime
@@ -90,29 +93,27 @@ SOFTWARE
     Autostart: InProcServer (Software, NTUser, USRClass)
   SysInternals keys eg. Software\SysInternals\Strings = EulaAccepted
     Time relates to when app was first run
+ Disable UserAssist: 
+   Location: XP HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\UserAssist
+             Vista HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\Start_TrackProgs
    
-USRCLASS.DAT
-  Win2003- : Local Settings\Application Data\Microsoft\Windows\
-  Vista+   : AppData\Local\Microsoft\Windows\
+USRCLASS.DAT Location: Win2003- : Local Settings\Application Data\Microsoft\Windows\
+                       Vista+   : AppData\Local\Microsoft\Windows\99999
   MUICache : (Vista+) Executables w/o dates based on shell interactions
   Shellbags: (Vista+)
   Autostart: InProcServer (Software, NTUser, USRClass)
-
- SearchTerms
-   XP=Software hive: acmru
-   Vista=not in registry
-   Win7=NTUser hive: WordWheelQuery
-   Win8=NTUser hive: Charm
    
 Jumplists in Win7+
   Path: %AppData%\MicrosoftAppData\Roaming\Microsoft\Windows\Recent\AutomaticDestinations
   Provides: First time of execution, last time of execution
 
-Amcache.hve Win7+
-  Windows\AppCompat\Programs
-  Subkey is GUID of mounted device
-  Next subkey is the MFT file reference number for a file
-  Contains SHA1
+RecentFileCache.bcf: Win compatibility DB
+  Location: C:\Windows\AppCompat\Programs\
+
+
+Amcache.hve: Win8 replacement of RecentFileCache.bcf
+  Location: \Windows\AppCompat\Programs\Amcache.hve
+  Provides: volume guid, first run, file path, file size, SHA1
   Program subkey contains MSI installed files
 
 ===STANDALONE FILES===
@@ -137,6 +138,16 @@ USNJrnl
   Records file/folder changes
   Time of Change, reason, file/dir name, MFT record number, 
   
+Shortcut LNK files: Automatically created links
+  Location: XP C:\Documents and Settings\<username>\Recent\
+            Win7 C:\Users\<user>\AppData\Roaming\Microsoft\Windows\Recent\
+            Win7 C:\Users\<user>\AppData\Roaming\Microsoft\Office\Recent\
+  First and last time of opening (creation and last modified date)
+  LNKTarget File (Internal LNK File Information) Data:
+    Modified, Access, and Creation times of the target file
+    Volume Information (Name, Type, Serial Number), Name of System
+    Network Share information, Original Location
+    
 Applets - eg. regedit, wordpad, ms paint
   regedit nas lastkey value
   wordpad has recent file list
@@ -144,3 +155,9 @@ Applets - eg. regedit, wordpad, ms paint
 SRUM (System Resource Utilization Manager database)
   Windows\sru
   Network and length of connection, bytes written to HDD, applications executed with SID and runtimes
+
+IExplore index.dat: IE activity.  Local and remote file activity via network shares
+  Does not limit to actiity run in Internet Explorer 
+  Location: XP %userprofile%\Local Settings\History\History.IE5
+            Win7 %userprofile%\AppData\Local\Microsoft\Windows\History\History.IE5
+            Win7 %userprofile%\AppData\Local\Microsoft\Windows\History\Low\History.IE5
