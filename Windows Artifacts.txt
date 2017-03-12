@@ -1,10 +1,21 @@
 ===REGISTRIES===
   
-NTUSER.dat
-  Location
-    For Win2003-, Document and Settings\
-    For Vista+, Users\
-  RecentDocs/MRU: each list could have a diff method for identifying order
+NTUSER.dat  Location:Win2003-: Document and Settings\
+                     Vista+: Users\
+  OpenSaveMRU: Tracks files opened or saved within a Windows shell dialog box
+    Location: XP NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\ComDlg32\OpenSaveMRU
+              Win7 NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\ComDlg32\OpenSavePIDlMRU
+  LastVisited/MRU: Tracks executables used by app to open documents in OpenSaveMRU key
+    Each list could have a diff method for identifying order
+    Location: XP NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\ComDlg32\LastVisitedMRU
+              Win7 NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\ComDlg32\LastVisitedPidlMRU
+  Recent Files: tracks files or folders within the "Recent" under the start menu
+    Location: NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\RecentDocs
+  Office Recent Files: Office specific recent files
+    Location: NTUSER.DAT\Software\Microsoft\Office\VERSION
+      14.0 = Office 2010, 12.0 = Office 2007, 11.0 = Office 2003, 10.0 = Office XP
+  RunMRU: Tracks app run under start->programs choice
+    Location: NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU
   UserAssist track user interaction within Explorer shell for clicks
     including start-programs but not start-run and typing app name
     Contains 2+ keys of GUIDs, 64-bit timestamp (last time run) and a occurance count
@@ -14,9 +25,16 @@ NTUSER.dat
 	NoLog value disables UserAssist logging
 	CurrentVersion\Policies\Explorer -> NoInstrumentation disables UserAssist
   MUICache (XP, 2003), Executables w/o dates based on shell interactions
-  Shellbags (XP, 2003 only): Shell/BagMRU
-    Can contain GUID to folder, control panel, MFT reference number,
-	external storage devices, zipped archives, ftp via explorer.
+  Shellbags (XP, 2003 only): Tracks Explorer viewing preferences
+    Can contain GUID to folder MRU, control panel, MFT reference number, external storage, zipped archives, explorer ftp
+    Location: XP NTUSER.DAT\Software\Microsoft\Windows\Shell\Bags
+              XP NTUSER.DAT\Software\Microsoft\Windows\Shell\BagMRU
+              XP NTUSER.DAT\Software\Microsoft\Windows\ShellNoRoam\Bags
+              XP NTUSER.DAT\Software\Microsoft\Windows\ShellNoRoam\BagMRU
+              Win7 USRCLASS.DAT\Local Settings\Software\Microsoft\Windows\Shell\Bags
+              Win7 USRCLASS.DAT\Local Settings\Software\Microsoft\Windows\Shell\BagMRU
+              Win7 NTUSER.DAT\Software\Microsoft\Windows\Shell\BagMRU
+              Win7 NTUSER.DAT\Software\Microsoft\Windows\Shell\Bags
   TypedPath - Typed in Explorer or right of Windows icon
   TypedURL - IE typed URL's
   Favorites
@@ -49,7 +67,10 @@ SYSTEM
 	PagingFiles
   NtfsDisableLastAccessUpdate
   NtfsDisable8dot3NameCreation
-  AppCompatCache: last modify date and file path
+  AppCompatCache: App compatibility db
+    Location: XP   SYSTEM\CurrentControlSet\Control\SessionManager\AppCompatibility\
+              Win7 SYSTEM\CurrentControlSet\Control\Session Manager\AppCompatCache
+    Provides: last modify date and file path
   Legacy Registry Keys: First time service executed, DLL/driver path
   Prefetch is disabled/enabled in key EnablePrefetcher under PrefetchParameters
   USB: Devices recorded under ControlSet00n\Enum\USBStor/USB
@@ -85,6 +106,7 @@ USRCLASS.DAT
    
 Jumplists in Win7+
   Path: %AppData%\MicrosoftAppData\Roaming\Microsoft\Windows\Recent\AutomaticDestinations
+  Provides: First time of execution, last time of execution
 
 Amcache.hve Win7+
   Windows\AppCompat\Programs
@@ -94,7 +116,8 @@ Amcache.hve Win7+
   Program subkey contains MSI installed files
 
 ===STANDALONE FILES===
-Prefetch
+Prefetch: Increases performance by pre-loading code pages of run apps
+  Location: Win7/XP C:\Windows\Prefetch
   disabled on server builds 
   Executable, run count, size of pf, files/dirs referenced, volume
   pf creation is first execution
