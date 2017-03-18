@@ -75,88 +75,88 @@
        Mounts of them under MountedDevices and Control\DeviceClasses
 
 5. SOFTWARE
-  Vista/Win7 Network History: Tracks networks, last access time, SSID, domain name, gateway MAC
+  1. Vista/Win7 Network History: Tracks networks, last access time, SSID, domain name, gateway MAC
     Location: SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Signatures\Unmanaged
               SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Signatures\Managed
               SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Nla\Cache
-  ProfileList both local and domain
-  Networking Config
-  Run key for persistence by administrator - boottime
-  Winlogin Notify key
-  Persistence
-    Image File Execution Options / StickyKeys  (runs app at other app exec)
-    appinit_DLLs (inject dll's into path)
-    Shell Extensions
-    Browser Helper Object (BHO)
-    Scheduled Tasks (can exec at login) schtasks & at
-    Autostart: InProcServer (Software, NTUser, USRClass)
-  SysInternals keys eg. Software\SysInternals\Strings = EulaAccepted
-    Time relates to when app was first run
- Disable UserAssist: 
+  2. ProfileList both local and domain
+  3. Networking Config
+  4. Run key for persistence by administrator - boottime
+  5. Winlogin Notify key
+  6. Persistence
+    * Image File Execution Options / StickyKeys  (runs app at other app exec)
+    * appinit_DLLs (inject dll's into path)
+    * Shell Extensions
+    * Browser Helper Object (BHO)
+    * Scheduled Tasks (can exec at login) schtasks & at
+    * Autostart: InProcServer (Software, NTUser, USRClass)
+  7. SysInternals keys eg. Software\SysInternals\Strings = EulaAccepted
+    * Time relates to when app was first run
+  8. Disable UserAssist: 
    Location: XP HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\UserAssist
              Vista HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\Start_TrackProgs
    
 6. USRCLASS.DAT Location: Win2003- : Local Settings\Application Data\Microsoft\Windows\
                        Vista+   : AppData\Local\Microsoft\Windows\99999
-  MUICache : (Vista+) Executables w/o dates based on shell interactions
-  Shellbags: (Vista+)
-  Autostart: InProcServer (Software, NTUser, USRClass)
+  1. MUICache : (Vista+) Executables w/o dates based on shell interactions
+  2. Shellbags: (Vista+)
+  3. Autostart: InProcServer (Software, NTUser, USRClass)
 
 7. Amcache.hve: Win8 replacement of RecentFileCache.bcf
-  Location: \Windows\AppCompat\Programs\Amcache.hve
-  Provides: volume guid, first run, file path, file size, SHA1
-  Program subkey contains MSI installed files
+  * Location: \Windows\AppCompat\Programs\Amcache.hve
+  * Provides: volume guid, first run, file path, file size, SHA1
+  * Program subkey contains MSI installed files
 
 ##NON-REGISTRY ARTIFACTS
 
-Jumplists in Win7+
-  Path: %AppData%\MicrosoftAppData\Roaming\Microsoft\Windows\Recent\AutomaticDestinations
-  Provides: First time of execution, last time of execution
+8. Jumplists in Win7+
+  * Path: %AppData%\MicrosoftAppData\Roaming\Microsoft\Windows\Recent\AutomaticDestinations
+  * Provides: First time of execution, last time of execution
 
-RecentFileCache.bcf: Win compatibility DB
-  Location: C:\Windows\AppCompat\Programs\
+9. RecentFileCache.bcf: Win compatibility DB
+  * Location: C:\Windows\AppCompat\Programs\
 
-Prefetch: Increases performance by pre-loading code pages of run apps
-  Location: Win7/XP C:\Windows\Prefetch
-  disabled on server builds 
-  Executable, run count, size of pf, files/dirs referenced, volume
-  pf creation is first execution
-  last modify time is last time it was executed
-  Examine files/dir mapped by this and for files in close time prox
+10. Prefetch: Increases performance by pre-loading code pages of run apps
+  * Location: Win7/XP C:\Windows\Prefetch
+  * disabled on server builds 
+  * Executable, run count, size of pf, files/dirs referenced, volume
+  * pf creation is first execution
+  * last modify time is last time it was executed
+  * Examine files/dir mapped by this and for files in close time prox
   
-MFT
-  Full filename
-  Parent directory
-  File size, Creation Date, Mod Date, MFT Change Date, Access Date
-  Change times cannot be edited with a Windows API
-  $File_name timestamps are based on movement in b-tree
-  $Standard_Information timestamps are for MACE. Easily timestomped
-  $I30 timestamps are FN not SI timestamps
+11. MFT
+  * Full filename
+  * Parent directory
+  * File size, Creation Date, Mod Date, MFT Change Date, Access Date
+  * Change times cannot be edited with a Windows API
+  * $File_name timestamps are based on movement in b-tree
+  * $Standard_Information timestamps are for MACE. Easily timestomped
+  * $I30 timestamps are FN not SI timestamps
 
-USNJrnl
-  Records file/folder changes
-  Time of Change, reason, file/dir name, MFT record number, 
+12. USNJrnl
+  * Records file/folder changes
+  * Time of Change, reason, file/dir name, MFT record number, 
   
-Shortcut LNK files: Automatically created links
-  Location: XP C:\Documents and Settings\<username>\Recent\
+13. Shortcut LNK files: Automatically created links
+  * Location: XP C:\Documents and Settings\<username>\Recent\
             Win7 C:\Users\<user>\AppData\Roaming\Microsoft\Windows\Recent\
             Win7 C:\Users\<user>\AppData\Roaming\Microsoft\Office\Recent\
-  First and last time of opening (creation and last modified date)
-  LNKTarget File (Internal LNK File Information) Data:
-    Modified, Access, and Creation times of the target file
-    Volume Information (Name, Type, Serial Number), Name of System
-    Network Share information, Original Location
+  * First and last time of opening (creation and last modified date)
+  * LNKTarget File (Internal LNK File Information) Data:
+    * Modified, Access, and Creation times of the target file
+    * Volume Information (Name, Type, Serial Number), Name of System
+    * Network Share information, Original Location
     
-Applets - eg. regedit, wordpad, ms paint
-  regedit nas lastkey value
-  wordpad has recent file list
+14. Applets - eg. regedit, wordpad, ms paint
+  * regedit nas lastkey value
+  * wordpad has recent file list
   
-SRUM (System Resource Utilization Manager database)
-  Windows\sru
-  Network and length of connection, bytes written to HDD, applications executed with SID and runtimes
+15. SRUM (System Resource Utilization Manager database)
+  * Location: \Windows\sru
+  * Network and length of connection, bytes written to HDD, applications executed with SID and runtimes
 
-IExplore index.dat: IE activity.  Local and remote file activity via network shares
-  Does not limit to actiity run in Internet Explorer 
-  Location: XP %userprofile%\Local Settings\History\History.IE5
+16. IExplore index.dat: IE activity.  Local and remote file activity via network shares
+  * Does not limit to actiity run in Internet Explorer 
+  * Location: XP %userprofile%\Local Settings\History\History.IE5
             Win7 %userprofile%\AppData\Local\Microsoft\Windows\History\History.IE5
             Win7 %userprofile%\AppData\Local\Microsoft\Windows\History\Low\History.IE5
