@@ -1,6 +1,6 @@
-##REGISTRIES
-#####  
-1. NTUSER.dat  Location:Win2003-: Document and Settings\, Vista+: Users\
+## REGISTRIES
+#####
+1. **NTUSER.dat:**  Location:Win2003-: Document and Settings\, Vista+: Users\
   * **OpenSaveMRU:** Tracks files opened or saved within a Windows shell dialog box
     Location: XP NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\ComDlg32\OpenSaveMRU
               Win7 NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\ComDlg32\OpenSavePIDlMRU
@@ -47,76 +47,78 @@
   * **TrustRecords:** User clicked enable editing in Office. Not indicator of Enable Macros.
     Location: HKCU\Software\Microsoft\Office\15\Word\Security\Trusted Documents\TrustRecords
 
-2. SECURITY
-  * **Audit policy query
-  
-3. SAM
-  * Local Users and Groups and their security identifiers
+2. **SECURITY**
   * Location: \windows\system32\config\SAM
-  * Key: SAM\Domains\Account\Users
+  * Audit policy query
   
-4. SYSTEM
-  1. Services
-  2. Keys of interest
+3. **SAM**
+  * Location: \windows\system32\config\SAM
+  * Local Users and Groups and their security identifiers
+  * Users Key: SAM\Domains\Account\Users
+  
+4. **SYSTEM**
+  * Services
+  * Keys of interest
   * Prefetch is disabled/enabled in HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SessionManager\
-      Memory Management\PrefetchParameters
+    *  Memory Management\PrefetchParameters
   * Contains: ClearPagefileAtShutdown
     *	Existing Page Files
     *	PagingFiles
   * NtfsDisableLastAccessUpdate
   * NtfsDisable8dot3NameCreation
-  3. AppCompatCache: App compatibility db
-    Location: XP           SYSTEM\CurrentControlSet\Control\SessionManager\AppCompatibility
+  * AppCompatCache: App compatibility db
+    * Location: XP           SYSTEM\CurrentControlSet\Control\SessionManager\AppCompatibility
               Win7,Win2003 SYSTEM\CurrentControlSet\Control\Session Manager\AppCompatCache
-    Provides: last modify date and file path
-    For Win7 and later, this moved out of registry to Amcache and RecentFileCache.bcf
-  5. Legacy Registry Keys: First time service executed, DLL/driver path
-  6. USB: Devices recorded under ControlSet00#\Enum\USBStor/USB
+    * Provides: last modify date and file path
+    * For Win7 and later, this moved out of registry to Amcache and RecentFileCache.bcf
+  * Legacy Registry Keys: First time service executed, DLL/driver path
+  * USB: Devices recorded under ControlSet00#\Enum\USBStor/USB
        Mounts of them under MountedDevices and Control\DeviceClasses
 
-5. SOFTWARE
-  1. Vista/Win7 Network History: Tracks networks, last access time, SSID, domain name, gateway MAC
-    Location: SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Signatures\Unmanaged
+5. **SOFTWARE**
+  * Vista/Win7 Network History: Tracks networks, last access time, SSID, domain name, gateway MAC
+  *  Location: SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Signatures\Unmanaged
               SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Signatures\Managed
               SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Nla\Cache
-  2. ProfileList both local and domain
-  3. Networking Config
-  4. Run key for persistence by administrator - boottime
-  5. Winlogin Notify key
-  6. Persistence
+  * ProfileList both local and domain
+  * Networking Config
+  * Run key for persistence by administrator - boottime
+  * Winlogin Notify key
+  * Persistence
     * Image File Execution Options / StickyKeys  (runs app at other app exec)
     * appinit_DLLs (inject dll's into path)
     * Shell Extensions
     * Browser Helper Object (BHO)
     * Scheduled Tasks (can exec at login) schtasks & at
     * Autostart: InProcServer (Software, NTUser, USRClass)
-  7. SysInternals keys eg. Software\SysInternals\Strings = EulaAccepted
+  * SysInternals keys eg. Software\SysInternals\Strings = EulaAccepted
     * Time relates to when app was first run
-  8. Disable UserAssist: 
-   Location: XP HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\UserAssist
+  * Disable UserAssist: 
+    *Location: XP HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\UserAssist
              Vista HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\Start_TrackProgs
    
-6. USRCLASS.DAT Location: Win2003- : Local Settings\Application Data\Microsoft\Windows\
+6. **USRCLASS.DAT**
+  * Location: Win2003- : Local Settings\Application Data\Microsoft\Windows\
                        Vista+   : AppData\Local\Microsoft\Windows\99999
-  1. MUICache : (Vista+) Executables w/o dates based on shell interactions
-  2. Shellbags: (Vista+)
-  3. Autostart: InProcServer (Software, NTUser, USRClass)
+  * MUICache : (Vista+) Executables w/o dates based on shell interactions
+  * Shellbags: (Vista+)
+  * Autostart: InProcServer (Software, NTUser, USRClass)
 
-7. Amcache.hve: Win8 replacement of RecentFileCache.bcf
+7. **Amcache.hve:** Win8 replacement of RecentFileCache.bcf
   * Location: \Windows\AppCompat\Programs\Amcache.hve
   * Provides: volume guid, first run, file path, file size, SHA1
   * Program subkey contains MSI installed files
 
-##NON-REGISTRY ARTIFACTS
+## NON-REGISTRY ARTIFACTS
 
-8. Jumplists in Win7+
+8. **Jumplists in Win7+**
   * Path: %AppData%\MicrosoftAppData\Roaming\Microsoft\Windows\Recent\AutomaticDestinations
   * Provides: First time of execution, last time of execution
 
-9. RecentFileCache.bcf: Win compatibility DB
+9. **RecentFileCache.bcf:** Win compatibility DB
   * Location: C:\Windows\AppCompat\Programs\
 
-10. Prefetch: Increases performance by pre-loading code pages of run apps
+10. **Prefetch:** Increases performance by pre-loading code pages of run apps
   * Location: Win7/XP C:\Windows\Prefetch
   * disabled on server builds 
   * Executable, run count, size of pf, files/dirs referenced, volume
@@ -124,7 +126,7 @@
   * last modify time is last time it was executed
   * Examine files/dir mapped by this and for files in close time prox
   
-11. MFT
+11. **MFT**
   * Full filename
   * Parent directory
   * File size, Creation Date, Mod Date, MFT Change Date, Access Date
@@ -133,11 +135,11 @@
   * $Standard_Information timestamps are for MACE. Easily timestomped
   * $I30 timestamps are FN not SI timestamps
 
-12. USNJrnl
+12. **USNJrnl**
   * Records file/folder changes
   * Time of Change, reason, file/dir name, MFT record number, 
   
-13. Shortcut LNK files: Automatically created links
+13. **Shortcut LNK files:** Automatically created links
   * Location: XP C:\Documents and Settings\<username>\Recent\
             Win7 C:\Users\<user>\AppData\Roaming\Microsoft\Windows\Recent\
             Win7 C:\Users\<user>\AppData\Roaming\Microsoft\Office\Recent\
@@ -147,15 +149,15 @@
     * Volume Information (Name, Type, Serial Number), Name of System
     * Network Share information, Original Location
     
-14. Applets - eg. regedit, wordpad, ms paint
+14. **Applets:** eg. regedit, wordpad, ms paint
   * regedit nas lastkey value
   * wordpad has recent file list
   
-15. SRUM (System Resource Utilization Manager database)
+15. **SRUM (System Resource Utilization Manager database)**
   * Location: \Windows\sru
   * Network and length of connection, bytes written to HDD, applications executed with SID and runtimes
 
-16. IExplore index.dat: IE activity.  Local and remote file activity via network shares
+16. **IExplore index.dat:** IE activity.  Local and remote file activity via network shares
   * Does not limit to actiity run in Internet Explorer 
   * Location: XP %userprofile%\Local Settings\History\History.IE5
             Win7 %userprofile%\AppData\Local\Microsoft\Windows\History\History.IE5
