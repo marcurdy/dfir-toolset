@@ -1,29 +1,29 @@
 ##REGISTRIES
   
 1. NTUSER.dat  Location:Win2003-: Document and Settings\, Vista+: Users\
-  **OpenSaveMRU:** Tracks files opened or saved within a Windows shell dialog box
+  * **OpenSaveMRU:** Tracks files opened or saved within a Windows shell dialog box
     Location: XP NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\ComDlg32\OpenSaveMRU
               Win7 NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\ComDlg32\OpenSavePIDlMRU
-  **LastVisited/MRU:** Tracks executables used by app to open documents in OpenSaveMRU key
+  * **LastVisited/MRU:** Tracks executables used by app to open documents in OpenSaveMRU key
     Each list could have a diff method for identifying order
     Location: XP NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\ComDlg32\LastVisitedMRU
               Win7 NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\ComDlg32\LastVisitedPidlMRU
-  **Recent Files:** tracks files or folders within the "Recent" under the start menu
+  * **Recent Files:** tracks files or folders within the "Recent" under the start menu
     Location: NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\RecentDocs
-  **Office Recent Files:** Office specific recent files
+  * **Office Recent Files:** Office specific recent files
     Location: NTUSER.DAT\Software\Microsoft\Office\VERSION
       14.0 = Office 2010, 12.0 = Office 2007, 11.0 = Office 2003, 10.0 = Office XP
-  **RunMRU:** Tracks app run under start->programs choice
+  * **RunMRU:** Tracks app run under start->programs choice
     Location: NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU
-  **UserAssist:** track user interaction within Explorer shell for clicks
+  * **UserAssist:** track user interaction within Explorer shell for clicks
     Location: NTUSER.DAT\Software\Microsoft\Windows\Currentversion\Explorer\UserAssist\{GUID}\Count
     including start-programs but not start-run and typing app name
     Contains 2+ keys of GUIDs, 64-bit timestamp (last time run) and a occurance count
 	UEME_RUNPATH indicates an executable file was accessed
 	UEME_RUNPIDL is a pointer to an ItemIdList structure, i.e. a folder or shortcut
 	UEME_RUNCPL referring to Control Panel applets being clicked
-  **MUICache:** (XP, 2003), Executables w/o dates based on shell interactions
-  **Shellbags:** (XP, 2003 only): Tracks Explorer viewing preferences
+  * **MUICache:** (XP, 2003), Executables w/o dates based on shell interactions
+  * **Shellbags:** (XP, 2003 only): Tracks Explorer viewing preferences
     Can contain GUID to folder MRU, control panel, MFT reference number, external storage, zipped archives, explorer ftp
     Location: XP NTUSER.DAT\Software\Microsoft\Windows\Shell\Bags
               XP NTUSER.DAT\Software\Microsoft\Windows\Shell\BagMRU
@@ -33,27 +33,27 @@
               Win7 USRCLASS.DAT\Local Settings\Software\Microsoft\Windows\Shell\BagMRU
               Win7 NTUSER.DAT\Software\Microsoft\Windows\Shell\BagMRU
               Win7 NTUSER.DAT\Software\Microsoft\Windows\Shell\Bags
-  **XPSearch:** NTUSER.DAT\Software\Microsoft\SearchAssistant\ACMru\####
-  **Win7Search (WordWheelQuery):** NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\WordWheelQuery
-  **TypedPath:** Typed in Explorer or right of Windows icon
+  * **XPSearch:** NTUSER.DAT\Software\Microsoft\SearchAssistant\ACMru\####
+  * **Win7Search (WordWheelQuery):** NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\WordWheelQuery
+  * **TypedPath:** Typed in Explorer or right of Windows icon
     Location: ntuser.dat\Software\Microsoft\Windows\CurrentVersion\Explorer\TypedPaths
-  **TypedURL:** IE url's entered
+  * **TypedURL:** IE url's entered
     Location: NTUSER.DAT\Software\Microsoft\Internet Explorer\TypedURLs
-  **MountPoints2:** Find users that accessed a USB device
+  * **MountPoints2:** Find users that accessed a USB device
     Last write time of key is the last time the USB device was attached
     Location: NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\MountPoints2
-  **Runkey:** starts at user login. Too many locations to list.
+  * **Runkey:** starts at user login. Too many locations to list.
         RunOnce: Deleted after running unless prepended with "!"
-  **TrustRecords:** User clicked enable editing in Office. Not indicator of Enable Macros.
+  * **TrustRecords:** User clicked enable editing in Office. Not indicator of Enable Macros.
     Location: HKCU\Software\Microsoft\Office\15\Word\Security\Trusted Documents\TrustRecords
 
 2. SECURITY
-  **Audit policy query
+  * **Audit policy query
   
 3. SAM
-  *Local Users and Groups and their security identifiers
-  *Location: \windows\system32\config\SAM
-  *Key: SAM\Domains\Account\Users
+  * Local Users and Groups and their security identifiers
+  * Location: \windows\system32\config\SAM
+  * Key: SAM\Domains\Account\Users
   
 4. SYSTEM
   1. Services
