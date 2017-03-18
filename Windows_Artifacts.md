@@ -1,5 +1,5 @@
 ##REGISTRIES
-  
+#####  
 1. NTUSER.dat  Location:Win2003-: Document and Settings\, Vista+: Users\
   * **OpenSaveMRU:** Tracks files opened or saved within a Windows shell dialog box
     Location: XP NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\ComDlg32\OpenSaveMRU
