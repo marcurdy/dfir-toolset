@@ -1,13 +1,13 @@
 ## REGISTRIES
-#####
+
 1. **NTUSER.dat:**  Location:Win2003-: Document and Settings\, Vista+: Users\
-  * **OpenSaveMRU:** Tracks files opened or saved within a Windows shell dialog box
-    Location: XP NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\ComDlg32\OpenSaveMRU
-              Win7 NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\ComDlg32\OpenSavePIDlMRU
-  * **LastVisited/MRU:** Tracks executables used by app to open documents in OpenSaveMRU key
-    Each list could have a diff method for identifying order
-    Location: XP NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\ComDlg32\LastVisitedMRU
-              Win7 NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\ComDlg32\LastVisitedPidlMRU
+   * **OpenSaveMRU:** Tracks files opened or saved within a Windows shell dialog box
+     * Location: XP NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\ComDlg32\OpenSaveMRU
+                 Win7 NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\ComDlg32\OpenSavePIDlMRU
+   * **LastVisited/MRU:** Tracks executables used by app to open documents in OpenSaveMRU key
+     * Each list could have a diff method for identifying order
+     * Location: XP NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\ComDlg32\LastVisitedMRU  
+                 Win7 NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\ComDlg32\LastVisitedPidlMRU
   * **Recent Files:** tracks files or folders within the "Recent" under the start menu
     Location: NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\RecentDocs
   * **Office Recent Files:** Office specific recent files
