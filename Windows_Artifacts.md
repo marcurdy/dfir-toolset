@@ -1,6 +1,8 @@
 ## REGISTRIES
 
-1. **NTUSER.dat:**  Location:Win2003-: Document and Settings\, Vista+: Users\
+1. **NTUSER.dat:**  
+   * Location: Win2003-: %SYSTEMROOT%\Document and Settings\%USERNAME%, 
+               Vista+: %USERPROFILE%
    * **OpenSaveMRU:** Tracks files opened or saved within a Windows shell dialog box
      * Location: XP NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\ComDlg32\OpenSaveMRU
                  Win7 NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\ComDlg32\OpenSavePIDlMRU
@@ -15,17 +17,15 @@
       14.0 = Office 2010, 12.0 = Office 2007, 11.0 = Office 2003, 10.0 = Office XP
    * **RunMRU:** Tracks app run under start->programs choice
     Location: NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU
-   * **UserAssist:** track user interaction within Explorer shell for clicks
-    Location: NTUSER.DAT\Software\Microsoft\Windows\Currentversion\Explorer\UserAssist\{GUID}\Count
-    including start-programs but not start-run and typing app name
-    Contains 2+ keys of GUIDs, 64-bit timestamp (last time run) and a occurance count
-	UEME_RUNPATH indicates an executable file was accessed
-	UEME_RUNPIDL is a pointer to an ItemIdList structure, i.e. a folder or shortcut
-	UEME_RUNCPL referring to Control Panel applets being clicked
+   * **UserAssist:** track user interaction within Explorer shell for clicks including start->programs but not start->run and by typing the app name
+     * Location: NTUSER.DAT\Software\Microsoft\Windows\Currentversion\Explorer\UserAssist\{GUID}\Count 
+     * Contains 2+ keys of GUIDs, 64-bit timestamp (last time run) and a occurance count
+	 * UEME_RUNPATH indicates an executable file was accessed
+	 * UEME_RUNPIDL is a pointer to an ItemIdList structure, i.e. a folder or shortcut
+	 * UEME_RUNCPL referring to Control Panel applets being clicked
    * **MUICache:** (XP, 2003), Executables w/o dates based on shell interactions
    * **Shellbags:** (XP, 2003 only): Tracks Explorer viewing preferences
-    Can contain GUID to folder MRU, control panel, MFT reference number, external storage, zipped archives, explorer ftp
-    Location: XP NTUSER.DAT\Software\Microsoft\Windows\Shell\Bags
+     * Location: XP NTUSER.DAT\Software\Microsoft\Windows\Shell\Bags
               XP NTUSER.DAT\Software\Microsoft\Windows\Shell\BagMRU
               XP NTUSER.DAT\Software\Microsoft\Windows\ShellNoRoam\Bags
               XP NTUSER.DAT\Software\Microsoft\Windows\ShellNoRoam\BagMRU
@@ -33,30 +33,32 @@
               Win7 USRCLASS.DAT\Local Settings\Software\Microsoft\Windows\Shell\BagMRU
               Win7 NTUSER.DAT\Software\Microsoft\Windows\Shell\BagMRU
               Win7 NTUSER.DAT\Software\Microsoft\Windows\Shell\Bags
+     * Can contain GUID to folder MRU, control panel, MFT reference number, external storage, zipped archives, explorer ftp
    * **XPSearch:** NTUSER.DAT\Software\Microsoft\SearchAssistant\ACMru\####
    * **Win7Search (WordWheelQuery):** NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\WordWheelQuery
    * **TypedPath:** Typed in Explorer or right of Windows icon
-    Location: ntuser.dat\Software\Microsoft\Windows\CurrentVersion\Explorer\TypedPaths
+     * Location: ntuser.dat\Software\Microsoft\Windows\CurrentVersion\Explorer\TypedPaths
    * **TypedURL:** IE url's entered
-    Location: NTUSER.DAT\Software\Microsoft\Internet Explorer\TypedURLs
+     * Location: NTUSER.DAT\Software\Microsoft\Internet Explorer\TypedURLs
    * **MountPoints2:** Find users that accessed a USB device
-    Last write time of key is the last time the USB device was attached
-    Location: NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\MountPoints2
+     * Last write time of key is the last time the USB device was attached
+     * Location: NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\MountPoints2
    * **Runkey:** starts at user login. Too many locations to list.
-        RunOnce: Deleted after running unless prepended with "!"
+     * RunOnce: Deleted after running unless prepended with "!"
    * **TrustRecords:** User clicked enable editing in Office. Not indicator of Enable Macros.
-    Location: HKCU\Software\Microsoft\Office\15\Word\Security\Trusted Documents\TrustRecords
+     * Location: HKCU\Software\Microsoft\Office\15\Word\Security\Trusted Documents\TrustRecords
 
 2. **SECURITY**
-   * Location: \windows\system32\config\SAM
+   * Location: %WINDIR%\system32\config\SAM
    * Audit policy query
   
 3. **SAM**
-   * Location: \windows\system32\config\SAM
+   * Location: %WINDIR%\system32\config\SAM
    * Local Users and Groups and their security identifiers
    * Users Key: SAM\Domains\Account\Users
   
 4. **SYSTEM**
+   * Location: %WINDIR%\system32\config\SAM
    * Services
    * Keys of interest
    * Prefetch is disabled/enabled in HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SessionManager\
@@ -76,15 +78,16 @@
      Mounts of them under MountedDevices and Control\DeviceClasses
 
 5. **SOFTWARE**
+   * Location: %WINDIR%\system32\config\SAM
    * Vista/Win7 Network History: Tracks networks, last access time, SSID, domain name, gateway MAC
-   *  Location: SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Signatures\Unmanaged
-                SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Signatures\Managed
-                SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Nla\Cache
-   * ProfileList both local and domain
+     *  Location: SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Signatures\Unmanaged
+                  SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Signatures\Managed
+                  SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Nla\Cache
+   * ProfileList of accounts both local and domain
    * Networking Config
-   * Run key for persistence by administrator - boottime
    * Winlogin Notify key
    * Persistence
+     * Run key for persistence by administrator - boottime
      * Image File Execution Options / StickyKeys  (runs app at other app exec)
      * appinit_DLLs (inject dll's into path)
      * Shell Extensions
@@ -98,35 +101,36 @@
                  Vista HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\Start_TrackProgs
    
 6. **USRCLASS.DAT**
-   * Location: Win2003- : Local Settings\Application Data\Microsoft\Windows\
-               Vista+   : AppData\Local\Microsoft\Windows\99999
+   * Location: Win2003- : %USERPROFILE%\Local Settings\Application Data\Microsoft\Windows\
+               Vista+   : %USERPROFILE%\AppData\Local\Microsoft\Windows\99999
    * MUICache : (Vista+) Executables w/o dates based on shell interactions
    * Shellbags: (Vista+)
    * Autostart: InProcServer (Software, NTUser, USRClass)
 
 7. **Amcache.hve:** Win8 replacement of RecentFileCache.bcf
-   * Location: \Windows\AppCompat\Programs\Amcache.hve
+   * Location: %WINDIR%\AppCompat\Programs\Amcache.hve
    * Provides: volume guid, first run, file path, file size, SHA1
    * Program subkey contains MSI installed files
 
 ## NON-REGISTRY ARTIFACTS
 
 8. **Jumplists in Win7+**
-   * Path: %AppData%\MicrosoftAppData\Roaming\Microsoft\Windows\Recent\AutomaticDestinations
+   * Path: %USERPROFILE%\AppData\Roaming\Microsoft\Windows\Recent\AutomaticDestinations
    * Provides: First time of execution, last time of execution
 
 9. **RecentFileCache.bcf:** Win compatibility DB
-   * Location: C:\Windows\AppCompat\Programs\
+   * Location: %WINDIR%\AppCompat\Programs\
 
 10. **Prefetch:** Increases performance by pre-loading code pages of run apps
-    * Location: Win7/XP C:\Windows\Prefetch
-    * disabled on server builds 
+    * Location: Win7/XP %WINDIR%\Prefetch
+    * Disabled on server builds 
     * Executable, run count, size of pf, files/dirs referenced, volume
     * pf creation is first execution
     * last modify time is last time it was executed
     * Examine files/dir mapped by this and for files in close time prox
   
 11. **MFT**
+    * Location: %SYSTEMROOT%\$MFT
     * Full filename
     * Parent directory
     * File size, Creation Date, Mod Date, MFT Change Date, Access Date
@@ -140,9 +144,9 @@
     * Time of Change, reason, file/dir name, MFT record number, 
   
 13. **Shortcut LNK files:** Automatically created links
-    * Location: XP C:\Documents and Settings\<username>\Recent\
-                Win7 C:\Users\<user>\AppData\Roaming\Microsoft\Windows\Recent\
-                Win7 C:\Users\<user>\AppData\Roaming\Microsoft\Office\Recent\
+    * Location: XP %SYSTEMROOT%\Documents and Settings\%USERPROFILE%\Recent\
+                Win7 %USERPROFILE%\AppData\Roaming\Microsoft\Windows\Recent\
+                Win7 %USERPROFILE%\AppData\Roaming\Microsoft\Office\Recent\
     * First and last time of opening (creation and last modified date)
     * LNKTarget File (Internal LNK File Information) Data:
       * Modified, Access, and Creation times of the target file
@@ -154,11 +158,11 @@
     * wordpad has recent file list
   
 15. **SRUM (System Resource Utilization Manager database)**
-    * Location: \Windows\sru
+    * Location: %WINDIR%\sru
     * Network and length of connection, bytes written to HDD, applications executed with SID and runtimes
 
 16. **IExplore index.dat:** IE activity.  Local and remote file activity via network shares
     * Does not limit to actiity run in Internet Explorer 
     * Location: XP %userprofile%\Local Settings\History\History.IE5
-                Win7 %userprofile%\AppData\Local\Microsoft\Windows\History\History.IE5
-                Win7 %userprofile%\AppData\Local\Microsoft\Windows\History\Low\History.IE5
+                Win7 %APPDATA%\Local\Microsoft\Windows\History\History.IE5
+                Win7 %APPDATA%\AppData\Local\Microsoft\Windows\History\Low\History.IE5
