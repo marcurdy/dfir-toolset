@@ -7,45 +7,49 @@ Blueteam Powershell Recommendations
    requires PowerShell v3 and newer and PowerShell v4 adds some additional log detail (Windows 2012 R2 & Windows 8.1 with November
    2014 roll-up KB300850) useful for discovering and tracking attack activity.
    PowerShell logging can be enabled via Group Policy for PowerShell modules:
-	  Microsoft.PowerShell.* ñ Log most of PowerShellís core capability.
-	  ActiveDirectory ñ Log Active Directory cmdlet use.
-	  BITSTransfer ñ Logs use of BITS cmdlets.
-	  CimCmdlets (2012R2/8.1) ñ Logs cmdlets that interface with CIM.
-	  GroupPolicyñ Log Group Policy cmdlet use.
-	  Microsoft.WSMan.Management ñ Logs cmdlets that manage Web Services for Management (WS-Management) and Windows Remote Management (WinRM).
-	  NetAdapter/NetConnection ñ Logs Network related cdmdlets.
-	  PSScheduledJob/ScheduledTasks (PSv5) ñ Logs cmdlets to manage scheduled jobs.
-	  ServerManager ñ Log Server Manager cmdlet use.
-	  SmbShare ñ Log SMB sharing activity.
-   PowerShell logging can also be configured for all PowerShell modules (ì*î) useful if the attacker has imported custom modules
+	  Microsoft.PowerShell.* ‚Äì Log most of PowerShell‚Äôs core capability.
+	  ActiveDirectory ‚Äì Log Active Directory cmdlet use.
+	  BITSfer ‚Äì Logs use of BITS cmdlets.
+	  CimCmdlets (2012R2/8.1) ‚Äì Logs cmdlets that interface with CIM.
+	  GroupPolicy‚Äì Log Group Policy cmdlet use.
+	  Microsoft.WSMan.Management ‚Äì Logs cmdlets that manage Web Services for Management (WS-Management) and Windows Remote Management (WinRM).
+	  NetAdapter/NetConnection ‚Äì Logs Network related cdmdlets.
+	  PSScheduledJob/ScheduledTasks (PSv5) ‚Äì Logs cmdlets to manage scheduled jobs.
+	  ServerManager ‚Äì Log Server Manager cmdlet use.
+	  SmbShare ‚Äì Log SMB sharing activity.
+   PowerShell logging can also be configured for all PowerShell modules (‚Äú*‚Äù) useful if the attacker has imported custom modules
 
 2a) Transcription
 PowerShell now transcribes what it can of console commands that manipulate the console buffer directly and can 
-now be enabled in hosts such as the PowerShell ISE.  To enable automatic transcription, enable the ëTurn on 
-PowerShell Transcriptioní feature in Group Policy through Windows Components -> Administrative Templates -> 
-Windows PowerShell. For automation, the configuration settings are 
-stored under HKLM:\Software\Policies\Microsoft\Windows\PowerShell\Transcription.
-
+now be enabled in hosts such as the PowerShell ISE.  
+Create a directory to hold transcripts.  
+Set permissions on the directory to prevent tampering. (I chose SDDL for the shortest code here.)  
+Trim the transcript directory contents on an interval to avoid filling the drive (if local).  
+To enable automatic transcription, enable the ‚ÄòTurn on PowerShell Transcription‚Äô feature in Group Policy through Windows Components -> Administrative Templates -> Windows PowerShell. For automation, the configuration settings are:  
+HKLM:\Software\Policies\Microsoft\Windows\PowerShell\Transcription  
+EnableTranscripting, 1  
+IncludeInvocationHeader,1  
+OutputDirectory, [Path]  
+  
 2b) Script Block Logging
 PowerShell v5 and KB 3000850 introduces deep script block logging. This exposes what is being run.
-To enable automatic transcription, enable the ëTurn on PowerShell Script Block Loggingí feature in Group Policy 
-through Windows Components -> Administrative Templates -> Windows PowerShell.  For automation, the configuration 
-settings are stored under HKLM:\Software\Policies\Microsoft\Windows\PowerShell\ScriptBlockLogging. If you select 
-ëLog script block invocation start / stop eventsí, PowerShell also logs start and stop events for every time a 
-script block is invoked. This latter setting can generate an extremely high volume of events, so should be enabled 
-with caution.
-
+To enable automatic transcription, enable the ‚ÄòTurn on PowerShell Script Block Logging‚Äô feature in Group Policy 
+through Windows Components -> Administrative Templates -> Windows PowerShell.  If you select ‚ÄòLog script block invocation start / stop events‚Äô, PowerShell also logs start and stop events for every time a script block is invoked. This latter setting can generate an extremely high volume of events, so should be enabled with caution.  For automation, the configuration settings are stored under HKLM:\Software\Policies\Microsoft\Windows\PowerShell\ScriptBlockLogging.  
+EnableScriptBlockLogging, 1  
+EnableScriptBlockInvocationLogging, 1  
+It may also be a good idea to increase the log size. The Microsoft-Windows-PowerShell/Operational log is 15MB by default.  
+  
 2c) Protected Event Logging 
 Enable this to allow legitimate PS users to encrypt sensitive information that might be otherwise exposed in 
 script block logging.
 
 3) Constrained Powershell - Whitelisting
 
-The strongest form of protection is when a system employs AppLocker in ëAllow Modeí, where only specific known 
+The strongest form of protection is when a system employs AppLocker in ‚ÄòAllow Mode‚Äô, where only specific known 
 applications are allowed to run.  Known applications can restrict execution from script from a protected directory
 or signed by the enterprise's trusted code signing certificate. In version 5, PowerShell reduces the script's 
-functionality to ìConstrained Modeî for both interactive input and user-authored scripts when it detects that 
-PowerShell scripts have an ëAllow Modeí policy applied to them.  Before Powershell 5, the commands can be entered 
+functionality to ‚ÄúConstrained Mode‚Äù for both interactive input and user-authored scripts when it detects that 
+PowerShell scripts have an ‚ÄòAllow Mode‚Äô policy applied to them.  Before Powershell 5, the commands can be entered 
 manually.  This doesn't stop execution from a manually installed and portable version of an earlier Powershell.
 
 4) Detect Powershell generated EventId's within a SIEM or equivalent
@@ -136,3 +140,10 @@ PAGE_EXECUTE_READ
 Net.Sockets.SocketFlags
 SECURITY_DELEGATION
 Metasploit
+
+7) Protected event logging (can be used together with Windows Event Forwarding)  
+Requires Windows 10 or Windows Server 2016  
+Requires a document encryption certificate  
+HKLM:\Software\Policies\Microsoft\Windows\EventLog\ProtectedEventLogging  
+EnableProtectedEventLogging, 1  
+EncryptionCertificate, [Certificate]  
