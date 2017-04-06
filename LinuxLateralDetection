@@ -17,8 +17,10 @@ Checking for Lateral Movement on Linux
   d. Historical logins/logouts: /var/log/utmp  
   e. Failed logins: /var/log/btmp 
 3. Check bash history where bash is the user’s shell (ksh, csh differ)
-  •	Assuming no timestamps are in USERHOME/.bash_history, you can do temporal searches based on the bash_history last modify times knowing that was the most recent logout time.  
-  •	Never assume bash_history is in execution order.  Two shells running commands at the same time will dump each of their history blocks only when that shell terminates.
+  •	Assuming no timestamps are in USERHOME/.bash_history, you can do temporal searches based on the bash_history 
+    last modify times knowing that was the most recent logout time.  
+  •	Never assume bash_history is in execution order.  Two shells running commands at the same time will dump each
+    of their history blocks only when that shell terminates.
   •	The file can be hand edited or removed by the user
   •	Suggest that the customer deploys bash history time stamps.
 4. Check timestamps within home directories
