@@ -9,9 +9,9 @@ Checking for Lateral Movement on Linux
       •	Change times (metadata e.g. chown) are not easily timestomped
 2. Examine logins around the time of event 
   a. Check the syslog configuration for log filenames. Below is typical.
-    •	/var/log/secure* or /var/log/auth*
-    •	/var/log/messages* or /var/log/syslog*
-    •	/var/log/*
+    • /var/log/secure* or /var/log/auth*
+    • /var/log/messages* or /var/log/syslog*
+    • /var/log/*
   b. Logins housed in a DB read with “last –f <filename>”
   c. Current logins: /var/run/wtmp  
   d. Historical logins/logouts: /var/log/utmp  
@@ -33,17 +33,17 @@ Checking for Lateral Movement on Linux
   • Current logs: /var/log/secure  or /var/log/auth
   • Historical logs: /var/log/secure-YYYYMMDD 
 7. Check application logs
-  •	Typically do not log through syslog if the software was not installed by the package manager
-  •	Can exist anywhere on the system
-  •	LLR collections *.log off disk into otheroslogs.tar.gz but would skip *.log.gz
+  • Typically do not log through syslog if the software was not installed by the package manager
+  • Can exist anywhere on the system
+  • LLR collections *.log off disk into otheroslogs.tar.gz but would skip *.log.gz
 8. Examine audit logs
   • /var/log/audit.log if installed and running
   • Contents are dependent on administrator’s custom configuration
   • ausearch is powerful for searching audit.log
   • aureport generates a report on audit.log
 9. If the image or access to the filesystem is available, use the Sleuthkit to make a timeline
-  •	fls –rd / > filedump.txt
-  •	mactime –b filedump.txt > filedump_mac.txt 
+  • fls –rd / > filedump.txt
+  • mactime –b filedump.txt > filedump_mac.txt 
 
 Specific notes for this case:
 • Note log gaps that correspond with event timeframe  
