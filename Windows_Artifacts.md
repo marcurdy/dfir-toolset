@@ -1,19 +1,19 @@
 ## Types of evidence  
   
-Evidence of Execution  
+### Evidence of Execution  
 * AppCompatCache aka Shimcache
 * RecentFileCache.bcf
 * Amcache
 * Prefetch
 * UserAssist
-* MUICache
-File Creation, Modification, and Access  
+* MUICache  
+### File Creation, Modification, and Access  
 * MFT
-* USNJrnl
-Document Creation and Opening  
+* USNJrnl  
+### Document Creation and Opening  
 * LNK
-* Jumplists
-Explorer interactions  
+* Jumplists  
+### Explorer interactions  
 * Shellbags
 * OpenSaveMRU
 * LastVisitedMRU
@@ -22,8 +22,8 @@ Explorer interactions
 * WordWheelQuery
 * TypedPath
 * TypedURL
-* MountPoints2
-Networking  
+* MountPoints2  
+### Networking  
 * SRUM
 
 ## Tools to use for evidence
