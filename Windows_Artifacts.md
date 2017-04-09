@@ -1,4 +1,34 @@
-## REGISTRIES
+## Types of evidence  
+  
+Evidence of Execution  
+* AppCompatCache aka Shimcache
+* RecentFileCache.bcf
+* Amcache
+* Prefetch
+* UserAssist
+* MUICache
+File Creation, Modification, and Access  
+* MFT
+* USNJrnl
+Document Creation and Opening  
+* LNK
+* Jumplists
+Explorer interactions  
+* Shellbags
+* OpenSaveMRU
+* LastVisitedMRU
+* (Office) Recent Files
+* RunMRU
+* WordWheelQuery
+* TypedPath
+* TypedURL
+* MountPoints2
+Networking  
+* SRUM
+
+## Locations of evidence
+
+### REGISTRIES
 
 1. **NTUSER.dat:**  
    * Location: Win2003-: %SYSTEMROOT%\Document and Settings\%USERNAME%  
@@ -10,9 +40,11 @@
 	 * UEME_RUNPATH indicates an executable file was accessed
 	 * UEME_RUNPIDL is a pointer to an ItemIdList structure, i.e. a folder or shortcut
 	 * UEME_RUNCPL referring to Control Panel applets being clicked
-   * **MUICache:** (XP, 2003)
+   * **MUICache:**
      * Purpose: Executables w/o dates based on shell interactions
-     * Location: ntuser.dat\Software\Microsoft\Windows\ShellNoRoam\MUICache
+     * Location:  
+       * (XP, 2003) ntuser.dat\Software\Microsoft\Windows\ShellNoRoam\MUICache
+       * (Vista+) ntuser.dat\Software\Classes\Local Settings\Software\Microsoft\Windows\Shell\MuiCache
    * **Shellbags:** (XP, 2003 only)
      * Purpose: Tracks Explorer viewing preferences
      * Location: XP NTUSER.DAT\Software\Microsoft\Windows\Shell*
@@ -49,12 +81,16 @@
    * **TypedURL:** 
      * Purpose: History of typed URL's
      * Location: NTUSER.DAT\Software\Microsoft\Internet Explorer\TypedURLs
+   * **Map Network Drive MRU:**
+     * Purpose: Per user history of networking mapping
+     * Location: ntuser.dat\Software\Microsoft\Windows\CurrentVersion\Explorer\Map Network Drive MRU  
+       Location: ntuser.dat\Network\Z  
    * **MountPoints2:**
      * Purpose: Find users that accessed a USB device
      * Location: NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\MountPoints2
      * Last write time of key is the last time the USB device was attached
    * **Runkey:** 
-     * Purpose: PRocess execution starting at user login
+     * Purpose: Process execution starting at user login
      * Location: Seek external resource for a complete list
      * RunOnce: Deleted after running unless prepended with "!"
    * **TrustRecords:**
@@ -66,12 +102,14 @@
                Vista+   : %USERPROFILE%\AppData\Local\Microsoft\Windows\
    * MUICache : (Vista+) Executables w/o dates based on shell interactions
      * usrclass.dat\Local Settings\Software\Microsoft\Windows\Shell\MuiCache
-   * Shellbags: (Vista+)
+     * usrclass.dat\Local Settings\MuiCache
+
+* Shellbags: (Vista+)
      * Location: USRCLASS.DAT\Local Settings\Software\Microsoft\Windows\Shell*
    * Autostart: InProcServer (Software, NTUser, USRClass)
 
 2. **SECURITY**
-   * Location: %WINDIR%\system32\config\SAM
+   * Location: %WINDIR%\system32\config\Security
    * Audit policy query
   
 3. **SAM**
@@ -124,19 +162,20 @@
                  Vista HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\Start_TrackProgs
    
 7. **Amcache.hve:** 
-   * Purpose: Win8 replacement of Appcompatcache called RecentFileCache.bcf in Win7
+   * Purpose: Win8 replacement of Application compatibility database
+   * (Called Appcompatcache Win7 and earlier. Called RecentFileCache.bcf in Win7)
    * Location: %WINDIR%\AppCompat\Programs\Amcache.hve
    * Provides: volume guid, first run, file path, file size, SHA1
    * Program subkey contains MSI installed files
 
-## NON-REGISTRY ARTIFACTS
+### NON-REGISTRY ARTIFACTS
 
 8. **Jumplists in Win7+**
    * Path: %USERPROFILE%\AppData\Roaming\Microsoft\Windows\Recent\AutomaticDestinations
    * Provides: First time of execution, last time of execution
 
 9. **RecentFileCache.bcf:**
-   * Purpose: Windows application compatibility database
+   * Purpose: Windows application compatibility database for Win7
    * Location: %WINDIR%\AppCompat\Programs\
 
 10. **Prefetch:** 
@@ -186,3 +225,9 @@
 16. **Applets:** eg. regedit, wordpad, ms paint
     * regedit nas lastkey value
     * wordpad has recent file list
+
+### References:  
+* https://tzworks.net/prototypes/cafae/cafae.users.guide.pdf
+* https://digital-forensics.sans.org/community/cheat-sheets
+* https://www.elsevier.com/books/windows-registry-forensics/carvey/978-0-12-803291-6
+* I also thank the dozens of others where I found one-off details  
