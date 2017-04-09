@@ -51,13 +51,15 @@ Networking
        * (Vista+) ntuser.dat\Software\Classes\Local Settings\Software\Microsoft\Windows\Shell\MuiCache
    * **Shellbags:** (XP, 2003 only)
      * Purpose: Tracks Explorer viewing preferences
-     * Location: XP NTUSER.DAT\Software\Microsoft\Windows\Shell*
-       For newer systems, see USRCLASS.DAT
+     * Location:
+       * (XP) NTUSER.DAT\Software\Microsoft\Windows\Shell
+       * For newer systems, Shellbags moved to USRCLASS.DAT
      * Can contain GUID to folder MRU, control panel, MFT reference number, external storage, zipped archives, explorer ftp
    * **OpenSaveMRU:** 
      * Purpose: Tracks files opened or saved within a Windows shell dialog box
-     * Location: XP NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\ComDlg32\OpenSaveMRU
-                 Win7 NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\ComDlg32\OpenSavePIDlMRU
+     * Location
+       * (XP) NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\ComDlg32\OpenSaveMRU
+       * (Win7+) NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\ComDlg32\OpenSavePIDlMRU
    * **LastVisited/MRU:** 
      * Purpose: Tracks executables used by app to open documents in OpenSaveMRU key
      * Each list could have a diff method for identifying order
@@ -104,13 +106,16 @@ Networking
 2. **USRCLASS.DAT**
    * Location: Win2003- : %USERPROFILE%\Local Settings\Application Data\Microsoft\Windows\
                Vista+   : %USERPROFILE%\AppData\Local\Microsoft\Windows\
-   * MUICache : (Vista+) Executables w/o dates based on shell interactions
-     * usrclass.dat\Local Settings\Software\Microsoft\Windows\Shell\MuiCache
-     * usrclass.dat\Local Settings\MuiCache
+   * MUICache : (Vista+)
+     * Purpose: While a files is executed via Explorer, the program shell creates a MUICache entry
+     * Provides: executables without dates
+     * Location:
+       * usrclass.dat\Local Settings\Software\Microsoft\Windows\Shell\MuiCache
+       * usrclass.dat\Local Settings\MuiCache
 
 * Shellbags: (Vista+)
-     * Location: USRCLASS.DAT\Local Settings\Software\Microsoft\Windows\Shell*
-   * Autostart: InProcServer (Software, NTUser, USRClass)
+  * Purpose: Tracks Explorer viewing preferences
+  * Location: USRCLASS.DAT\Local Settings\Software\Microsoft\Windows\Shell*
 
 2. **SECURITY**
    * Location: %WINDIR%\system32\config\Security
@@ -123,16 +128,16 @@ Networking
   
 4. **SYSTEM**
    * Location: %WINDIR%\system32\config\SAM
-   * Services
+   * Services registered
    * AppCompatCache
      * Purpose: Application compatibility database
-     * Location: XP            SYSTEM\CurrentControlSet\Control\SessionManager\AppCompatibility
-                 Win7,Win2003+ SYSTEM\CurrentControlSet\Control\Session Manager\AppCompatCache
+     * Location: XP            CurrentControlSet\Control\SessionManager\AppCompatibility
+                 Win7,Win2003+ CurrentControlSet\Control\Session Manager\AppCompatCache
      * Provides: last modify date and file path
      * For Win7 and later, this moved out of registry to Amcache and RecentFileCache.bcf
    * Legacy Registry Keys: First time service executed, DLL/driver path
-   * USB: Devices recorded under ControlSet00#\Enum\USBStor/USB
-     Mounts of them under MountedDevices and Control\DeviceClasses
+   * USB: Devices recorded under ControlSet00#\Enum\USBStor/USB  
+     Mounts of them under MountedDevices and Control\DeviceClasses  
    * Interesting Keys
      * Prefetch is disabled/enabled in HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SessionManager\
        Memory Management\PrefetchParameters
@@ -146,12 +151,14 @@ Networking
    * Location: %WINDIR%\system32\config\SAM
    * List of installed software by way of the Uninstall key
      * Location: HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall
-   * Vista/Win7 Network History: Tracks networks, last access time, SSID, domain name, gateway MAC
-     *  Location: SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\*
-   * ProfileList of accounts both local and domain
+   * Vista/Win7 Network History  
+     * Location: SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\*
+     * Provides: Tracks networks, last access time, SSID, domain name, gateway MAC
+   * ProfileList
      * Location: SOFTWARE\Microsoft\Windows NT\CurrentVersion\ProfileList
+     * Provides: Accounts having logged in both local and domain  
    * Networking Config
-   * Persistence
+   * Persistence (not all listed)  
      * Run key for persistence by administrator - boottime
      * Image File Execution Options / StickyKeys  (runs app at other app exec)
      * appinit_DLLs (inject dll's into path)
@@ -162,8 +169,9 @@ Networking
    * SysInternals keys eg. Software\SysInternals\Strings = EulaAccepted
      * Time relates to when app was first run
    * Disable UserAssist: 
-     * Location: XP HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\UserAssist
-                 Vista HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\Start_TrackProgs
+     * Location:
+       * (XP) HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\UserAssist
+       * (Vista+) HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\Start_TrackProgs
    
 7. **Amcache.hve:** 
    * Purpose: Win8 replacement of Application compatibility database
@@ -181,34 +189,36 @@ Networking
 9. **RecentFileCache.bcf:**
    * Purpose: Windows application compatibility database for Win7
    * Location: %WINDIR%\AppCompat\Programs\
+   * Provides: last modify date and file path
 
 10. **Prefetch:** 
     * Purpose: Increases performance by pre-loading code pages of run apps
     * Location: Win7/XP %WINDIR%\Prefetch
     * Disabled on server builds 
-    * Executable, run count, size of pf, files/dirs referenced, volume
+    * Provides: Executable, run count, size of pf, files/dirs referenced, volume
     * pf creation is first execution
     * last modify time is last time it was executed
     * Examine files/dir mapped by this and for files in close time prox
   
 11. **MFT:**
     * Location: %SYSTEMROOT%\$MFT
-    * Full filename
-    * Parent directory
-    * File size, Creation Date, Mod Date, MFT Change Date, Access Date
+    * Provides:
+      * Full filename, Parent directory
+      * File size, Creation Date, Mod Date, MFT Change Date, Access Date
     * Change times cannot be edited with a Windows API
     * $File_name timestamps are based on movement in b-tree
     * $Standard_Information timestamps are for MACE. Easily timestomped
     * $I30 timestamps are FN not SI timestamps
 
 12. **USNJrnl**
-    * Records file/folder changes
-    * Time of Change, reason, file/dir name, MFT record number, 
+    * Purpose: Records file/folder changes for maintaining the filesystem
+    * Provides: Time of Change, reason, file/dir name, MFT record number, 
   
 13. **Shortcut LNK files:** 
-    * Location: XP %SYSTEMROOT%\Documents and Settings\%USERPROFILE%\Recent\
-                Win7 %USERPROFILE%\AppData\Roaming\Microsoft\Windows\Recent\
-                Win7 %USERPROFILE%\AppData\Roaming\Microsoft\Office\Recent\
+    * Location:
+      * (XP) %SYSTEMROOT%\Documents and Settings\%USERPROFILE%\Recent\
+      * (Win7) %USERPROFILE%\AppData\Roaming\Microsoft\Windows\Recent\
+      * (Win7) %USERPROFILE%\AppData\Roaming\Microsoft\Office\Recent\
     * Automatically created links. Not for manual shortcuts
     * First and last time of opening (creation and last modified date)
     * LNKTarget File (Internal LNK File Information) Data:
@@ -218,20 +228,22 @@ Networking
     
 14. **SRUM (System Resource Utilization Manager database)**
     * Location: %WINDIR%\sru
-    * Network and length of connection, bytes written to HDD, applications executed with SID and runtimes
+    * Windows 8 and later
+    * Provides: Network and length of connection, bytes written to HDD, applications executed with SID and runtimes
 
 15. **IExplore index.dat:** IE activity.  Local and remote file activity via network shares
     * Does not limit to actiity run in Internet Explorer 
-    * Location: XP %userprofile%\Local Settings\History\History.IE5
-                Win7 %APPDATA%\Local\Microsoft\Windows\History\History.IE5
-                Win7 %APPDATA%\AppData\Local\Microsoft\Windows\History\Low\History.IE5
+    * Location:
+      * (XP) %userprofile%\Local Settings\History\History.IE5
+      * (Win7) %APPDATA%\Local\Microsoft\Windows\History\History.IE5
+      * (Win7) %APPDATA%\AppData\Local\Microsoft\Windows\History\Low\History.IE5
 
 16. **Applets:** eg. regedit, wordpad, ms paint
     * regedit nas lastkey value
     * wordpad has recent file list
 
 ### References:  
+* https://www.elsevier.com/books/windows-registry-forensics/carvey/978-0-12-803291-6
 * https://tzworks.net/prototypes/cafae/cafae.users.guide.pdf
 * https://digital-forensics.sans.org/community/cheat-sheets
-* https://www.elsevier.com/books/windows-registry-forensics/carvey/978-0-12-803291-6
 * I also thank the dozens of others where I found one-off details  
