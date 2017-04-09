@@ -26,6 +26,10 @@ Explorer interactions
 Networking  
 * SRUM
 
+## Tools to use for evidence
+[Tools of the Game under github.com/marcurdy](ToolsOfTheGame.md)  
+  
+  
 ## Locations of evidence
 
 ### REGISTRIES
