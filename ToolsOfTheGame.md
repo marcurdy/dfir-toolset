@@ -1,5 +1,5 @@
 # dfir-toolset
-I'm collecting, sorting, and making order out of the available tools.  I'm housing my experience with opensource tools with an emphasis on Linux as the DF host OS.  Much of this comes from Remnux and SIFT.  A few come from Kali.  Others are pulled straight from Github.  I am working to eliminate the noise caused by orphaned, redundant, or superceded all-in-one software.  
+Below is the attempt at keeping an up-to-date list of the best tools available.  I've included TZWorks despite it being commercial due to it being a powerhouse tool.  I am working to eliminate the noise caused by orphaned, redundant, or superceded all-in-one software.  
 
 **Links to other lists of awesome tools**
 * IR https://github.com/meirwah/awesome-incident-response
@@ -252,7 +252,7 @@ dsniff(captures user data over common protos), aircrack-ng (WEP and WPA-PSK keys
 * shoWin (reveal passwords by Mcafee)  
 * Vision (maps net ports to apps by Mcafee)  
 
-** Windows Internals Suite**  
+** Microsoft's SysInternals Suite**  
 
 Tool | Image Name | Origin 
 ---- | ---------- | ------  
