@@ -185,6 +185,7 @@ Implement RDP Restricted Admin Mode
 Restrict who needs domain group member to seEnableDelegationPrivilege
   
 Event ID | Legacy Event ID | Potential Criticality | Event Summary
+--- | --- | --- | ---
 4618 | N/A | High | A monitored security event pattern has occurred.
 4649 | N/A | High | A replay attack was detected. May be a harmless false positive due to misconfiguration error. This event indicates that a Kerberos replay attack was detected- a request was received twice with identical information. This condition could be caused by network misconfiguration.  
   
@@ -195,8 +196,8 @@ Event ID | Legacy ID | Severity | Description
 N/A | 106,140,141 | High | Task Schedler Event
 N/A | 517 | Medium to High | Logs cleared
 N/A | 550 | Medium to High | Possible denial-of-service (DoS) attack
-- | 619 | Medium | Quality of Service Policy changed
-- | 640 | Medium | General account database changed
+X | 619 | Medium | Quality of Service Policy changed
+X | 640 | Medium | General account database changed
 1102 | 517 | Medium to High | The audit log was cleared
 4621 | N/A | Medium | Administrator recovered system from CrashOnAuditFail. Users who are not administrators will now be allowed to log on. Some auditable activity might not have been recorded.
 4624 | N/A | Medium | Type 3 login event scheduled task
