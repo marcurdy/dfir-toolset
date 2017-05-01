@@ -42,6 +42,7 @@ Below is the attempt at keeping an up-to-date list of the best tools available. 
 * safecopy (file restore from damaged sources)
 * hachoir (Read windows metadata)
 * Rifiuti (recycle bin analysis)
+* Recycle Bin Recovery (RecoverBits)
 * testdisk (restore lost partitions), kpartx
 * extundelete (ext3/4 file rest), recoverjpeg, vinetto (thumbs.db examiner)
   
