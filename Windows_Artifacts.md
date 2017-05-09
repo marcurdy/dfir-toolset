@@ -127,14 +127,14 @@
    * Users Key: SAM\Domains\Account\Users
   
 4. **SYSTEM**
-   * Location: %WINDIR%\system32\config\SAM
+   * Location: %WINDIR%\system32\config\SYSTEM
    * Services registered
    * AppCompatCache
      * Purpose: Application compatibility database
-     * Location: XP            CurrentControlSet\Control\SessionManager\AppCompatibility
-                 Win7,Win2003+ CurrentControlSet\Control\Session Manager\AppCompatCache
-     * Provides: last modify date and file path
-     * For Win7 and later, this moved out of registry to Amcache and RecentFileCache.bcf
+     * Location: XP,Win2000    CurrentControlSet\Control\Session Manager\AppCompatibility  
+                 Win7,Win2003+ CurrentControlSet\Control\Session Manager\AppCompatCache  
+     * Provides: last modify date and file path  
+     * For Win7+, this moved to standalone Amcache and RecentFileCache.bcf and not SYSTEM registry
    * Legacy Registry Keys: First time service executed, DLL/driver path
    * USB: Devices recorded under ControlSet00#\Enum\USBStor/USB  
      Mounts of them under MountedDevices and Control\DeviceClasses  
