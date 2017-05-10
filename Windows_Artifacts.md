@@ -175,7 +175,7 @@
    
 7. **Amcache.hve:** 
    * Purpose: Win7+, 2008+ replacement of Application compatibility database
-   * (Called Appcompatcache pre-Win7. **PENDING CLARIFACTION** Called RecentFileCache.bcf in Win7)
+   * (See Appcompatcache for pre-Win7.
    * Location: %WINDIR%\AppCompat\Programs\Amcache.hve
    * Provides: volume guid, first run, file path, file size, SHA1
    * Program subkey contains MSI installed files
@@ -187,7 +187,7 @@
    * Provides: First time of execution, last time of execution
 
 9. **RecentFileCache.bcf:**
-   * Purpose: Windows application compatibility database for Win7
+   * Purpose: Windows application compatibility database for Win7 - Short term storage
    * Location: %WINDIR%\AppCompat\Programs\
    * Provides: last modify date and file path
 
