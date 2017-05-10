@@ -174,8 +174,8 @@
        * (Vista+) HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\Start_TrackProgs
    
 7. **Amcache.hve:** 
-   * Purpose: Win8 replacement of Application compatibility database
-   * (Called Appcompatcache Win7 and earlier. Called RecentFileCache.bcf in Win7)
+   * Purpose: Win7+, 2008+ replacement of Application compatibility database
+   * (Called Appcompatcache pre-Win7. **PENDING CLARIFACTION** Called RecentFileCache.bcf in Win7)
    * Location: %WINDIR%\AppCompat\Programs\Amcache.hve
    * Provides: volume guid, first run, file path, file size, SHA1
    * Program subkey contains MSI installed files
