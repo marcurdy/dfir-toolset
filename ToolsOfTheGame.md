@@ -269,3 +269,7 @@ Process Explorer        | PROCEXP | Sysinternals
 Process Monitor         | PROCMON | Sysinternals
 Task (Process) List     | TLIST | Debugging tools
 Task Manager            | TASKMGR | Windows built-in tool
+
+**Password brute force decryption
+* John the Ripper - Jumbo build
+* PGPCrack-NG specifically for GPG's
