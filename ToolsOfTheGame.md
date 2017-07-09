@@ -272,4 +272,5 @@ Task Manager            | TASKMGR | Windows built-in tool
 
 **Password brute force decryption
 * John the Ripper - Jumbo build
+* Hashcat - supports GPU assist
 * PGPCrack-NG specifically for GPG's
