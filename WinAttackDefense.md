@@ -119,7 +119,8 @@ Little for security.evtx in DC due to wrapping log buffer
   + Mimikatz, Invoke-Mimikatz, Mimikatz DCSync  
   
 #### Defense:   
-MS LAPS - automatic local admin pw change - random for each pw  
+MS LAPS - automatic local admin pw change - random for each pw
+Check if UAC filtering is disabled allowing for pass-the-hash via any local admin account. HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\LocalAccountTokenFilterPolicy=1 == BAD
 Enable proper logging plus command-shell and power shell logging  
 Forged Kerberos Tickets: Potential domain field anomolies in events  
 DC Silver Tickets: Change acct passwords after breach  
