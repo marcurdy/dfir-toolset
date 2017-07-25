@@ -154,7 +154,7 @@
    * Vista/Win7 Network History  
      * Location: SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\*
      * Provides: Tracks networks, last access time, SSID, domain name, gateway MAC
-   * ProfileList
+   * ProfileList - Mapping SID to name
      * Location: SOFTWARE\Microsoft\Windows NT\CurrentVersion\ProfileList
      * Provides: Accounts having logged in both local and domain  
    * Networking Config
