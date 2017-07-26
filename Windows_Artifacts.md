@@ -190,6 +190,7 @@
    * Purpose: Windows application compatibility database for Win7 - Short term storage
    * Location: %WINDIR%\AppCompat\Programs\
    * Provides: last modify date and file path
+   * Clears every 24 hours
 
 10. **Prefetch:** 
     * Purpose: Increases performance by pre-loading code pages of run apps
