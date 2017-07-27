@@ -39,14 +39,18 @@ Logon Type
 11 - Cached Interactive  
   
 ** LATERAL MOVEMENT  
-4624 Network login  
-4672 Admin login  
-4688 Token elevation - Shows executable name  
-5140 Network share  
+
 Task / AT job - 106 (task sched) followed by 200 (task exe)  
-201 Task finishes.  
 141 Task removed else task remains to be viewed  
-4634 Logoff  
+201 Task finishes.  
+4624 - Successful Logon
+4625 - Failed Logon
+4634 / 4647 Successful Logoff
+4648 - Logon using RunAs credentials
+4672 - Admin login
+4688 Token elevation - Shows executable name  
+4720 - Account created
+5140 Network share  
 
 ### Domain Controller RDP/Remote access  
 Little for security.evtx in DC due to wrapping log buffer  
