@@ -197,9 +197,10 @@
     * Location: Win7/XP %WINDIR%\Prefetch
     * Disabled on server builds 
     * Provides: Executable, run count, size of pf, files/dirs referenced, volume
-    * pf creation is first execution
-    * last modify time is last time it was executed
+    * Subtract 10 seconds from timestamp
+    * pf creation is first execution. last modify time is last time it was last executed
     * Examine files/dir mapped by this and for files in close time prox
+    * THIS IMPLIES GUI EXECUTION
   
 11. **MFT:**
     * Location: %SYSTEMROOT%\$MFT
