@@ -66,7 +66,7 @@ dsniff(captures user data over common protos), aircrack-ng (WEP and WPA-PSK keys
 **Windows only tools**
 * Event Log Explorer
 * Log Parser Lizard - gui for MS Logparser
-* Mandiant Highlighter
+* Mandiant Highlighter - parse through big text files
 **Linux friendly**
 * python-evtx (WilliB) Can recover from corrupted evtx's  
 * libevtx (Metz)  
@@ -122,10 +122,13 @@ dsniff(captures user data over common protos), aircrack-ng (WEP and WPA-PSK keys
 * INDXParse.py
 * wisp (INDX Slack Parser, tzworks-commercial)   
 * jp (Journal Parser, tzworks-commercial)
-
+  
 **Scheduled Task (AT) job parser
-* jobparser.py
-
+* jobparser.py  
+  
+**RecentFileCache reader (24hrs)  
+* rfc.pl  
+  
 **TZWorks suite: Others**  
 * Artifacts
   id (index.dat Parser)  
@@ -157,7 +160,7 @@ dsniff(captures user data over common protos), aircrack-ng (WEP and WPA-PSK keys
     
 **Mail**  
 * OST Viewer, PST Viewer (Nucleus Technologies)
-* readpst
+* readpst, pffexport (Conversions)
 * MSGConvert
 * emldump
 * Digital Forensic Framework by Arxsys (Test free version)
@@ -177,7 +180,7 @@ dsniff(captures user data over common protos), aircrack-ng (WEP and WPA-PSK keys
     * prefetch, shimcachemem, usnparser, idxparser
     * autoruns, uninstallinfo, pstotal
     * chromehistory, firefoxhistory
-    * hollowfind, psinfo
+    * hollowfind, psinfo, pstotal
     * apihooksdeep, malfinddeep, malprocfind, malsysproc
     * mimikatz, openvpn rsakey, ssh_agent_key
     * baseline, ssdeepscan  
@@ -187,7 +190,7 @@ dsniff(captures user data over common protos), aircrack-ng (WEP and WPA-PSK keys
 
 **Investigate Malware**  
 * System: Unhide(detect hidden processes), sysdig (strace + tcpdump + htop + iftop + lsof)
-* Find anomalies: signsrch, pescanner, exescan, pev suite, peframe, pedump, disitool (alter digsig), pe_view/pescan (tzworks)
+* Find anomalies: signsrch, pescanner, exescan, PE Studio,pev suite, peframe, pedump, disitool (alter digsig), pe_view/pescan (tzworks)
 * Trace: strace, ltrace
 * Static Analysis: Radare, Pyew, Bokken(front-end to radare/pyew), m2elf
 * Disassemblers: Vivisect, Udis86, objdump, jad (java decom), recstudio, mastiff, captone, EmilPRO, 
@@ -196,9 +199,11 @@ dsniff(captures user data over common protos), aircrack-ng (WEP and WPA-PSK keys
 * Packers: UPX, Bytehist, Density Scout, PackerID, Packer Attacker, Burneye (vs burncrack, burninhell, burndump)
 * Investigate: RATDecoders, readpe.py, PyInstaller Extractor, DC3-MWCP
 * Maltrieve (DL Malware samples), Viper (managing and exploring malware samples), 
-* Behavioral analysis: Procdot for visual report, ThreatExpert (online), Cuckoo (offline)
+* Behavioral analysis: Procdot for visual report, Cuckoo (offline)
 
 **Password cracking**  
+* John the Ripper
+* Passware (pulls keys from memory)
 * hydra (brute force pw cracker)  
 * samdump2 (dumps windows password hashes)  
 * patator  
