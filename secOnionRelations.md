@@ -40,6 +40,10 @@ soup performs the OS and application updates gracefully *AVOID APT-GET!
   * Local snort rules = /etc/nsm/rules/local.rules
   * Manually rules update = sudo rule-update
   
+* Suricata  if not using Snort  
+  * Edit /etc/nsm/hpdisso-1-eth0/suricata.yaml with any other local customizations  
+  * Update your rules and restart Suricata with "sudo rule-update"  
+  
 * Sguil
   * Front-end to view Snort/Siricata alerts
   * barnyard2 is used to scrape the snort logs and write to squil's database.
