@@ -3,8 +3,7 @@
 https://servername/elsa  
 https://servername/squert  
   
-sostat checks the status of all SecOnion's running processes. *EXTENSIVE!
-soup performs the OS and application updates gracefully *AVOID APT-GET!
+sostat checks the status of all SecOnion's running processes. "soup" performs the OS and application updates gracefully *AVOID APT-GET!
 
 * Syslog-ng
   * configuration = /opt/elsa/contrib/securityonion/contrib/securityonion-syslog-ng.conf
