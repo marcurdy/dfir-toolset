@@ -135,6 +135,7 @@
                  Win7,Win2003+ CurrentControlSet\Control\Session Manager\AppCompatCache  
      * Provides: last modify date and file path  
      * For Win7+, this moved to standalone Amcache and RecentFileCache.bcf and not SYSTEM registry
+     * XP has no execution flag. Win7 has execution flag but time is last binary modification 
    * Legacy Registry Keys: First time service executed, DLL/driver path
    * USB: Devices recorded under ControlSet00#\Enum\USBStor/USB  
      Mounts of them under MountedDevices and Control\DeviceClasses  
@@ -195,12 +196,13 @@
 10. **Prefetch:** 
     * Purpose: Increases performance by pre-loading code pages of run apps
     * Location: Win7/XP %WINDIR%\Prefetch
-    * Disabled on server builds 
+    * Disabled by default on server builds 
     * Provides: Executable, run count, size of pf, files/dirs referenced, volume
     * Subtract 10 seconds from timestamp
     * pf creation is first execution. last modify time is last time it was last executed
     * Examine files/dir mapped by this and for files in close time prox
     * THIS IMPLIES GUI EXECUTION
+    * Win7- contains 120 entries. Win8+ has 1024 entries.
   
 11. **MFT:**
     * Location: %SYSTEMROOT%\$MFT
