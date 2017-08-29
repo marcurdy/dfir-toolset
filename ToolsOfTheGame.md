@@ -19,6 +19,10 @@ Below is the attempt at keeping an up-to-date list of the best tools available. 
 
 **Volume Shadow Copy browsing**  
 * libvshadow FUSE mounting (vshadowinfo, vshadowmount)
+
+**Bitlocker decryption**
+* dislocker for mounting Bitlocker mounting
+* bdemount for decrypting Bitlocker devices or raw images 
   
 **Checking file signed signatures**  
 * AnalyzePESig (Process Manager with benefits)
