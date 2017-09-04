@@ -39,8 +39,8 @@
                Vista+: %USERPROFILE%
    * **UserAssist:** 
      * Purpose: Track user interaction in Explorer including start->programs but not start->run or by typing the app name
-     * Location: NTUSER.DAT\Software\Microsoft\Windows\Currentversion\Explorer\UserAssist\{GUID}\Count 
-     * Contains 2+ keys of GUIDs, 64-bit timestamp (last time run) and a occurance count
+     * Location: NTUSER.DAT\Software\Microsoft\Windows\Currentversion\Explorer\UserAssist\{GUID}\Count  in ROT13
+     * Contains 2+ keys of GUIDs, 64-bit timestamp (last time run) and a occurance count. 
 	 * UEME_RUNPATH indicates an executable file was accessed
 	 * UEME_RUNPIDL is a pointer to an ItemIdList structure, i.e. a folder or shortcut
 	 * UEME_RUNCPL referring to Control Panel applets being clicked
