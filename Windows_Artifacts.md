@@ -184,7 +184,10 @@
 ### NON-REGISTRY ARTIFACTS
 
 8. **Jumplists in Win7+**
-   * Path: %USERPROFILE%\AppData\Roaming\Microsoft\Windows\Recent\AutomaticDestinations
+   * Path: %USERPROFILE%\AppData\Roaming\Microsoft\Windows\Recent\AutomaticDestinations-ms
+     * Interaction with an application or file
+   * Path: %USERPROFILE%\AppData\Roaming\Microsoft\Windows\Recent\CustomDestinations-ms
+     * When a user pins a file/applicaion
    * Provides: First time of execution, last time of execution
 
 9. **RecentFileCache.bcf:**
