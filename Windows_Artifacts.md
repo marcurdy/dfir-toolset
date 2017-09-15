@@ -223,7 +223,7 @@
   
 13. **Shortcut LNK files:** 
     * Location:
-      * (XP) %SYSTEMROOT%\Documents and Settings\%USERPROFILE%\Recent\
+      * (XP) %SYSTEMROOT%\Documents and Settings\\%USERPROFILE%\Recent\
       * (Win7) %USERPROFILE%\AppData\Roaming\Microsoft\Windows\Recent\
       * (Win7) %USERPROFILE%\AppData\Roaming\Microsoft\Office\Recent\
     * Automatically created links. Not for manual shortcuts
