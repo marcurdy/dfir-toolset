@@ -1,6 +1,6 @@
 Detecting Lateral Movement in Windows
 
-Detailed tools execution and the artifacts they create can be found at https://jpcertcc.github.io/ToolAnalysisResultSheet/ and incorporates:
+[Detailed tools execution and the artifacts they create](https://jpcertcc.github.io/ToolAnalysisResultSheet/)
 * Command Execution
 * Password and hash dumps
 * Remote login
