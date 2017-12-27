@@ -1,5 +1,19 @@
 Detecting Lateral Movement in Windows
 
+Detailed tools execution and the artifacts they create can be found at https://jpcertcc.github.io/ToolAnalysisResultSheet/ and incorporates:
+* Command Execution
+* Password and hash dumps
+* Remote login
+* PTH, PTT
+* Privilege Escalation
+* Capturing domain rights
+* Local user/group changes
+* File sharing
+* Evidence deletion
+* Information Collection  
+  
+My techniques collected outside of the JP CERT website are as follows.  
+  
 In most scenarios, use VSSAdmin if your data source does not contain your date range
 
 Technique 1: Authentication Auditing
