@@ -1,6 +1,6 @@
 Detecting Lateral Movement in Windows
 
-[Detailed tools execution and the artifacts they create](https://jpcertcc.github.io/ToolAnalysisResultSheet/)
+Detailed tools execution and the artifacts they create at https://jpcertcc.github.io/ToolAnalysisResultSheet/
 * Command Execution
 * Password and hash dumps
 * Remote login
@@ -78,7 +78,7 @@ Technique 2: Event Log Analysis to track account usage
 
  	  4776 - On DC, success/fail during hash authentication
 
-    5140 - Network share was accessed
+          5140 - Network share was accessed
 	  5145 - Shared object access (detailed within)
 
 	  201 - Schtask executed
