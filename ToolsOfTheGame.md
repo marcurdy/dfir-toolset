@@ -6,14 +6,13 @@ Below is the attempt at keeping an up-to-date list of the best tools available. 
 * Malware Analysis https://github.com/rshipp/awesome-malware-analysis
 * Threat Intel https://github.com/hslatman/awesome-threat-intelligence
 * Sec Talks https://github.com/PaulSec/awesome-sec-talks
-* D3Pak list https://www.linkedin.com/pulse/computer-forensic-deepak-kumar-d3pak-
 
 **Distributions for Security tools**
-* SIFT and/or Remnux on top of Ubuntu 14.04
-* DEFT (Windows)   
+* SIFT on Ubuntu 16.04 (Grand-daddy of forensic distros)
+* Centos 7 with CERT LiFTeR (contains compiled LIME kmodules)
 * Security Onion (Network Security Monitor)
-    
-**Mounting dd or vm snapshot disk images**  
+
+**Mounting dd or vm snapshot disk images**      
 * evmount, my very own github provided VMDK, EWF, raw disk, and LVS friendly mount tool!
 * For "read-write" mounts use xmount (rw made available with cache)
 
@@ -149,6 +148,7 @@ dsniff(captures user data over common protos), aircrack-ng (WEP and WPA-PSK keys
 **Extract and Decode Artifacts**  
 * Deobfuscate: unXOR, XORStrings, ex_pe_xor, XORSearch, brxor.py, xortool, NoMoreXOR, XORBruteForcer, Balbuzard
 * Extract strings: strdeobj, pestr, strings.exe (wine)
+* DropboxReader: Example Dropbox cache
 
 **Examine Document Files**  
 * PDF: pdfid, pdf-parser (Didier Stevens), AnalyzePDF, Pdfobjflow, peepdf, Origami, PDF X-RAY, 
@@ -180,6 +180,7 @@ dsniff(captures user data over common protos), aircrack-ng (WEP and WPA-PSK keys
   * Evolve - Creates sqllite db output and web frontend  
   * volshot - antiquated.  Hand edit to add modules  
   * Bulk_extractor module for grabbing types of data with beviewer for viz
+   * bulk_diff for deltas on two BE outputs
   * Volatility module add-ons of notability (within SIFT add-on)
     * prefetch, shimcachemem, usnparser, idxparser
     * autoruns, uninstallinfo, pstotal
@@ -283,3 +284,6 @@ Task Manager            | TASKMGR | Windows built-in tool
 * John the Ripper - Jumbo build
 * Hashcat - supports GPU assist
 * PGPCrack-NG specifically for GPG's
+
+**Mac Tools - New Section
+* binplist - binary property list (plist) parser 
