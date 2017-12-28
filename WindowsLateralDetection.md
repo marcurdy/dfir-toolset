@@ -20,6 +20,7 @@ Technique 1: Remote Code Execution
   
 * Remote code execution
   * Execution of PsExec
+    * Initiated with a 5140/5145 with IPC$ to test permission
     * mounts hidden ADMIN$, copies psexesvc.exe remotely, starts the service and exec command
 	  * Named pipes used to communicate
 	  * artifacts: app exec, pushed binaries, user profile creation w/o -e
@@ -50,16 +51,21 @@ Technique 2: Event Log Analysis
     * Shellbags or ntuser.dat's MountPoints2 for use of C$, ADMIN$, IPC$
     * Staging malware or accessing sensitive files
     * Vista or later requires domain admin or built-in admin rights
-    * Track admin activity where special logon 4672 == an administrative account
   * Logon using RunAs (eventid below)
+  * Track admin activity where special logon 4672 == an administrative account  
   * Domain Admin anomalies
-  * New accounts created locally (eventid below)
+  * New accounts created locally or administrative rights granted to existing (eventid below)  
   * Workstation to workstation connections based off hostname/ip lookups
   * Pass the Hash (PTH): 4776 from local account with 4624 showing network logon
+  * Kerberos TGT/TS
+    * Use klist.exe to list session details and determine if time is > MaxTicketAge
+    * Domain field in 4624, 4634, 4672 should be the shortname
+  * Account logs into many remote hosts in too short a time
 
 * Suspicious Services
   * Locate services run outside of service accounts	
   * Reference an executable in a non-standard directory
+  * Blank fields which normally hold values
   * New service installed (eventid below)
   * Set to a stopped state (eventid below)
   * Service crashed (eventid below)
@@ -90,6 +96,7 @@ Terminal services log id 21,24,25
 4700/4701 - Schtask enabled/disabled  
   
 4720 - Account created  
+4762 - Assignment of Administrator Rights  
 4768/4769 - Domain account authentication  
 4771 - Logon Error for Kerberos (very detailed reason)  
 4778/4779 - Session create/close (RDP)  
