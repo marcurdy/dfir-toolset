@@ -71,6 +71,7 @@ Technique 2: Event Log Analysis
   * See JPCert URL linked at the top
 
 * Common EventID Meanings  
+  
 4624 - Successful Logon  
 4625 - Failed Logon  
 4634/4647 Successful Logoff  
