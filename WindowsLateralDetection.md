@@ -143,6 +143,7 @@ systeminfo.exe
 taskkill.exe (taskkill /f /im <process_name> or by PID.)  
 tasklist.exe (tasklist /v)  
 vssadmin.exe  
+whoami.exe  
 wmic.exe  
 xcopy.exe  
   
