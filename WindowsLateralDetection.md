@@ -118,7 +118,7 @@ Terminal services log id 21,24,25
 104 - Audit log cleared (System)  
   
 Technique 3: Signs of Environment Intelligence Gathering
-* Look for the use of built-in tools and determine the TTP
+* Look for the use of built-in tools and determine the TTP  
 at.exe  
 bitsadmin.exe  
 cmd.exe  
