@@ -1,0 +1,247 @@
+## Dead Box Memory Forensics
+Hibernation file is a snapshot of memory found in Vol shadow copies
+  Windows 10 on a live box has them cleared
+  decompress hiberfil.sys with imagecopy, hibr2bin.exe
+  Natively used by bulkextractor, IEF, Passware
+Page/Swap is a scratch pad - Strings searching
+  pagefile.sys, swapfile.sy (Win8+, Win2012+)
+Crash dumps - full or mini dumps - can encase malware
+  $WINDIR\MEMORY.DMP
+Prepare Evidence if evidence is a disk image
+ Locally mount a working copy of images RO
+ Gather hashes and compare to hash db's
+ Extract exe/dll from unallocated space
+2) Check what AV is installed and its logs.
+
+## Blind Memory Analysis High level
+1) Identify Context 
+   Scan for Kernel Processor Ctrl Region (KDBG) signature for starting point or 
+   Directory Table Base (DTB)
+2) Parse memory structures
+   Executive Process (EPROCESS) block list - doubly linked list
+   -> Process env block (PEB) - DLL's loaded, command-line
+   -> Virtual Address Description (VAD) tree. All memory regions for the process
+   -> Kernel modules / drivers - extending capabilties of OS
+3) Scan for outliers
+   Unlinked processes, DLLs, sockets, and threads
+   Unmapped memory pages with exec privs
+   Hook detection
+   Known heuristics and signatures
+4) Procedural Analysis ==
+a) Indicators of Compromise Search
+     Run yara scan and sort by number of findings per file
+     Scan for known hashes, IP's, URL's
+b) Identify rogue processes
+   Is the process spelled Correctly? Does it match the system context?
+   Appropriate path? Running from Temp?
+   Does it have a one character filename?
+   Is the parent what is expected?
+   Executable match the image name in command-line? Do arguments make sense?
+   Was the process started at boot with other system?
+   Processes started near time of attack.
+   Packed executable?
+   Do security identifiers make sense? Are expected SID's running processes?
+   Live off the land commands: See WindowsLateralMovement Document
+   Existence of .rar and .job files
+   
+c) Analyze process DLL, handles, threads, mem sections, sockets
+   Sort by least occurrence for artifacts
+   Searching handles, specify the type and pid
+
+d) Review Network Artifacts
+   Unexplained int/ext access
+   Connects to IP not domain name
+   Services - svcscan and filter AUTO_START | SERVICE_DISABLED
+
+e) Look for code injection
+  1) VirtualAllocEx and CreateRemoteThread
+  2) SetWindowsHookEx
+  Review VAD tree for memory marked as page_execute_readwrite
+  Having no memory-mapped to disk file
+  Scan for DLLs and shellcode
+  Process image not backed with file on disk = process hollowing
+
+  Process Hollowing
+  Run process in suspended state
+  Malware unmaps the executable and inserts shell
+  Unsuspends
+  
+  malfind shows bad permissions and not mapped to disk but leaves rest to analyst
+    MZ header is a near 100% code injection
+	Repeated instructions is a false positive
+	csrss is a frequent false positive in XP. connhost in Win7+
+  Dump memory from malfind and run AV
+  
+  ldrmodules (Loader modules)
+  Uses PEB tracked doubly linked
+  InLoad, InInit, InMem
+    All false without mapped file = code injection but is in memory at base addr
+	Executable will always be True False True
+	  Process Hollowing is when it has no MappedPath
+	  
+f) Hooking and Rootkit Detection
+   Detour in the execution path
+   Windows 7+ has Patch Guard. Watches kernel portions for change. 
+   -System Service Descriptor Table (SSDT) Hook
+      vol modules: ssdt, ssdt_ex - Legit are in ntoskrnl.exe or win32k.sys
+   -IO Request Packets: How processes interact with HW drivers
+      ex. hooks stock drive to add-on
+	  includes tcpip driver
+   -Direct Kernel Obj Manipulation (DKOM)
+	  Removing object from doubly linked lists
+	  vol modules:  psxview (ps crossview)
+	    pspcdid: kdbg based list.  thrdproc: based on what proc are running code
+		All false except psscan can be exited process
+   vol modules: modscan and modules but hard to determine bad
+   Import Address Table (IAT): contains a list dll's and functions used
+     At runtime, the function gets the mem location added. 
+	 Userland IAT hooks into the IAT can be seen checking if address points within dll
+   vol modules: apihooks - Trampline hook -> check if function JMP's out of DLL mem range
+	 What function is being hooked to get an idea of malware function?
+	 Is Hook address in range, and is hooking module known meaning on-disk?
+   
+g) Dump suspicious Processes and Drivers
+   Dump files whose process isn't in memory and not on disk
+   procdump for just the executable
+	memdump extracts exec and all memory from VAD
+	scan dumps with AV
+   Entropy checks for packers
+   Compare PE header compile time versus created/modified timestamp 
+   File integrity - Authenticode signature scan
+  
+h) Supertimeline if malicious event times are known or else delay
+   See if above malfind candidates appear
+   MFT anomolies for file creation sequences
+
+i) Evidence of Persistence
+   Scheduled tasks
+   Service replacements / creations
+   Autoruns
+   
+j) Review event logs
+k) Examine Volume Shadow copies deltas  
+l) File Analysis  
+    a) MFT: compare dates within to check tampering. 
+            data fields contain resident files up to 744b in length. Hex dump data record  
+    b) Recycle Bin: date in index reflects delete date  
+    c) Prefetch: Not enabled by default on server OS's. \Windows\Prefetch\Appname-Hash.pf  
+    d) Scheduled Tasks: 2003- C:\Windows\Tasks. Vista+ C:\Windows\System32\Tasks  
+       at.exe, schtasks.exe
+    e) Jump List: Win7, Win8; AppData\Roaming\Microsoft\Windows\Recent\AutomaticDestinations,CustomDestinations(pinned)
+    f) Error reporting WER - C:\ProgramData\Microsoft\Windows\WER  
+    g) Anti-virus logs
+         MSRT: Check date of last update + positives. \Windows\Debug\mrt.log
+         Defender: C:\ProgramData\Microsoft\Windows Defender\Support  
+    h) Registry written shimcache
+m) Registry Data Pull
+    a) USB Drives, Applications, File Extension Associations, WordWheelQuery/RecentDocs, Network usage, Shellbags, 
+       MUICache, Menulists, UserAssist, TypedPath
+    b) Consider finding deltas from historic registry copies: "RegBack" and Volume Shadow Copies 
+  
+## High level procedures
+  
+APT Phases
+1) Reconnaissance - target using social media for personalization
+2) Intrusion - Spear Phishing, purchased from attacker, watering hole attacks (infect common site)
+3) Infection - backdoor, maybe use dropper, begin gathering info
+4) Credential Theft
+5) Lateral Movement - Use stolen credentials, network shares, or internal email, can shift attention
+6) Data Exfiltration
+7) Persistence - repeated credential exfiltration, contin update tools, work outside bus hours, target strategic machines
+
+Malware types
+Downloaders/droppers
+Rogue utility and security products
+Trojans, RATs : Zeus, SpyEye, Citadel, GhostRAT, poison ivy, SpyNet
+Rootkit - stealthy, Trojan func, may damage, requires reinstalling, can exist in MBR. TDL/TDSS, ZeroAccess, Stuxnet
+Viruses - infect other binaries or boot sectors, requires reinstalling,  Sality, Virut
+Worms - spread using exploits, USB drives, email, shares. Reinstall systems
+
+Incidence Response Process - live forensics
+1) Preparation: Be ready with the tools and training for incidents before they happen.
+2) Identification: Identify incidents thoroughly; going through the IR process only to find a false alarm is no fun.
+3) Containment: Contain the incident to prevent possible collateral damage. eg. revoking user accounts, blocking access at FW, or updating AV rules
+4) Eradication: Get rid of the malicious code, unauthorized account, or bad employee that caused the incident.
+5) Recovery: Make sure the system meets company standards before returning it to service. Continue monitoring for any aberrant behavior
+6) Lessons Learned
+
+## Random case scenarios
+
+Analyzing a windows executable for Malware
+pescanner .exe or .dll
+  ssdeep fuzzy hash, md5 hash
+  checks packers which gives weight to suspicion
+  clamav
+  IAT alerts - Import Address Table - Look at external functions run
+  Sections - Entropy checked for randomness. High entropy might have packed contents
+  Signature scans - YARA
+  Resource Entries - can show other languages used to make it
+  
+pyew to inspect malware
+  built-in hex viewer
+  pyew.imports shows commands it runs
+  url extracts urls
+  threat computes hash and queries it in threatexpert.com
+  
+Exploring infection in a network capture
+  NetworkMiner pcap_file
+    Parses traffic and saves files into local file
+  jsunpackn.py -v -g image.png -s pcap_file
+    deobfuscates JS and saves files from pcap
+  
+Examine malicious document/media files
+  pdfid file.pdf
+    Unusual to have JavaScript.  RichMedia could be for flash embedment
+    Launch can run remote programs.
+  
+  pdfextract file.pdf
+    Extracts JS under dump/scripts. 
+    Payload could contain unicode. 
+    cat unicode.txt | unicode2hex-escaped | shellcode2exe
+    Examine resulting exe
+  
+  swf_mastah -o ./ -f file.pdf
+  swfdump -Ddu file.swf
+  Extracts flash from pdf and dumps the code
+  
+Code Analysis with OllyDbg on .exe
+  Run: Search for all referenced text strings
+  See what runs where that string is referenced in disassembler
+  Memory Access Breakpoints
+  Load app, hit run, alt-m for memory map. Binary search ctrl-b, 
+    search for string and see results.  ctrl-l repeats search.
+    Highlight string in disassembly. Dropdown, Breakpoint memory on access.
+    Step into per step and view assembly
+  
+pcap analysis
+Trim to include only suspect IP to start
+Networkminer to quick look at binaries
+Scan any upfront suspicious binaries
+Analyze sessions and theorize based on traffic protocols and contents
+Check http for malicious JS routines looking for encoded routines
+Shellcode analysis
+Attempt SSL decode for encrypted traffic?
+Locate external actors
+  
+Volatility shotgun - check for common scenarios
+  Create pstree -v output
+  Create/Check schtasks module output
+  Create/sort shimcachemem by date
+  Check malfind processes
+  Check for services without drivers
+  Find processes with FALSE in psxview
+  View cmdline/consoles for manual activity
+  Check shellbags for MRU's
+Run bulk_extractor to more quickly pull pcaps from images
+  
+File scraping
+  clamscan
+  Pull logs based on running apps
+  extract application logs
+  Check for unsigned signatures of libraries
+  missidentify to find renamed exe's
+  Generate md5/fuzzy hashes for pre-examination
+  Hash scans against VT or localized repo
+  Entropy checks
+  Check for suspicious remote sites in netscan
+
