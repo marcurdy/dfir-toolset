@@ -61,7 +61,7 @@ Technique 2: Event Log Analysis
     * Use klist.exe to list session details and determine if time is > MaxTicketAge
     * Domain field in 4624, 4634, 4672 should be the shortname
   * Account logs into many remote hosts in too short a time
-
+  
 * Suspicious Services
   * Locate services run outside of service accounts	
   * Reference an executable in a non-standard directory
@@ -70,7 +70,7 @@ Technique 2: Event Log Analysis
   * Set to a stopped state (eventid below)
   * Service crashed (eventid below)
   * Setup with a Service Failure Recovery binary to run if service fails
-
+  
 * Crashes and security alerts
 * Cleared out audit logs (eventid below)
 * Detect ticket reuse
@@ -78,10 +78,10 @@ Technique 2: Event Log Analysis
 
 * Common EventID Meanings  
   
-4624 - Successful Logon  
-4625 - Failed Logon  
-4634/4647 Successful Logoff  
-4648 - Logon using RunAs credentials  
+528,4624 - Successful Logon  
+529,4625 - Failed Logon  
+4634,4647 Successful Logoff  
+552,4648 - Logon using RunAs credentials  
 4672 - Admin login / Special login  
   
 Terminal services log id 21,24,25  
@@ -92,7 +92,7 @@ Terminal services log id 21,24,25
 5145 - Shared object access (detailed within)  
   
 201 - Schtask executed  
-4698,4699,4702, - Schtask created, deleted, updated  
+602,4698,4699,4702, - Schtask created, deleted, updated  
 4700/4701 - Schtask enabled/disabled  
   
 4720 - Account created  
@@ -106,7 +106,7 @@ Terminal services log id 21,24,25
 7036 - Service started/stopped  
 7040 - Start type changed  
 7045 - service installed first time (win2008R2)  
-4697 - service installed on system  
+601,4697 - service installed on system  
   
 1033/1034 - App install/remove  
 11707/11708 - Install success/fail  
@@ -153,7 +153,12 @@ vssadmin.exe
 whoami.exe  
 wmic.exe  
 xcopy.exe  
-  
+
+Technique 2: Network Event Detection
+* Port number does not match the protocol contained within
+  * Search protocol metadata, exclude matched protocols, and search
+  * Stack the data
+
 Sources:  
 1) JPCert Tool Analysis Report  
 2) SANS 508  
