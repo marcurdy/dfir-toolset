@@ -154,10 +154,15 @@ whoami.exe
 wmic.exe  
 xcopy.exe  
 
-Technique 2: Network Event Detection
+Technique 2: Network Event Detection using Bro, netflow, firewall, and proxy logs
 * Port number does not match the protocol contained within
   * Search protocol metadata, exclude matched protocols, and search
-  * Stack the data
+  * Search for ports used that aren't registered with IANA
+  * Encryption on typically non-encrypted port numbers
+  * Common application protocol indicators include
+    * Domain, URL, User-Agent string
+    * x.509 Certificate Subject and Issuer
+    * Email address
 
 Sources:  
 1) JPCert Tool Analysis Report  
