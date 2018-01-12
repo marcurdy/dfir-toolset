@@ -13,5 +13,7 @@ DNS/Proxy
 * Malicious domains often are set as uncategorized by proxies
   * Unsolicited outbound communication to the hostile domain with no referrer
   * Reputation of the domain
+* Consistent and reoccurring HTTP PUT
+* Suspicious user-agents such as powershell especially PUT
 
 Source: Sqrrl Huntpedia PDF
