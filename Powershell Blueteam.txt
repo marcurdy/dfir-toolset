@@ -51,6 +51,7 @@ or signed by the enterprise's trusted code signing certificate. In version 5, Po
 functionality to “Constrained Mode” for both interactive input and user-authored scripts when it detects that 
 PowerShell scripts have an ‘Allow Mode’ policy applied to them.  Before Powershell 5, the commands can be entered 
 manually.  This doesn't stop execution from a manually installed and portable version of an earlier Powershell.
+  Set constrainedLanguageMode with AppLocker, DeviceGuard, Environment variable _PSLockdownPolicy
 
 4) Detect Powershell generated EventId's within a SIEM or equivalent
 
