@@ -168,7 +168,7 @@ dsniff(captures user data over common protos), aircrack-ng (WEP and WPA-PSK keys
 * MSGConvert
 * emldump
 * Digital Forensic Framework by Arxsys (Test free version)
-* mpack/munpack for mime
+* mpack/munpack for mime (text output could be Unicode)
 
 **Binary/Hex Editors**  
 * Binary: wxHexEditor, VBinDiff
