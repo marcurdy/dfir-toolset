@@ -40,32 +40,42 @@ Logon Type
   
 ** LATERAL MOVEMENT  
 
+### Microsoft-Windows-TaskScheduler
 Task / AT job - 106 (task sched) followed by 200 (task exe)  
 141 Task removed else task remains to be viewed  
-201 Task finishes.  
-4624 - Successful Logon  
-4625 - Failed Logon  
-4634 / 4647 Successful Logoff  
-4648 - Logon using RunAs credentials  
-4672 - Admin login  
+201 Task finishes
+
+### Security.evtx  
+4624 Successful Authentication (Type 10==RDP. Type 7==RDP reconnect)  
+4625 Failed Authentication (Type 10==RDP)
+4634 Successful Logoff / RDP disconnect 
+4647 Successful Formal Logoff     
+4648 Logon using RunAs credentials  
+4672 Admin login  
 4688 Token elevation - Shows executable name  
-4720 - Account created  
+4720 Account created  
 5140 Network share  
+9009 Desktop Windows Manager closed - Formal RDP logout
   
 ### Domain Controller RDP/Remote access  
 Little for security.evtx in DC due to wrapping log buffer  
 #### TerminalServices Remote Connection Manager  
-1149 - Remote RDP authentication  
-#### TerminalServices Local Connection Manager  
-21 - Successful login - could follow 1149  
-23 - Logoff  
+1149 - Remote RDP connection made - no authentication
+#### TerminalServices-LocalSessionManager/Operational
+(Note sessionID to allow for session tracking)  
+21 - Successful login - could follow 1149. Preceeds 22
+23 - Formal Logoff  
 24 - Disconnect after logoff  
 25 - Reconnect - could follow 1149  
+#### TerminalServices-LocalSessionManager
+22 - Successful RDP logon and shell  
+39 - Formal disconnect from RDP  
+40 - Accompanies other eventId on disconnect/reconnect  
 
-####Persistence - Current Version Run key executes at login  
+#### Persistence - Current Version Run key executes at login  
 7045 - Service registered - ImagePath for executable in unusual path  
   
-####Regaining User account  
+#### Regaining User account  
 * Autorun Malware to regain user access  
    Autoruns will show unsigned code as red (vbscript)  
      Malicious code could be appended to existing vbs's  
@@ -234,6 +244,8 @@ X | 640 | Medium | General account database changed
 4758 |  |  | A security-enabled universal group was deleted.
 4765 | N/A | High | SID History was added to an account.
 4766 | N/A | High | An attempt to add SID History to an account failed.
+4778 | N/A | Medium | The user reconnected to an existing RDP session (pairs with 25)
+4779 | N/A | Medium | The user disconnected from an existing RDP session (pairs with 24)
 4794 | N/A | High | An attempt was made to set the Directory Services Restore Mode.
 4816 | N/A | Medium | RPC detected an integrity violation while decrypting an incoming message.
 4865 | N/A | Medium | A trusted forest information entry was added.
