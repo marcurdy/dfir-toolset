@@ -50,6 +50,7 @@ Below is the attempt at keeping an up-to-date list of the best tools available. 
 * extundelete (ext3/4 file rest), recoverjpeg, vinetto (thumbs.db examiner)
   
 **Handle Network Interactions**  
+* Full PCAP analysis: Moloch
 * Sniffing: ngrep, tcpdump, tcpick(passive sniffer), tcptrack, driftnet, tshark (terminal wshark),
 dsniff(captures user data over common protos), aircrack-ng (WEP and WPA-PSK keys cracking), 
     yaraPcap.py (http streams)
