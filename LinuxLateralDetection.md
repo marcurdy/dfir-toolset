@@ -46,3 +46,5 @@ Checking for Lateral Movement on Linux
 * If the image or access to the filesystem is available, use the Sleuthkit to make a timeline
   * fls –rd / > filedump.txt
   * mactime –b filedump.txt > filedump_mac.txt
+* Look for signs of an adversary "Living off the land"
+  * arp nmap ping who whoami traceroute nslookup dig telnet netstat lsof host ss route	macchange ip tcpkill id getent wget curl shred touch openssl chattr gcc history iptables xwd
