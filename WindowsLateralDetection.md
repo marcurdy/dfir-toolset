@@ -131,6 +131,7 @@ makecab.exe
 nbtstat.exe  
 net1.exe  
 net.exe  
+netsh.exe  
 netstat.exe (netstat -ano)  
 nltest.exe  
 nslookup.exe  
