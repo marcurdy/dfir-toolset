@@ -119,41 +119,43 @@ Terminal services log id 21,24,25
   
 Technique 3: Signs of Environment Intelligence Gathering
 * Look for the use of built-in tools and determine the TTP  
-at.exe  
-bitsadmin.exe  
-cmd.exe  
-csvde.exe  
-dcdiag.exe  
-dsquery.exe  
-ftp.exe  
-ldifde.exe  
-makecab.exe  
-nbtstat.exe  
-net1.exe  
-net.exe  
-netsh.exe  
-netstat.exe (netstat -ano)  
-nltest.exe  
-nslookup.exe  
-ntdsutil.exe  
-ping.exe (ping -A)  
-powershell.exe  
-procdump.exe  
-psloggedon.exe  
-query.exe  
-rar.exe  
-reg.exe  
-regsvr32.exe  
-route.exe  
-sc.exe  
-schtasks.exe  
-systeminfo.exe  
-taskkill.exe (taskkill /f /im <process_name> or by PID.)  
-tasklist.exe (tasklist /v)  
-vssadmin.exe  
-whoami.exe  
-wmic.exe  
-xcopy.exe  
+at  
+bitsadmin  
+cmd  
+control  
+csvde  
+dcdiag  
+dsquery  
+ftp  
+ldifde  
+makecab  
+nbtstat  
+net1  
+net  
+netsh  
+netstat (netstat -ano)  
+nltest  
+nslookup  
+ntdsutil  
+ping (ping -A)  
+powershell  
+procdump  
+psloggedon  
+query  
+rar  
+reg  
+regsvr32  
+route  
+sc  
+schtasks  
+systeminfo  
+taskkill (taskkill /f /im <process_name> or by PID.)  
+tasklist (tasklist /v)  
+vssadmin  
+whoami  
+winword /L
+wmic  
+xcopy  
 
 Technique 2: Network Event Detection using Bro, netflow, firewall, and proxy logs
 * Port number does not match the protocol contained within
