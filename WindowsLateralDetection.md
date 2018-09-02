@@ -20,6 +20,7 @@ Technique 1: Remote Code Execution
   
 * Remote code execution
   * Execution of PsExec
+    * psexec sends over IPC$. stdout, stderr sent over SMB 
     * Initiated with a 5140/5145 with IPC$ to test permission
     * mounts hidden ADMIN$, copies psexesvc.exe remotely, starts the service and exec command
 	  * Named pipes used to communicate
@@ -43,14 +44,19 @@ Technique 1: Remote Code Execution
   * RDP/VPN Activity
     * Event logs record inbound RDP activity
     * Registry contains recent RDP client activity
+    
+  * Samba activity
+    * In a domain, look for client's in a workgroups accessing Samba 
   
 Technique 2: Event Log Analysis  
   
 * Account Misuse
   * Find use of mapped admin shares
-    * Shellbags or ntuser.dat's MountPoints2 for use of C$, ADMIN$, IPC$
+    * Shellbags or ntuser.dat's MountPoints2 for use of C$, ADMIN$, 
+    $
     * Staging malware or accessing sensitive files
-    * Vista or later requires domain admin or built-in admin rights
+    * Vista or later requires domain 
+    or built-in admin rights
   * Logon using RunAs (eventid below)
   * Track admin activity where special logon 4672 == an administrative account  
   * Domain Admin anomalies
