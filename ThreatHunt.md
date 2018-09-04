@@ -1,7 +1,9 @@
-[Non-OS Threat Detection](#non-os-specific-threat-detection)
-[Windows Threat Hunting](#detecting-lateral-movement-in-windows)
-[Linux Threat Hunting](#detecting-lateral-movement-in-linux)
-
+Threat Hunt Categories  
+[Non-OS Threat Detection](#non-os-specific-threat-detection)  
+[Windows Threat Hunting](#detecting-lateral-movement-in-windows)   
+[Linux Threat Hunting](#detecting-lateral-movement-in-linux)   
+  
+  
 #Non-OS Specific threat detection
 
 Namespace Collisions
