@@ -1,4 +1,8 @@
-Non-OS Specific threat detection
+[Non-OS Threat Detection](#non-os-specific-threat-detection)
+[Windows Threat Hunting](#detecting-lateral-movement-in-windows)
+[Linux Threat Hunting](#detecting-lateral-movement-in-linux)
+
+#Non-OS Specific threat detection
 
 Namespace Collisions
 * Internal domain names are not controlled externally
@@ -18,7 +22,7 @@ DNS/Proxy
   
 Source: Sqrrl Huntpedia PDF  
   
-Detecting Lateral Movement in Windows
+#Detecting Lateral Movement in Windows
   
 Detailed tools execution and the artifacts they create at https://jpcertcc.github.io/ToolAnalysisResultSheet/
 * Command Execution
@@ -199,7 +203,7 @@ Sources:
 3) SANS Finding Evil in the Whitelist  
 
 
-Checking for Lateral Movement on Linux
+#Detecting Lateral Movement in Linux
 
 * Determine timeframe of event  
   * External source  
