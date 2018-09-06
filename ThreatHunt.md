@@ -1,8 +1,21 @@
 Threat Hunt Categories  
+[Questions for the Customer](#questions-for-the-customer)
 [Non-OS Threat Detection](#non-os-specific-threat-detection)  
-[Windows Threat Hunting](#detecting-lateral-movement-in-windows)   
+[Windows Lateral Movement](#detecting-lateral-movement-in-windows)   
+[Windows Remote Code Execution](#remote-code-execution)
+[Windows Event Log Analysis](#event-log-analysis)
+[Windows Signs of Environment Intelligence Gathering](#signs-of-environment-intelligence-gathering)
+[Windows Detecting Persistence](#detecting-persistence-in-windows)
 [Linux Threat Hunting](#detecting-lateral-movement-in-linux)   
-  
+
+## Questions for the Customer
+1. How do our system administrators interact with servers, and from where?  
+ * psexec, rdp, winrm, powershell, ssh, others?
+2. Which accounts have membership in privileged groups, and which ones?  
+3. What remote execution tools are commonly used in this environment?  
+4. Which UserAgent strings are common here?  
+5. Where are the most sensitive pieces of data stored, and how do users normally access that data?  
+6. What are typical levels of server-to-workstation, server-to-browser, and workstation-to-server lateral movement?  
   
 ## Non-OS Specific threat detection
 
@@ -12,17 +25,47 @@ Namespace Collisions
 * Search if wpad.dat reaches external organizations
 * Search for domains outside com, net, org, gov, mil, edu
 
-DNS/Proxy 
+DNS
 * Search for destinations of dynamic dns domains
 * High volumes of NXDOMAIN errors could signify use of a domain generating algorithm (DGA)
 * Search for typos of domains being accessed e.g. dnstwist
 * Malicious domains often are set as uncategorized by proxies
   * Unsolicited outbound communication to the hostile domain with no referrer
   * Reputation of the domain
+
+Proxy
 * Consistent and reoccurring HTTP PUT
 * Suspicious user-agents such as powershell especially PUT
+
+Netflow
+* Unusual volumes and frequencies
+
+NSM / deep packet inspection
+* Port number does not match the protocol contained within
+  * Search protocol metadata, exclude matched protocols, and search
+  * Search for ports used that aren't registered with IANA
+  * Encryption on typically non-encrypted port numbers
+  * Pivot off ASN, User-Agent, x.509 Certificate Subject and Issuer
   
-Source: Sqrrl Huntpedia PDF  
+## General OS Detections
+
+Processes
+* Invalid parent-child relationship
+* Invalid number of running instances of a system process
+* Suspicious command-line arguments or flags to a service or executable
+* Questions to consider  
+ * What was the application and its metadata?  
+ * Was it recorded during a known operational window?  
+ * Was a valid account associated with the execution, and was this account used during a normal operational window?  
+ * Was the process associated with network activity?  
+  
+Persistence  
+* Which accounts are modifying persistence mechanisms on MacOS systems?  
+* Which persistent objects are signed versus unsigned?  
+* Do any persistent objects have a history of initiating network connections?  
+* Across the enterprise, which logon scripts are being used when authentication succeeds?  
+* Which device drivers are persistent?  
+  
   
 ## Detecting Lateral Movement in Windows
   
@@ -42,16 +85,17 @@ __My techniques collected outside of the JP CERT website are as follows.__
   
 In most scenarios, use VSSAdmin if your data source does not contain your date range  
   
-Technique 1: Remote Code Execution  
+### Remote Code Execution  
   
 * Remote code execution
   * Execution of PsExec
     * psexec sends over IPC$. stdout, stderr sent over SMB 
-    * Initiated with a 5140/5145 with IPC$ to test permission
-    * mounts hidden ADMIN$, copies psexesvc.exe remotely, starts the service and exec command
+    * mounts hidden $ADMIN or $IPC, copies psexesvc.exe remotely, starts the service and exec command
 	  * Named pipes used to communicate
 	  * artifacts: app exec, pushed binaries, user profile creation w/o -e
 	  * Registry: service registration and EulaAccepted  
+    * Initiated with a 5145 then 5140 with $ADMIN or $IPC to test permission
+    * Service creation with 4697 and 7045. Execution captured in 4688.
   
   * Windows Remote Mgmt Tools for local or remote
     * sc.exe, schtasks.exe, at.exe, reg.exe, winrs.exe (remote command)
@@ -61,10 +105,10 @@ Technique 1: Remote Code Execution
       * See evtlog Task Scheduler\Operational (eventid below)
       * schtasks entry injects remote host/user as Author
   
-  * Powershell Remoting / WMIC
+  * Powershell Remoting, WMIC, WinRM, RPC
     * Usage = wmic /node:host /user:user process call create "command"
     * Other powershell procedures = Invoke-WmiMethod, Invoke-Command, Enter-PSSession
-    * Detect execution: wmiprvse.exe, powershell.exe, wsmprovhost.exe
+    * Detect execution of wmiprvse.exe, powershell.exe, wsmprovhost.exe
     * Must turn on command line auditing for detection 
   
   * RDP/VPN Activity
@@ -74,15 +118,18 @@ Technique 1: Remote Code Execution
   * Samba activity
     * In a domain, look for client's in a workgroups accessing Samba 
   
-Technique 2: Event Log Analysis  
+  * Finding code execution without EDR recording or sysmon  
+    * Check the Prefetch and Shimcache  
+    * Get-ForensicPrefetch: file execution forensics  
+    * Get-ForensicShimcache: AppCompatCache forensics  
+  
+### Event Log Analysis  
   
 * Account Misuse
   * Find use of mapped admin shares
-    * Shellbags or ntuser.dat's MountPoints2 for use of C$, ADMIN$, 
-    $
+    * Shellbags or ntuser.dat's MountPoints2 for use of C$, ADMIN$
     * Staging malware or accessing sensitive files
-    * Vista or later requires domain 
-    or built-in admin rights
+    * Vista or later requires domain or built-in admin rights
   * Logon using RunAs (eventid below)
   * Track admin activity where special logon 4672 == an administrative account  
   * Domain Admin anomalies
@@ -129,7 +176,7 @@ Terminal services log id 21,24,25
   
 4720 - Account created  
 4762 - Assignment of Administrator Rights  
-4768/4769 - Domain account authentication  
+4768/4769 - Domain account authentication (per TGS request)   
 4771 - Logon Error for Kerberos (very detailed reason)  
 4778/4779 - Session create/close (RDP)  
   
@@ -149,64 +196,35 @@ Terminal services log id 21,24,25
 1102 - Audit log cleared (Security)  
 104 - Audit log cleared (System)  
   
-Technique 3: Signs of Environment Intelligence Gathering
+### Signs of Environment Intelligence Gathering
 * Look for the use of built-in tools and determine the TTP  
-at  
-bitsadmin  
-cmd  
-control  
-csvde  
-dcdiag  
-dsquery  
-ftp  
-ldifde  
-makecab  
-nbtstat  
-net1  
-net  
-netsh  
-netstat (netstat -ano)  
-nltest  
-nslookup  
-ntdsutil  
-ping (ping -A)  
-powershell  
-procdump  
-psloggedon  
-query  
-rar  
-reg  
-regsvr32  
-route  
-sc  
-schtasks  
-systeminfo  
-taskkill (taskkill /f /im <process_name> or by PID.)  
-tasklist (tasklist /v)  
-vssadmin  
-whoami  
-winword /L
-wmic  
-xcopy  
-
-Technique 2: Network Event Detection using Bro, netflow, firewall, and proxy logs
-* Port number does not match the protocol contained within
-  * Search protocol metadata, exclude matched protocols, and search
-  * Search for ports used that aren't registered with IANA
-  * Encryption on typically non-encrypted port numbers
-  * Common application protocol indicators include
-    * Domain, URL, User-Agent string
-    * x.509 Certificate Subject and Issuer
-    * Email address
-
-Sources:  
-1) JPCert Tool Analysis Report  
-2) SANS 508  
-3) SANS Finding Evil in the Whitelist  
-
-
+at, bitsadmin, cmd, control, csvde, dcdiag, dsquery, ftp  
+installutil, ldifde, makecab, msbuild, nbtstat, net1, net,
+netsh, netstat (netstat -ano), nltest, nslookup, ntdsutil  
+ping (ping -A), powershell, procdump, psloggedon, query  
+rar, reg, regasm, regsvr32, route, rundll32.exe, sc  
+schtasks, systeminfo, taskkill (taskkill /f /im)
+tasklist (tasklist /v), vssadmin, whoami, winword /L
+wmic, xcopy  
+  
+## Detecting Persistence in Windows  
+* AutoRun locations  
+* Windows Services  
+* Image file execution options  
+* Application Debuggers  
+* Registered COM servers  
+  
+Fileless attack Persistence  
+* Storing shellcode within a registry key value, executed by a generally benign Windows application  
+* Storing a script within the WMI CIM executed by a script processor such as the Windows Script Host (WSH)  
+* Using a PowerShell cmdlet to download malicious scripts and passing them to one of several utilities  
+* Using stored procedures to perform inline compilation of C# or other code  
+  
+See: Beyond good ol' Run key series on the Hexacorn.com blog  
+  
+  
 ## Detecting Lateral Movement in Linux
-
+  
 * Determine timeframe of event  
   * External source  
   * Local log entries
@@ -254,4 +272,11 @@ Sources:
   * fls –rd / > filedump.txt
   * mactime –b filedump.txt > filedump_mac.txt
 * Look for signs of an adversary "Living off the land"
-  * arp nmap ping who whoami traceroute nslookup dig telnet netstat lsof host ss route	macchange ip tcpkill id getent wget curl shred touch openssl chattr gcc history iptables xwd
+  * arp nmap ping who whoami traceroute nslookup dig telnet netstat lsof host ss route macchange ip tcpkill id getent wget curl shred touch openssl chattr gcc history iptables xwd
+  
+Sources:  
+* Sqrrl Huntpedia PDF  
+* Endgame Guide to Threat Hunting  
+* JPCert Tool Analysis Report  
+* SANS 508  
+* SANS Finding Evil in the Whitelist  
