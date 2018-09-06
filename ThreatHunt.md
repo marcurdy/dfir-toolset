@@ -196,7 +196,7 @@ Terminal services log id 21,24,25
 1102 - Audit log cleared (Security)  
 104 - Audit log cleared (System)  
   
-### Signs of Environment Intelligence Gathering
+### Signs of LoL Execution and Intelligence Gathering
 * Look for the use of built-in tools and determine the TTP  
 at, bitsadmin, cmd, control, csvde, dcdiag, dsquery, ftp  
 installutil, ldifde, makecab, msbuild, nbtstat, net1, net,
