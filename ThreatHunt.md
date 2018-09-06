@@ -1,11 +1,11 @@
 Threat Hunt Categories  
-[Questions for the Customer](#questions-for-the-customer)
+[Questions for the Customer](#questions-for-the-customer)  
 [Non-OS Threat Detection](#non-os-specific-threat-detection)  
 [Windows Lateral Movement](#detecting-lateral-movement-in-windows)   
-[Windows Remote Code Execution](#remote-code-execution)
-[Windows Event Log Analysis](#event-log-analysis)
-[Windows Signs of Environment Intelligence Gathering](#signs-of-environment-intelligence-gathering)
-[Windows Detecting Persistence](#detecting-persistence-in-windows)
+[Windows Remote Code Execution](#remote-code-execution)  
+[Windows Event Log Analysis](#event-log-analysis)  
+[Windows Signs of Environment Intelligence Gathering](#signs-of-environment-intelligence-gathering)  
+[Windows Detecting Persistence](#detecting-persistence-in-windows)  
 [Linux Threat Hunting](#detecting-lateral-movement-in-linux)   
 
 ## Questions for the Customer
