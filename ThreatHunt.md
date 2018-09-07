@@ -29,7 +29,8 @@ DNS
 * High numbers of subdomains or large TXT fields to find DNS tunnelling
 * Search for destinations of dynamic dns domains
 * High volumes of NXDOMAIN errors could signify use of a domain generating algorithm (DGA)
-* Search for typos of domains being accessed e.g. dnstwist
+* Search for typos of domains being accessed e.g. dnstwist  
+* New domains . 
 
 Proxy
 * Consistent and reoccurring HTTP PUT
