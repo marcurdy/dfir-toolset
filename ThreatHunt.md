@@ -26,16 +26,17 @@ Namespace Collisions
 * Search for domains outside com, net, org, gov, mil, edu
 
 DNS
+* High numbers of subdomains or large TXT fields to find DNS tunnelling
 * Search for destinations of dynamic dns domains
 * High volumes of NXDOMAIN errors could signify use of a domain generating algorithm (DGA)
 * Search for typos of domains being accessed e.g. dnstwist
-* Malicious domains often are set as uncategorized by proxies
-  * Unsolicited outbound communication to the hostile domain with no referrer
-  * Reputation of the domain
 
 Proxy
 * Consistent and reoccurring HTTP PUT
 * Suspicious user-agents such as powershell especially PUT
+* Malicious domains often are set as uncategorized by proxies
+  * Unsolicited outbound communication to the hostile domain with no referrer
+  * Reputation of the domain
 
 Netflow
 * Unusual volumes and frequencies
@@ -225,7 +226,10 @@ Fileless attack Persistence
 * Using stored procedures to perform inline compilation of C# or other code  
   
 See: Beyond good ol' Run key series on the Hexacorn.com blog  
- 
+
+## Detect System Process Anomolies
+* Greater than 1 lsass.exe
+
 ## Detecting Lateral Movement in Linux
   
 * Determine timeframe of event  
