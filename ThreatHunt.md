@@ -9,9 +9,9 @@ Threat Hunt Categories
 [Linux Threat Hunting](#detecting-lateral-movement-in-linux)   
 
 ## Questions for the Customer
-1. How do our system administrators interact with servers, and from where?  
- * psexec, rdp, winrm, powershell, ssh, others?
-2. Which accounts have membership in privileged groups, and which ones?  
+1. How do the system administrators interact with servers, and from where?  
+  * psexec, rdp, winrm, powershell, ssh, others?
+2. Which accounts have membership in privileged groups, and which groups?  
 3. What remote execution tools are commonly used in this environment?  
 4. Which UserAgent strings are common here?  
 5. Where are the most sensitive pieces of data stored, and how do users normally access that data?  
@@ -196,16 +196,19 @@ Terminal services log id 21,24,25
 1102 - Audit log cleared (Security)  
 104 - Audit log cleared (System)  
   
-### Signs of LoL Execution and Intelligence Gathering
+### Signs of Intelligence Gathering
 * Look for the use of built-in tools and determine the TTP  
-at, bitsadmin, cmd, control, csvde, dcdiag, dsquery, ftp  
-installutil, ldifde, makecab, msbuild, nbtstat, net1, net,
-netsh, netstat (netstat -ano), nltest, nslookup, ntdsutil  
-ping (ping -A), powershell, procdump, psloggedon, query  
-rar, reg, regasm, regsvr32, route, rundll32.exe, sc  
-schtasks, systeminfo, taskkill (taskkill /f /im)
-tasklist (tasklist /v), vssadmin, whoami, winword /L
-wmic, xcopy  
+dcdiag, dsquery, dumpel, find, gpresult, hostname, ipconfig, ldifde, nbtstat,  
+net1, net, netstat (netstat -ano), nltest, nslookup, ntdsutil, ping (ping -A),  
+powershell, procdump, psloggedon, query, quser, rdpclip, reg, route,  
+systeminfo, tasklist (tasklist /v), ver, vssadmin, whoami, wmic  
+  
+### Signs of LoL Execution . 
+* Look for the use of built-in tools and determine the TTP  
+at, bitsadmin, cmd, control, curl, csvde, find, ftp, installutil,  
+makecab, msbuild, nc, netcat, net1, net, netsh, powershell, psexec,  
+rar, regasm, regsvr32, rundll32.exe, sc, schtasks, sdelete,  
+taskkill (taskkill /f /im), winword /L, wmic, xcopy  
   
 ## Detecting Persistence in Windows  
 * AutoRun locations  
