@@ -216,6 +216,7 @@ taskkill (taskkill /f /im), winword /L, wmic, xcopy
 * Image file execution options  
 * Application Debuggers  
 * Registered COM servers  
+* Registry entries with null characters or that contain binary . 
   
 Fileless attack Persistence  
 * Storing shellcode within a registry key value, executed by a generally benign Windows application  
@@ -224,8 +225,7 @@ Fileless attack Persistence
 * Using stored procedures to perform inline compilation of C# or other code  
   
 See: Beyond good ol' Run key series on the Hexacorn.com blog  
-  
-  
+ 
 ## Detecting Lateral Movement in Linux
   
 * Determine timeframe of event  
