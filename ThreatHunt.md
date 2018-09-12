@@ -20,7 +20,7 @@ Threat Hunt Categories
 ## Non-OS Specific threat detection
 
 Namespace Collisions
-* Internal domain names are not controlled externally
+* Internal DNS names are not controlled externally
 * Create a list of domains from DNS used by the clients for the org. Who owns their IP resolution?
 * Search if wpad.dat reaches external organizations
 * Search for domains outside com, net, org, gov, mil, edu
@@ -29,8 +29,8 @@ DNS
 * High numbers of subdomains or large TXT fields to find DNS tunnelling
 * Search for destinations of dynamic dns domains
 * High volumes of NXDOMAIN errors could signify use of a domain generating algorithm (DGA)
-* Search for typos of domains being accessed e.g. dnstwist  
-* New domains . 
+* Search for typos of domains being accessed against owned domains e.g. dnstwist  
+* New domains at a weight in determining maliciousness 
 
 Proxy
 * Consistent and reoccurring HTTP PUT
