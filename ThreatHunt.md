@@ -208,7 +208,7 @@ systeminfo, tasklist (tasklist /v), ver, vssadmin, whoami, wmic
 ### Signs of LoL Execution . 
 * Look for the use of built-in tools and determine the TTP  
 at, bitsadmin, cmd, control, curl, csvde, find, ftp, installutil,  
-makecab, msbuild, nc, netcat, net1, net, netsh, powershell, psexec,  
+makecab, msbuild, mshta, nc, netcat, net1, net, netsh, powershell, psexec,  
 rar, regasm, regsvr32, rundll32.exe, sc, schtasks, sdelete,  
 taskkill (taskkill /f /im), winword /L, wmic, xcopy  
   
