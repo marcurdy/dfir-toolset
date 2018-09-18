@@ -198,19 +198,19 @@ Terminal services log id 21,24,25
 1102 - Audit log cleared (Security)  
 104 - Audit log cleared (System)  
   
-### Signs of Intelligence Gathering
-* Look for the use of built-in tools and determine the TTP  
-dcdiag, dsquery, dumpel, find, gpresult, hostname, ipconfig, ldifde, nbtstat,  
-net1, net, netstat (netstat -ano), nltest, nslookup, ntdsutil, ping (ping -A),  
-powershell, procdump, psloggedon, query, quser, rdpclip, reg, route,  
-systeminfo, tasklist (tasklist /v), ver, vssadmin, whoami, wmic  
+Details and examples Windows OS commands below can be found at https://github.com/api0cradle/LOLBAS/tree/master/OSBinaries  
   
-### Signs of LoL Execution . 
-* Look for the use of built-in tools and determine the TTP  
-at, bitsadmin, cmd, control, curl, csvde, find, ftp, installutil,  
-makecab, msbuild, mshta, nc, netcat, net1, net, netsh, powershell, psexec,  
-rar, regasm, regsvr32, rundll32.exe, sc, schtasks, sdelete,  
-taskkill (taskkill /f /im), winword /L, wmic, xcopy  
+### Signs of lateral movement
+nc.exe, netcat.exe, psexec.exe, wmic.exe  
+  
+### Signs of exfiltration  
+bitsadmin.exe, esentutl.exe, expand.exe, extrac32.exe, forfiles.exe, ftp.exe, makecab.exe, net.exe, net1.exe, print.exe, rar.exe, replace.exe, robocopy.exe, wmic.exe, xcopy.exe  
+  
+### Signs of Intelligence Gathering
+dcdiag.exe, diskshadow.exe, dsquery.exe, dumpel.exe, findstr.exe, forfiles.exe, gpresult.exe, hostname.exe, ipconfig.exe, ldifde.exe, nbtstat.exe, net1.exe, net.exe, netstat.exe -ano, nltest.exe, nslookup.exe, ntdsutil.exe, ping.exe, powershell.exe, procdump.exe, psloggedon.exe, psr.exe, query.exe, quser.exe, rdpclip.exe, reg.exe, route.exe, rpcping.exe, systeminfo.exe, tasklist (tasklist /v).exe, ver.exe, vssadmin.exe, whoami.exe, wmic.exe  
+  
+### Signs of DLL/File Execution 
+at.exe, atbroker.exe, bitsadmin.exe, cmd.exe, cmdkey.exe, cmstp.exe, control.exe, csc.exe, cscript.exe, curl.exe, csvde.exe, dfsvc.exe, dnscmd.exe, extexport.exe, ieexec.exe, installutil.exe, mavinject.exe, msbuild.exe, msconfig.exe, msdt.exe, msiexec.exe, mshta.exe, net1.exe, net.exe, netsh.exe, openwith.exe, pcalua.exe, powershell.exe, psexec.exe, regasm.exe, regsvcs.exe, regsvr32.exe, rundll32.exe, runonce.exe, sc.exe, schtasks.exe, scriptrunner.exe, sdelete.exe, taskkill.exe, winword.exe /L, wmic.exe, wscript.exe, xwizard.exe  
   
 ## Detecting Persistence in Windows  
 * AutoRun locations  
@@ -229,7 +229,7 @@ Fileless attack Persistence
 See: Beyond good ol' Run key series on the Hexacorn.com blog  
 
 ## Detect System Process Anomolies
-* Greater than 1 lsass.exe
+* Greater than 1 lsass.exe, TBC  
 
 ## Detecting Lateral Movement in Linux
   
