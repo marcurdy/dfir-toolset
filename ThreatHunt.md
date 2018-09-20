@@ -28,19 +28,24 @@ Namespace Collisions
 DNS
 * High numbers of subdomains or large TXT fields to find DNS tunnelling
 * Search for destinations of dynamic dns domains
-* High volumes of NXDOMAIN errors could signify use of a domain generating algorithm (DGA)
-* Search for typos of domains being accessed against owned domains e.g. dnstwist  
+* High volumes of NXDOMAIN errors and high entropy could signify use of a domain generating algorithm (DGA)
+* Search for typos of domains being accessed against owned domains. See levenstein algorithm  
 * New domains at a weight in determining maliciousness 
 
 Proxy
 * Consistent and reoccurring HTTP PUT
-* Suspicious user-agents such as powershell especially PUT
+* Suspicious user-agents such as powershell especially PUT. See Neo23x0\Sigma for UA's
 * Malicious domains often are set as uncategorized by proxies
   * Unsolicited outbound communication to the hostile domain with no referrer
   * Reputation of the domain
 
 Netflow
 * Unusual volumes and frequencies
+* Compare to a general baseline
+
+Existing Hostname and IP Blocks. e.g. firewall, DNS, AV, IPS
+* Blocks may not reach the intended target, but they might indicate an infected source in the company
+* Pivot back to the endpoint and check 
 
 NSM / deep packet inspection
 * Port number does not match the protocol contained within
@@ -201,7 +206,7 @@ Terminal services log id 21,24,25
 Details and examples Windows OS commands below can be found at https://github.com/api0cradle/LOLBAS/tree/master/OSBinaries  
   
 ### Signs of lateral movement
-nc.exe, netcat.exe, psexec.exe, wmic.exe  
+inrs.exe, nc.exe, mstsc.exe, netcat.exe, psexec.exe, wmic.exe . 
   
 ### Signs of exfiltration  
 bitsadmin.exe, esentutl.exe, expand.exe, extrac32.exe, forfiles.exe, ftp.exe, makecab.exe, net.exe, net1.exe, print.exe, rar.exe, replace.exe, robocopy.exe, wmic.exe, xcopy.exe  
