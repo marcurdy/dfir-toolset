@@ -27,11 +27,14 @@ Namespace Collisions
 
 DNS
 * High numbers of subdomains or large TXT fields to find DNS tunnelling
+* Find queries with long query names e.g. hunt against 2 stddev or length > 200 . 
 * Search for destinations of dynamic dns domains
-* High volumes of NXDOMAIN errors and high entropy could signify use of a domain generating algorithm (DGA)
+* High volumes of NXDOMAIN errors and high subdomain name entropy could signify use of a DGA
 * Search for typos of domains being accessed against owned domains. See levenstein algorithm  
 * New domains at a weight in determining maliciousness 
-
+* Bro's bro_weird log. name=dns_unmatched_reply dest_port=53  
+* Find clients connecting to multiple DNS servers  
+  
 Proxy
 * Consistent and reoccurring HTTP PUT
 * Suspicious user-agents such as powershell especially PUT. See Neo23x0\Sigma for UA's
