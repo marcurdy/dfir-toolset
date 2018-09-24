@@ -34,6 +34,7 @@ DNS
 * New domains at a weight in determining maliciousness 
 * Bro's bro_weird log. name=dns_unmatched_reply dest_port=53  
 * Find clients connecting to multiple DNS servers  
+* External addresses resolving to 127.0.0.1 could be parked domains  
   
 Proxy
 * Consistent and reoccurring HTTP PUT
