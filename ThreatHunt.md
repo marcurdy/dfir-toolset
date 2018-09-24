@@ -212,7 +212,7 @@ Details and examples Windows OS commands below can be found at https://github.co
 inrs.exe, nc.exe, mstsc.exe, netcat.exe, psexec.exe, wmic.exe . 
   
 ### Signs of exfiltration  
-bitsadmin.exe, esentutl.exe, expand.exe, extrac32.exe, forfiles.exe, ftp.exe, makecab.exe, net.exe, net1.exe, print.exe, rar.exe, replace.exe, robocopy.exe, wmic.exe, xcopy.exe  
+bitsadmin.exe, esentutl.exe, expand.exe, extrac32.exe, forfiles.exe, ftp.exe, makecab.exe, net.exe, net1.exe, print.exe, rar.exe, replace.exe, robocopy.exe, wmic.exe, xcopy.exe, 7zip.exe  
   
 ### Signs of Intelligence Gathering
 dcdiag.exe, diskshadow.exe, dsquery.exe, dumpel.exe, findstr.exe, forfiles.exe, gpresult.exe, hostname.exe, ipconfig.exe, ldifde.exe, nbtstat.exe, net1.exe, net.exe, netstat.exe -ano, nltest.exe, nslookup.exe, ntdsutil.exe, ping.exe, powershell.exe, procdump.exe, psloggedon.exe, psr.exe, query.exe, quser.exe, rdpclip.exe, reg.exe, route.exe, rpcping.exe, systeminfo.exe, tasklist (tasklist /v).exe, ver.exe, vssadmin.exe, whoami.exe, wmic.exe  
