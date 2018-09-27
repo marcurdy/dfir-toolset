@@ -1,7 +1,9 @@
 Threat Hunt Categories  
+  
 [Questions for the Customer](#questions-for-the-customer)  
 [Non-OS Threat Detection](#non-os-specific-threat-detection)  
 [OS Agnostic Detections](#os-agnostic-detections)  
+  
 Windows  
 * [Lateral Movement](#detecting-lateral-movement-in-windows)   
 * [Remote Code Execution](#remote-code-execution)  
@@ -10,7 +12,8 @@ Windows
 * [Detecting Persistence](#detecting-persistence-in-windows)  
 * [Detect system process anomalies that deviate from normal](#detect-system-process-anomalies-that-deviate-from-normal)  
 
-[Linux Threat Hunting](#detecting-lateral-movement-in-linux)   
+Linux  
+* [Threat Hunting](#detecting-lateral-movement-in-linux)   
 
 ## Questions for the Customer
 1. How do the system administrators interact with servers, and from where?  
