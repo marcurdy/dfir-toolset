@@ -237,7 +237,7 @@ Fileless attack Persistence
   
 See: Beyond good ol' Run key series on the Hexacorn.com blog  
 
-## Detect System Process Anomolies
+## Below is normal. Detect system process anomalies that deviate from normal.
 * smss.exe  
   * Location = %SystemRoot%\System32\  
   * Parent = System  
