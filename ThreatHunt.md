@@ -1,11 +1,15 @@
 Threat Hunt Categories  
 [Questions for the Customer](#questions-for-the-customer)  
 [Non-OS Threat Detection](#non-os-specific-threat-detection)  
-[Windows Lateral Movement](#detecting-lateral-movement-in-windows)   
-[Windows Remote Code Execution](#remote-code-execution)  
-[Windows Event Log Analysis](#event-log-analysis)  
-[Windows Signs of Environment Intelligence Gathering](#signs-of-environment-intelligence-gathering)  
-[Windows Detecting Persistence](#detecting-persistence-in-windows)  
+[OS Agnostic Detections](#os-agnostic-detections)  
+Windows  
+* [Lateral Movement](#detecting-lateral-movement-in-windows)   
+* [Remote Code Execution](#remote-code-execution)  
+* [Event Log Analysis](#event-log-analysis)  
+* [Signs of Living off the Land](#signs-of-living-off-the-land)  
+* [Detecting Persistence](#detecting-persistence-in-windows)  
+* [Detect system process anomalies that deviate from normal](#detect-system-process-anomalies-that-deviate-from-normal)  
+
 [Linux Threat Hunting](#detecting-lateral-movement-in-linux)   
 
 ## Questions for the Customer
@@ -58,7 +62,7 @@ NSM / deep packet inspection
   * Encryption on typically non-encrypted port numbers
   * Pivot off ASN, User-Agent, x.509 Certificate Subject and Issuer
   
-## General OS Detections
+## OS Agnostic Detections
 
 Processes
 * Invalid parent-child relationship
@@ -209,6 +213,8 @@ Terminal services log id 21,24,25
   
 Details and examples Windows OS commands below can be found at https://github.com/api0cradle/LOLBAS/tree/master/OSBinaries  
   
+## Signs of Living off the Land  
+  
 ### Signs of lateral movement
 inrs.exe, nc.exe, mstsc.exe, netcat.exe, psexec.exe, wmic.exe . 
   
@@ -237,7 +243,9 @@ Fileless attack Persistence
   
 See: Beyond good ol' Run key series on the Hexacorn.com blog  
 
-## Below is normal. Detect system process anomalies that deviate from normal.
+## Detect system process anomalies that deviate from normal
+  
+Below is the expected look of a healthy Windows system  
 * smss.exe  
   * Location = %SystemRoot%\System32\  
   * Parent = System  
