@@ -238,8 +238,57 @@ Fileless attack Persistence
 See: Beyond good ol' Run key series on the Hexacorn.com blog  
 
 ## Detect System Process Anomolies
-* Greater than 1 lsass.exe, TBC  
-
+* smss.exe  
+  * Location = %SystemRoot%\System32\  
+  * Parent = System  
+  * Instances = 1. Child processes of smss spawned 1 per session until login completes  
+  * Owner = Local system  
+* wininit.exe  
+  * Location = %SystemRoot%\System32\wininit.exe  
+  * Parent = <none> after smss.exe terminates  
+  * Instances = 1  
+  * Owner = Local System  
+* taskhost.exe  
+  * Location = %SystemRoot%\System32\taskhost.exe  
+  * Parent = services.exe  
+  * Instances = 1+  
+  * Owner = Users + Services  
+* lsass.exe  
+  * Location = %SystemRoot%\System32\lsass.exe  
+  * Parent = wininit.exe  
+  * Instances = 1  
+  * Owner = Local System  
+* winlogon.exe  
+  * Location = %SystemRoot%\System32\winlogon.exe  
+  * Parent = <none> after smss.exe terminates  
+  * Instances = 1+  
+  * Owner = Local System  
+* csrss.exe  
+  * Location = %SystemRoot%\System32\csrss.exe  
+  * Parent = <none> after smss.exe terminates  
+  * Instances = 2+  
+  * Owner = Local System  
+* services.exe  
+  * Location = %SystemRoot%\System32\services.exe  
+  * Parent = wininit.exe  
+  * Instances = 1  
+  * Owner = Local System  
+* svchost.exe  
+  * Location = %SystemRoot%\System32\svchost.exe  
+  * Parent = services.exe  
+  * Instances = 5+  
+  * Owner = Local System, Network Service, or Local Service  
+* lsm.exe  
+  * Location = %SystemRoot%\System32\lsm.exe  
+  * Parent = wininit.exe  
+  * Instances = 1  
+  * Owner = Local System  
+* explorer.exe  
+  * Location = %SystemRoot%\explorer.exe  
+  * Parent = <none> after userinit.exe terminates  
+  * Instances = 1 per interactive logon  
+  * Owner = User  
+  
 ## Detecting Lateral Movement in Linux
   
 * Determine timeframe of event  
