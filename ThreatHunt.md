@@ -107,7 +107,7 @@ In most scenarios, use VSSAdmin if your data source does not contain your date r
   
 * Remote code execution
   * Execution of PsExec
-    * psexec sends over IPC$. stdout, stderr sent over SMB 
+    * psexec sends stdin/stdout/stderr sent over IPC with SMB 
     * mounts hidden $ADMIN or $IPC, copies psexesvc.exe remotely, starts the service and exec command
 	  * Named pipes used to communicate
 	  * artifacts: app exec, pushed binaries, user profile creation w/o -e
