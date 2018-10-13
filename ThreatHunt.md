@@ -41,7 +41,7 @@ DNS
 * New domains at a weight in determining maliciousness 
 * Bro's bro_weird log. name=dns_unmatched_reply dest_port=53  
 * Find clients connecting to multiple DNS servers  
-* External addresses resolving to 127.0.0.1 could be parked domains  
+* External addresses resolving to 127.0.0.1 could be parked domains 
   
 Proxy
 * Consistent and reoccurring HTTP PUT
@@ -53,6 +53,7 @@ Proxy
 Netflow
 * Unusual volumes and frequencies
 * Compare to a general baseline
+* Compare against TOR exit nodes or other 
 
 Existing Hostname and IP Blocks. e.g. firewall, DNS, AV, IPS
 * Blocks may not reach the intended target, but they might indicate an infected source in the company
