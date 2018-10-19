@@ -141,7 +141,14 @@ In most scenarios, use VSSAdmin if your data source does not contain your date r
     * Check the Prefetch and Shimcache  
     * Get-ForensicPrefetch: file execution forensics  
     * Get-ForensicShimcache: AppCompatCache forensics  
-  
+    
+  * Kerberoasting
+    * Dumps hashes from services
+    * Query for executions of RunAs 
+    * TGS-REQ packets with RC4 encryption
+    * Enable “Audit Kerberos Service Ticket Operations” and search for users with excessive 4769 events 
+
+Monitoring for numerous Kerberos service ticket requests in Active Directory is possible by enabling Kerberos service ticket request monitoring (“Audit Kerberos Service Ticket Operations”) and searching for users with excessive 4769 events (Event Id 4769 “A Kerberos service ticket was requested”).  
 ### Event Log Analysis  
   
 * Account Misuse
