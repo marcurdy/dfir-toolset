@@ -99,7 +99,7 @@ Look for a high count of characters used for obfuscation
 -[W,Win,Window] Hidden, -WindowStyle Hidden
 -[EP,Exec,Execution] Bypass, -ExecutionPolicy Bypass
 
-Extra buzzwords to search:
+Configure system-wide transcription to log to a central repository. These indicators can assist in finding evil.
 Invoke-TokenManipulation
 TOKEN_IMPERSONATE
 TOKEN_DUPLICATE
