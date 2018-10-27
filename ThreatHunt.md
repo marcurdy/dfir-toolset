@@ -279,12 +279,12 @@ Below is the expected look of a healthy Windows system
   * Owner = Local System  
 * winlogon.exe  
   * Location = %SystemRoot%\System32\winlogon.exe  
-  * Parent = <none> after smss.exe terminates  
+  * Parent = none after smss.exe terminates  
   * Instances = 1+  
   * Owner = Local System  
 * csrss.exe  
   * Location = %SystemRoot%\System32\csrss.exe  
-  * Parent = <none> after smss.exe terminates  
+  * Parent = none after smss.exe terminates  
   * Instances = 2+  
   * Owner = Local System  
 * services.exe  
@@ -304,7 +304,7 @@ Below is the expected look of a healthy Windows system
   * Owner = Local System  
 * explorer.exe  
   * Location = %SystemRoot%\explorer.exe  
-  * Parent = <none> after userinit.exe terminates  
+  * Parent = none after userinit.exe terminates  
   * Instances = 1 per interactive logon  
   * Owner = User  
   
