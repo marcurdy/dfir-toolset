@@ -230,13 +230,13 @@ Details and examples Windows OS commands below can be found at https://github.co
 inrs.exe, nc.exe, mstsc.exe, netcat.exe, psexec.exe, wmic.exe . 
   
 ### Signs of exfiltration  
-bitsadmin.exe, esentutl.exe, expand.exe, extrac32.exe, forfiles.exe, ftp.exe, makecab.exe, net.exe, net1.exe, print.exe, rar.exe, replace.exe, robocopy.exe, wmic.exe, xcopy.exe, 7zip.exe  
+bitsadmin.exe, esentutl.exe, expand.exe, extrac32.exe, forfiles.exe, ftp.exe, makecab.exe, net.exe, net1.exe, print.exe, rar.exe, replace.exe, robocopy.exe, wmic.exe, xcopy.exe, 7zip.exe, 7za.exe *-mhe=on*, zip *--encrypt*
   
 ### Signs of Intelligence Gathering
 dcdiag.exe, diskshadow.exe, dsquery.exe, dumpel.exe, findstr.exe, forfiles.exe, gpresult.exe, hostname.exe, ipconfig.exe, ldifde.exe, nbtstat.exe, net1.exe, net.exe, netstat.exe -ano, nltest.exe, nslookup.exe, ntdsutil.exe, ping.exe, powershell.exe, procdump.exe, psloggedon.exe, psr.exe, query.exe, quser.exe, rdpclip.exe, reg.exe, route.exe, rpcping.exe, systeminfo.exe, tasklist (tasklist /v).exe, ver.exe, vssadmin.exe, whoami.exe, wmic.exe  
   
 ### Signs of DLL/File Execution 
-at.exe, atbroker.exe, bitsadmin.exe, cmd.exe, cmdkey.exe, cmstp.exe, control.exe, csc.exe, cscript.exe, curl.exe, csvde.exe, dfsvc.exe, dnscmd.exe, extexport.exe, ieexec.exe, installutil.exe, mavinject.exe, msbuild.exe, msconfig.exe, msdt.exe, msiexec.exe, mshta.exe, net1.exe, net.exe, netsh.exe, openwith.exe, pcalua.exe, powershell.exe, psexec.exe, regasm.exe, regsvcs.exe, regsvr32.exe, rundll32.exe, runonce.exe, sc.exe, schtasks.exe, scriptrunner.exe, sdelete.exe, taskkill.exe, winword.exe /L, wmic.exe, wscript.exe, xwizard.exe  
+7za.exe *-mhe=on*, at.exe, atbroker.exe, bitsadmin.exe, cmd.exe, cmdkey.exe, cmstp.exe, control.exe, csc.exe, cscript.exe, curl.exe, csvde.exe, dfsvc.exe, dnscmd.exe, extexport.exe, ieexec.exe, installutil.exe, mavinject.exe, msbuild.exe, msconfig.exe, msdt.exe, msiexec.exe, mshta.exe, net1.exe, net.exe, netsh.exe, openwith.exe, pcalua.exe, powershell.exe, psexec.exe, regasm.exe, regsvcs.exe, regsvr32.exe, rundll32.exe, runonce.exe, sc.exe, schtasks.exe, scriptrunner.exe, sdelete.exe, taskkill.exe, winword.exe /L, wmic.exe, wscript.exe, xwizard.exe
   
 ## Detecting Persistence in Windows  
 * AutoRun locations  
