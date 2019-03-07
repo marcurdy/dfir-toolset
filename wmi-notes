@@ -1,40 +1,5 @@
-Turn wmi trace logging on
-
-Malicious MOF files may still be present on disk
-- Example: “C:\Windows\Addins\evil.mof”
-
+Commandline logging is a must to determine maliciousness
 Check disk, MFT, and memory
-
-MOF files may be copied into the autorecovery directory after the originals were deleted
-- “C:\Windows\System32\wbem\autorecovery\[RAND].mof”
-
-References to MOF files may be found in the binary tree index.
-- “C:\Windows\System32\wbem\Repository\index.btr”
-
-New WMI classes are stored in the CIM repository. This is pulled by REAP
-- File location: “C:\Windows\System32\wbem\Repository\fs\objects.data”
-
-Strings to search for:
-- EventConsumer
-- EventFilter
-- FilterToConsumerBinding
-- Wscript.shell
-- Wscript.sleep
-- ActiveXObject
-- On Error Resume Next
-
-Check Shimcache, Prefetch, AppCompatCache for related executables:
-cscript.exe
-wscript.exe
-scrcons.exe
-mofcomp.exe
-wmic.exe
-
-The list of MOF files for autorecovery is stored in the following registry key:
-- “HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WBEM\CIMOM\autorecover mofs”
-
-Registering a WMI Event Filter useing “Win32_LocalTime” creates the following empty key
-- “HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WBEM\ESS\//./root/CIMV2\Win32ClockProvider”
 
 Command to enable WMI trace logs
 • ”wevtutil.exe sl Microsoft-Windows-WMI-Activity/Trace /e:true”
@@ -55,3 +20,84 @@ imported, and failures (required setting: verbose)
 - wbemprox.log
   Login failures based on incorrect credentials, service availability, or permissions issues (required setting:
 errors or verbose)
+
+ActiveScriptEventConsumer
+Exec a predefined script - VB/JScript
+
+CommandLineEventConsumer
+mofcomp.exe -N is used to compile an event-consumer
+
+Less malicious types: LogFileEvent,NTEventLogEvent,SMTPEvent,Custom Consumer
+
+Malicious MOF files may still be present on disk
+- Example: “C:\Windows\Addins\evil.mof”
+
+MOF files may be copied into the autorecovery directory after the originals were deleted
+- “C:\Windows\System32\wbem\autorecovery\[RAND].mof”
+
+References to MOF files may be found in the binary tree index.
+- “C:\Windows\System32\wbem\Repository\index.btr”
+
+New WMI classes are stored in the CIM repository. This shoud be pulled and analyzed
+- File location: “C:\Windows\System32\wbem\Repository\fs\objects.data”
+  
+PRAGMA AUTORECOVER helps for persistence . 
+The list of MOF files for autorecovery is stored in the following registry key and dir:  
+- “HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WBEM\CIMOM\autorecover mofs” (Shows folder only) . 
+- \Windows\System32\wbem\Autorecover  
+
+Registering a WMI Event Filter useing “Win32_LocalTime” creates the following empty key
+- “HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WBEM\ESS\//./root/CIMV2\Win32ClockProvider”
+
+Logging: WMI-Activity Operation Log
+  Win2012R2+: Event ID 5861 records permanent event consumer creation
+  Event Filter and consumer recorded
+
+Log strings to search for:
+- EventConsumer
+- EventFilter
+- FilterToConsumerBinding
+- Wscript.shell
+- Wscript.sleep
+- ActiveXObject
+- On Error Resume Next
+
+Search consumers for the text
+- .exe, .dll, .vbs, .eval, .ps1
+- ActiveXObject
+- powershell
+- CommandLineTemplate
+- ScriptText
+
+Check Shimcache, Prefetch, AppCompatCache for related executables:
+cscript.exe
+wscript.exe
+scrcons.exe
+mofcomp.exe
+wmic.exe
+wmiexec.py
+wmiprvse.exe: parent process of CLIEventConsumers and WinRM
+  not svchost.exe
+  ex calling powershell, ex. called by wmic.exe
+wsmprovhost.exe: the target's process during remote execution
+scrcons.exe: the parent process of ActiveScriptEventConsumers
+wmic process call create
+/node:
+Invoke-WmiMethod / Invoke-CimMethod (Powershell)
+
+Get-WmiObject -Namespace * -class __EventConsumer
+
+Parse WMI Repository Offline: python-cim
+  /flare-wmi/show_filtertoconsumerbindings.py
+  /timeline.py uses ClassCreationDate and InstanceCreationDate
+  
+Common False Positives:
+SCM Event Log
+BVTFilter
+TSloginEvents.vbs
+TSLogonFilter
+RAevent.vbs
+RMAssistEventFilter
+KernCap.vbs
+NTEventLogConsumer
+WSCEAA.exe (Dell)
