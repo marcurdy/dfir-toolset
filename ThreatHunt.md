@@ -237,6 +237,16 @@ dcdiag.exe, diskshadow.exe, dsquery.exe, dumpel.exe, findstr.exe, forfiles.exe, 
   
 ### Signs of DLL/File Execution 
 7za.exe *-mhe=on*, at.exe, atbroker.exe, bitsadmin.exe, cmd.exe, cmdkey.exe, cmstp.exe, control.exe, csc.exe, cscript.exe, curl.exe, csvde.exe, dfsvc.exe, dnscmd.exe, extexport.exe, ieexec.exe, installutil.exe, mavinject.exe, msbuild.exe, msconfig.exe, msdt.exe, msiexec.exe, mshta.exe, net1.exe, net.exe, netsh.exe, openwith.exe, pcalua.exe, powershell.exe, psexec.exe, regasm.exe, regsvcs.exe, regsvr32.exe, rundll32.exe, runonce.exe, sc.exe, schtasks.exe, scriptrunner.exe, sdelete.exe, taskkill.exe, winword.exe /L, wmic.exe, wscript.exe, xwizard.exe
+
+https://github.com/api0cradle/UltimateAppLockerByPassList  
+### Signs of Applocker Bypass 
+Installutil.exe, Msbuild.exe, Mshta.exe, Presentationhost.exe, Regasm.exe, Regsvcs.exe
+
+### Signs of Applocker Bypass Unverified
+Bginfo.exe, Cdb.exe, Cmstp.exe, Control.exe, Csi.exe, Dfsvc.exe, Dnx.exe, Fsi.exe, Ie4unit.exe, Ieexec.exe, InfDefaultInstall.exe, Manage-bde.wsf, Mavinject.exe, Msdeploy.exe, Msdt.exe, Msiexec.exe, Msxsl.exe, Odbcconf.exe, Pubprn.vbs, Rcsi.exe, Regsvr32.exe, Rsi.exe, Rundll32.exe, Runscripthelper.exe, Slmgr.vbs, Syncappvpublishingserver.exe, Te.exe, Tracker.exe, Winrm.vbs, Winword.exe, Wmic.exe, Xwizard.exe
+
+### Directories allowing Applocker Bypass . 
+C:\Windows\Tasks, C:\Windows\Temp, C:\windows\tracing,C:\Windows\Registration\CRMLog, C:\Windows\System32\FxsTmp, C:\Windows\System32\com\dmp, C:\Windows\System32\Microsoft\Crypto\RSA\MachineKeys, C:\Windows\System32\spool\PRINTERS, C:\Windows\System32\spool\SERVERS, C:\Windows\System32\spool\drivers\color, C:\Windows\System32\Tasks\Microsoft\Windows\SyncCenter, C:\Windows\SysWOW64\FxsTmp, C:\Windows\SysWOW64\com\dmp, C:\Windows\SysWOW64\Tasks\Microsoft\Windows\SyncCenter, C:\Windows\SysWOW64\Tasks\Microsoft\Windows\PLA\System  	
   
 ## Detecting Persistence in Windows  
 * AutoRun locations  
