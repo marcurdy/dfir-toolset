@@ -32,7 +32,7 @@ Below is the attempt at keeping an up-to-date list of the best tools available. 
 * If Ediscovery, see Plaso, FTK, Xways, Encase, and Autopsy
     
 **Scan for IOC, hashing, and hash lookups**  
-* Parse IOC's from reports: IOCextractor, ioc-parser
+* Parse IOC's from reports: IOCextractor, ioc-parser, bulk-extractor
 * Define signatures: YaraGenerator, Autorule, Rule Editor, IOC writer, ioc_editor, pyioce
 * Offline-Scan: yara (IOC), clamAV, fenrir
 * Metadata: trID (determine filetype), exifTool, missidentify (find PE in files not named exe)
