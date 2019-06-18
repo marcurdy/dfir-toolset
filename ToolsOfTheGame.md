@@ -215,9 +215,10 @@ dsniff(captures user data over common protos), aircrack-ng (WEP and WPA-PSK keys
 * patator  
 
 **Visual Reporting**  
+* JPCert LogonTracer (scales poorly)
+* PowerBI
 * afterglow (graphs complex datasets)
 * mantego
-* Elastic Stack
 
 **Memory Capture**  
 * dumpit, PMem, fdpro, Mandiant Memoryze to dump on Windows
