@@ -145,7 +145,7 @@ In most scenarios, use VSSAdmin if your data source does not contain your date r
   * Kerberoasting
     * Dumps hashes from services
     * Query for executions of RunAs 
-    * TGS-REQ packets with RC4 encryption
+    * TGS-REQ packets with RC4 encryption (0x04)  
     * Enable “Audit Kerberos Service Ticket Operations” and search for users with excessive 4769 events 
 
 Monitoring for numerous Kerberos service ticket requests in Active Directory is possible by enabling Kerberos service ticket request monitoring (“Audit Kerberos Service Ticket Operations”) and searching for users with excessive 4769 events (Event Id 4769 “A Kerberos service ticket was requested”).  

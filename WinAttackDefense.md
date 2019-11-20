@@ -184,20 +184,25 @@ Out-MiniDump
   "System.Management.Automation.WindowsErrorReporting"  
   "MiniDumpWriteDump"  
   
+Detect Standard Attacks
+1) Direct Attacks - Repeated failed auth events for same/diff accounts from same IP/workstation
+2) Lateral movement for Kerberos - difficult. based on baseline delta
+3) Cred Theft - DC Only - Correlate 4768+4769 to have workstation. Same with NTLM on DC
+  
 Detect Kerberos exploit  
-  MS14-068 - IDS Signature for Kerberos AS-REQ & TGS-REQ w "Include PAC: False"  
-Group Policy Pref - MS Goof exposing private key  
+1) MS14-068 - IDS Signature for Kerberos AS-REQ & TGS-REQ w "Include PAC: False"  
+2) Group Policy Pref - MS Goof exposing private key  
   Install KB2962486 and delete existing GPP xml files in SYSVOL containing pw's  
   No passwords in SYSVOL!!  
-Set GPO to prevent local accounts from connecting over network to computers  
+3) Set GPO to prevent local accounts from connecting over network to computers  
   KB2871997  
-Implement RDP Restricted Admin Mode  
+4) Implement RDP Restricted Admin Mode  
   Removes Credentials at Logoff  
   Removes clear-text passwords from memory  
    -monitor HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\Wdigest=0  
   Win7/Win2k8R2: KB2984972 / KB2984976 / KB2984981  
   Win8/Win 2012: KB2973501  
-Restrict who needs domain group member to seEnableDelegationPrivilege
+5) Restrict who needs domain group member to seEnableDelegationPrivilege
   
 Event ID | Legacy Event ID | Potential Criticality | Event Summary
 --- | --- | --- | ---
@@ -244,6 +249,10 @@ X | 640 | Medium | General account database changed
 4758 |  |  | A security-enabled universal group was deleted.
 4765 | N/A | High | SID History was added to an account.
 4766 | N/A | High | An attempt to add SID History to an account failed.
+4768 | N/A | --- | DC only: Success/Fail Kerberos auth ticket (TGT) request (Who,krbtgt,srcIP,Enc)
+4769 | N/A | --- | DC only: Success/Fail Kerberos service ticket request (Complete audit trail)
+4770 | N/A | --- | DC only: Kerberos Ticket Renewal
+4776 | N/A | --- | DC only: NTLM for direct logons/non-AD (Accnt,Source host, [Errcode])
 4778 | N/A | Medium | The user reconnected to an existing RDP session (pairs with 25)
 4779 | N/A | Medium | The user disconnected from an existing RDP session (pairs with 24)
 4794 | N/A | High | An attempt was made to set the Directory Services Restore Mode.
