@@ -336,6 +336,25 @@ Below is the expected look of a healthy Windows system
   * Current logins: /var/run/wtmp  
   * Historical logins/logouts: /var/log/utmp  
   * Failed logins: /var/log/btmp 
+* Check startup files for systems using SystemV
+  * Check scripts within /etc/rc*.d/
+  * Within /etc/rc.local
+* Check startup files for systems using Systemd
+- See https://redcanary.com/blog/attck-t1501-understanding-systemd-service-persistence
+  * For systemd services executing at the system-level, you can place service files in these folders:
+    * /lib/systemd/system
+    * /usr/lib/systemd/system
+    * /etc/systemd/system
+    * /run/systemd/system
+  * For systemd services executing in a single user’s context, you can place service files in these folders:
+    * /etc/systemd/user
+    * ~/.config/systemd/user
+    * ~/.local/share/systemd/user
+    * /run/systemd/user
+    * /usr/lib/systemd/user
+  * Examples
+    * find / -path "*/systemd/system/*.service" -exec grep -H -E "ExecStart|ExecStop|ExecReload" {} \;
+    * find / -path "*/systemd/user/*.service" -exec grep -H -E "ExecStart|ExecStop|ExecReload" {} \;
 * Check bash history where bash is the user’s shell (ksh, csh differ)
   *	Assuming no timestamps are in USERHOME/.bash_history, you can do temporal searches based on the bash_history 
     last modify times knowing that was the most recent logout time.  
