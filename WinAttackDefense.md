@@ -24,6 +24,14 @@ SPN Scanning Service Discovery without network port scanning
 * User requests service which requires kerberos service ticket
     Includes SQL, RDP, WinRM, FIM, SCCM
 
+Privilege Escalation
+* Access Token Manipulation
+  * LogonUser, DuplicateTokenEx, and ImpersonateLoggedOnUser are evidence of escOPriv
+  * RunAs, eventvwr, winlogon (broad)
+  * Process chaining where child has higher priv than parent
+* Bypass User Access Control
+  * UACMe is a repo on how to bypass UAC
+
 Event Log Explorer FSPro Labs
 
 Logon Type  
