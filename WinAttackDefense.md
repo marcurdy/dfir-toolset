@@ -133,7 +133,38 @@ Little for security.evtx in DC due to wrapping log buffer
   + Mimikatz, Invoke-Mimikatz, Mimikatz DCSync  
   
 #### Defense:   
+
+### GPO Defense
+Well defined AD groups
+- mail enabled security groups?
+- nested groups?
+- look up JUGULAR / AGUDLP for how to manage groups
+OU Policies
+- Policy for User or Computer but not both
+- Avoid Policy Inheritance and Policy Enforcement
+- Local -> Site -> Domain -> Organizational Unit
+- WMI Filters = Slow
+Passwords
+- LANMAN cannot support more than 14 character passwords
+- Allow dictionary words. Allow long passwords
+- Don't allow brute force - keep machine account lockout threshold >= 10
+- Don't display last signed-in nor username at sign-in. # of previous logons to cache == 2
+Dealing with Local Admins
+- After renaming Administrator, make a new Administrator a honey account
+- Group Policy or Group Preferences - wipe all local admins at GPO sync
 MS LAPS - automatic local admin pw change - random for each pw
+- BUT, the LAPS admin password is stored cleartext in the schema - restrict with ADSIEdit
+LLMNR, NBNS, WPAD, MDNS allow for hash stealing: disable either with GPO or Powershell
+- https://blog.netspi.com/exploiting-adidns
+WPAD == Automatically detecting settings. Disable globally. 
+SMB Message Signing: Enable "digitaly sign communications" to stop SMB relay attacks
+Configuring Host Based Firewalls
+- Workstations do not need to talk to another
+Limiting/Restricting Network Logons
+- Should a service account be allowed to login to remote hosts?
+- Perspective of Servers vs Desktop
+
+
 Check if UAC filtering is disabled allowing for pass-the-hash via any local admin account. HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\LocalAccountTokenFilterPolicy=1 == BAD
 Enable proper logging plus command-shell and power shell logging  
 Forged Kerberos Tickets: Potential domain field anomolies in events  
