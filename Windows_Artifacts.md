@@ -184,10 +184,11 @@
 ### NON-REGISTRY ARTIFACTS
 
 8. **Jumplists in Win7+**
+   * Purpose: Maintain the records of recently accessed files and folders and group them per application
    * Path: %USERPROFILE%\AppData\Roaming\Microsoft\Windows\Recent\AutomaticDestinations-ms
-     * Interaction with an application or file
+     * Most Recently Userd (MRU). Created from interaction with an application or file
    * Path: %USERPROFILE%\AppData\Roaming\Microsoft\Windows\Recent\CustomDestinations-ms
-     * When a user pins a file/applicaion
+     * Used by browsers and media players. Created also when a user pins a file/applicaion
    * Provides: First time of execution, last time of execution
 
 9. **RecentFileCache.bcf:**
