@@ -161,7 +161,9 @@ Monitoring for numerous Kerberos service ticket requests in Active Directory is 
   * Domain Admin anomalies
   * New accounts created locally or administrative rights granted to existing (eventid below)  
   * Workstation to workstation connections based off hostname/ip lookups
-  * Pass the Hash (PTH): 4776 from local account with 4624 showing network logon
+  * Pass the Hash (PTH): 
+    * Questionably a 4776 from local account with 4624 showing network logon
+    * 4624 followed by user_reported_sid: S-1-0-0, and then a logon_process_name: ntlmssp
   * Kerberos TGT/TS
     * Use klist.exe to list session details and determine if time is > MaxTicketAge
     * Domain field in 4624, 4634, 4672 should be the shortname
@@ -395,3 +397,4 @@ Sources:
 * JPCert Tool Analysis Report  
 * SANS 508  
 * SANS Finding Evil in the Whitelist  
+* Black Hills Webcast: A Blue Team's Perspective on Red Team Hack Tools
