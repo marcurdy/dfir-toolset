@@ -147,8 +147,8 @@ dsniff(captures user data over common protos), aircrack-ng (WEP and WPA-PSK keys
   Windows Symbol Fetch Utility (sf)
   
 **Extract and Decode Artifacts**  
-* Deobfuscate: unXOR, XORStrings, ex_pe_xor, XORSearch, brxor.py, xortool, NoMoreXOR, XORBruteForcer, Balbuzard
-* Extract strings: strdeobj, pestr, strings.exe (wine)
+* Deobfuscate: floss, unXOR, XORStrings, ex_pe_xor, XORSearch, brxor.py, xortool, NoMoreXOR, XORBruteForcer, Balbuzard
+* Extract strings: floss, string sifter(rank_strings), pestr, strings.exe (wine)
 * DropboxReader: Example Dropbox cache
 
 **Examine Document Files**  
@@ -177,9 +177,9 @@ dsniff(captures user data over common protos), aircrack-ng (WEP and WPA-PSK keys
 
 **Examine Memory Snapshots**  
 * Volatility frameworks/wrappers  
+  * VolDiff - Compare two images
   * VolUtility - Complete front/backend for using Volatility past just module exec
   * Evolve - Creates sqllite db output and web frontend  
-  * volshot - antiquated.  Hand edit to add modules  
   * Bulk_extractor module for grabbing types of data with beviewer for viz
    * bulk_diff for deltas on two BE outputs
   * Volatility module add-ons of notability (within SIFT add-on)
@@ -206,6 +206,7 @@ dsniff(captures user data over common protos), aircrack-ng (WEP and WPA-PSK keys
 * Investigate: RATDecoders, readpe.py, PyInstaller Extractor, DC3-MWCP
 * Maltrieve (DL Malware samples), Viper (managing and exploring malware samples), 
 * Behavioral analysis: Procdot for visual report, Cuckoo (offline)
+* Reverse Engineer cheat: Capa (Fireeye)
 
 **Password cracking**  
 * John the Ripper
