@@ -201,7 +201,7 @@
     * Purpose: Increases performance by pre-loading code pages of run apps
     * Location: Win7/XP %WINDIR%\Prefetch
     * Disabled by default on server builds 
-    * Provides: Executable, run count, size of pf, files/dirs referenced, volume
+    * Provides: Executable, run count, files/dirs referenced, volume
     * Subtract 10 seconds from timestamp
     * pf creation is first execution. last modify time is last time it was last executed
     * Examine files/dir mapped by this and for files in close time prox
