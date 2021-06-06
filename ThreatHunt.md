@@ -225,6 +225,9 @@ Terminal services log id 21,24,25
   
 Details and examples Windows OS commands below can be found at https://github.com/api0cradle/LOLBAS/tree/master/OSBinaries  
   
+## Hack Tool Names
+ActiveScan++ OR Altair OR Altdns OR Aquatone OR Autorize OR BuiltWith OR BurpBeautifier OR C99.nl OR Censys OR Chaos OR Commit-stream OR DNSProbe OR Dex2Jar OR Dnscan OR Ettercap OR EyeWitness OR Findomain OR FoxyProxy OR Getallurls OR IronWASP OR Jadx OR Jok3r OR Knockpy OR LazyRecon OR Logger++ OR Maltego OR MassDNS OR Meg OR Metasploit OR Naabu OR Nikto OR Nmap OR NoSQLMap OR Nuclei OR OpenVAS OR Osmedeus OR Recon-ng OR ReconNess OR Shhgit OR ShuffleDNS OR Sn1per OR SpiderFoot OR Sqlmap OR Sqlninja OR Subfinder OR Subjack OR Sublert OR Unfurl OR WPScan OR Wapiti OR Wappalyzer OR Wfuzz OR WhatWeb OR Wireshark OR BurpSentinel OR gitGraber
+    
 ## Signs of Living off the Land  
   
 ### Signs of lateral movement
