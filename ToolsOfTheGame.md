@@ -78,6 +78,7 @@ dsniff(captures user data over common protos), aircrack-ng (WEP and WPA-PSK keys
 
 ***Registry Viewing and Parsing***
 **Exploring the registry**
+* regfdump - Dump registry CLI
 * Registry Explorer (Windows)
 * Registry Viewer (AccessData, Windows)
 * Registry Decoder (Digitial Forensic Solutions)
