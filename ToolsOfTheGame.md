@@ -155,9 +155,10 @@ dsniff(captures user data over common protos), aircrack-ng (WEP and WPA-PSK keys
 **Examine Document Files**  
 * PDF: pdfid, pdf-parser (Didier Stevens), AnalyzePDF, Pdfobjflow, peepdf, Origami, PDF X-RAY, 
 * Continued: PDFtk, swf_mastah, qpdf, pdfresurrect
-* VBE decoding: decode-vbe.py (Didier)
-* MS Office XML: officeparser.py, mastiff (Win Py modules require Visual Studio)
-* MS Office OLE: oletools (Didier Stevens), pyOLEScanner.py, libolecf, oledump, olefile, offviz(Win)
+* Office Macro newgen: mraptop, olevba
+  * VBE decoding: decode-vbe.py (Didier)
+  * MS Office XML: officeparser.py, mastiff (Win Py modules require Visual Studio)
+  * MS Office OLE: oletools (Didier Stevens), pyOLEScanner.py, libolecf, oledump, olefile, offviz(Win)
 * Shellcode: PDF Stream Dumper(scdbg), sctest, unicode2hex-escaped, unicode2raw, dism-this, shellcode2exe, base64dump.py
 * Flash: xxxswf, SWF Tools, RABCDAsm, extract_swf, Flare(decompiler of Flash), flasm(disassembles Flash)
 * Java: Java Cache IDX Parser, JD-GUI Java Decompiler, JAD Java Decompiler, Javassist, CFR
