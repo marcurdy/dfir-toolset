@@ -156,7 +156,12 @@ dsniff(captures user data over common protos), aircrack-ng (WEP and WPA-PSK keys
 * PDF: pdfid, pdf-parser (Didier Stevens), AnalyzePDF, Pdfobjflow, peepdf, Origami, PDF X-RAY, 
 * Continued: PDFtk, swf_mastah, qpdf, pdfresurrect
 * Office Macro newgen: mraptor, olevba
-  * VBE decoding: decode-vbe.py (Didier)
+  * oleid: analyses OLE files to detect specific characteristics usually found in malicious files.
+  * olevba: extracts and analyses VBA macro source code from MS Office documents (OLE and Open XML).
+  * MacroRaptor: detects malicious VBA Macros.
+  * msodde: detects and extracts DDE/DDEAUTO links from MS Office documents, RTF and CSV.
+  * oleobj: extracts embedded objects from OLE files.
+  * rtfobj: extracts embedded objects from RTF files.
   * MS Office XML: officeparser.py, mastiff (Win Py modules require Visual Studio)
   * MS Office OLE: oletools (Didier Stevens), pyOLEScanner.py, libolecf, oledump, olefile, offviz(Win)
 * Shellcode: PDF Stream Dumper(scdbg), sctest, unicode2hex-escaped, unicode2raw, dism-this, shellcode2exe, base64dump.py
