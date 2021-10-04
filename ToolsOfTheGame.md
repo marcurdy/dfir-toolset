@@ -1,20 +1,13 @@
 # dfir-toolset
-Below is the attempt at keeping an up-to-date list of the best tools available.  I've included TZWorks despite it being commercial due to it being a powerhouse tool.  I am working to eliminate the noise caused by orphaned, redundant, or superceded all-in-one software.  
-
-**Links to other lists of awesome tools**
-* IR https://github.com/meirwah/awesome-incident-response
-* Malware Analysis https://github.com/rshipp/awesome-malware-analysis
-* Threat Intel https://github.com/hslatman/awesome-threat-intelligence
-* Sec Talks https://github.com/PaulSec/awesome-sec-talks
+Below is the attempt at keeping an up-to-date list of the best tools available.  I've included minimal commercial tools.  I am working to eliminate the noise caused by orphaned, redundant, or superceded all-in-one software.  
 
 **Distributions for Security tools**
-* SIFT on Ubuntu 16.04 (Grand-daddy of forensic distros)
-* Centos 7 with CERT LiFTeR (contains compiled LIME kmodules)
+* SIFT on Ubuntu (Grand-daddy of forensic distros)
 * Security Onion (Network Security Monitor)
 
 **Mounting dd or vm snapshot disk images**      
-* evmount, my very own github provided VMDK, EWF, raw disk, and LVS friendly mount tool!
-* For "read-write" mounts use xmount (rw made available with cache)
+* imount for most everything: VMDK, EWF, raw disk, and LVS friendly
+* xmount for adding a write cache to RO images
 
 **Volume Shadow Copy browsing**  
 * libvshadow FUSE mounting (vshadowinfo, vshadowmount)
@@ -29,7 +22,7 @@ Below is the attempt at keeping an up-to-date list of the best tools available. 
 * chktrust (Runs Mono for Linux)
 
 **Browser Artifact tools**
-* If Ediscovery, see Plaso, FTK, Xways, Encase, and Autopsy
+* Plaso or EDiscovery Suite
     
 **Scan for IOC, hashing, and hash lookups**  
 * Parse IOC's from reports: IOCextractor, ioc-parser, bulk-extractor
@@ -44,7 +37,7 @@ Below is the attempt at keeping an up-to-date list of the best tools available. 
 * scalpel (image scraping)
 * safecopy (file restore from damaged sources)
 * hachoir (Read windows metadata)
-* Rifiuti (recycle bin analysis)
+* rifiuti (recycle bin analysis)
 * Recycle Bin Recovery (RecoverBits)
 * testdisk (restore lost partitions), kpartx
 * extundelete (ext3/4 file rest), recoverjpeg, vinetto (thumbs.db examiner)
@@ -62,7 +55,6 @@ dsniff(captures user data over common protos), aircrack-ng (WEP and WPA-PSK keys
 * Miscellaneous network: prettyping, Netcat, stunnel, p0f(passive remote fingerprinting), netwox(swiss-army knife of routines), lft(smart traceroute), passivedns, tcpstat(stats on NIC), 
   
 **Extracting protected files from Windows**
-* fget.exe (HBGary)
 * ftk imager (predefined protected entries)
 * ntfscopy
   
@@ -72,7 +64,8 @@ dsniff(captures user data over common protos), aircrack-ng (WEP and WPA-PSK keys
 * Log Parser Lizard - gui for MS Logparser
 * Mandiant Highlighter - parse through big text files
 **Linux friendly**
-* python-evtx (WilliB) Can recover from corrupted evtx's  
+* evtx_dump
+* python-evtx (WilliB) Can recover from corrupted evtx  
 * libevtx (Metz)  
 * evtwalk/evtx_view (tzworks-commercial)  
 
@@ -80,12 +73,9 @@ dsniff(captures user data over common protos), aircrack-ng (WEP and WPA-PSK keys
 **Exploring the registry**
 * regfdump - Dump registry CLI
 * Registry Explorer (Windows)
-* Registry Viewer (AccessData, Windows)
-* Registry Decoder (Digitial Forensic Solutions)
 * MiTeC Windows Registry Recovery (Windows)
 * Yaru (tzworks-commercial)
 * Regshot (Windows)
-  pstpassword  
 
 **All-in-one registry parser**
 * cafae (tzworks-commercial)
@@ -171,14 +161,14 @@ dsniff(captures user data over common protos), aircrack-ng (WEP and WPA-PSK keys
 * Debug/manip: Rhino Debugger, Firebug, Didier's SpiderMonkey, V8, js Beautifier, JSDetox, 
     
 **Mail**  
-* OST Viewer, PST Viewer (Nucleus Technologies)
-* readpst, pffexport (Conversions)
+* OST/PST: pffexport, readpst, OST Viewer, PST Viewer
 * MSGConvert
 * emldump
-* Digital Forensic Framework by Arxsys (Test free version)
 * mpack/munpack for mime (text output could be Unicode)
+* pstpassword (PST PW Recovery) 
 
 **Binary/Hex Editors**  
+* CyberChef
 * Binary: wxHexEditor, VBinDiff
 * Hex: bless, exhexeditor
 
@@ -186,7 +176,6 @@ dsniff(captures user data over common protos), aircrack-ng (WEP and WPA-PSK keys
 * Volatility frameworks/wrappers  
   * VolDiff - Compare two images
   * VolUtility - Complete front/backend for using Volatility past just module exec
-  * Evolve - Creates sqllite db output and web frontend  
   * Bulk_extractor module for grabbing types of data with beviewer for viz
    * bulk_diff for deltas on two BE outputs
   * Volatility module add-ons of notability (within SIFT add-on)
@@ -217,16 +206,12 @@ dsniff(captures user data over common protos), aircrack-ng (WEP and WPA-PSK keys
 
 **Password cracking**  
 * John the Ripper
-* Passware (pulls keys from memory)
+* Hashcat - supports GPU assist
 * hydra (brute force pw cracker)  
 * samdump2 (dumps windows password hashes)  
-* patator  
-
-**Visual Reporting**  
-* JPCert LogonTracer (scales poorly)
-* PowerBI
-* afterglow (graphs complex datasets)
-* mantego
+* Passware (pulls keys from memory)
+* patator (brute force everything)
+* PGPCrack-NG specifically for GPG's
 
 **Memory Capture**  
 * dumpit, PMem, fdpro, Mandiant Memoryze to dump on Windows
@@ -273,6 +258,15 @@ dsniff(captures user data over common protos), aircrack-ng (WEP and WPA-PSK keys
 * shoWin (reveal passwords by Mcafee)  
 * Vision (maps net ports to apps by Mcafee)  
 
+**Visual Reporting**  
+* JPCert LogonTracer (scales poorly)
+* PowerBI
+* afterglow (graphs complex datasets)
+* maltego
+
+**Mac Tools - New Section
+* binplist - binary property list (plist) parser 
+
 ** Microsoft's SysInternals Suite**  
 
 Tool | Image Name | Origin 
@@ -289,11 +283,3 @@ Process Explorer        | PROCEXP | Sysinternals
 Process Monitor         | PROCMON | Sysinternals
 Task (Process) List     | TLIST | Debugging tools
 Task Manager            | TASKMGR | Windows built-in tool
-
-**Password brute force decryption
-* John the Ripper - Jumbo build
-* Hashcat - supports GPU assist
-* PGPCrack-NG specifically for GPG's
-
-**Mac Tools - New Section
-* binplist - binary property list (plist) parser 
