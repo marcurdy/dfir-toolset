@@ -34,25 +34,27 @@ Below is the attempt at keeping an up-to-date list of the best tools available. 
   
 **File Forensics**  
 * Sleuthkit suite
-* scalpel (image scraping)
+* scalpel (file scraping)
 * safecopy (file restore from damaged sources)
 * hachoir (Read windows metadata)
-* rifiuti (recycle bin analysis)
+* rifiuti2 (recycle bin analysis)
 * Recycle Bin Recovery (RecoverBits)
-* testdisk (restore lost partitions), kpartx
+* testdisk (Linux restore lost partitions), kpartx
 * extundelete (ext3/4 file rest), recoverjpeg, vinetto (thumbs.db examiner)
   
 **Handle Network Interactions**  
 * Full PCAP analysis: Moloch
-* Sniffing: ngrep, tcpdump, tcpick(passive sniffer), tcptrack, driftnet, tshark (terminal wshark),
-dsniff(captures user data over common protos), aircrack-ng (WEP and WPA-PSK keys cracking), 
-    yaraPcap.py (http streams)
-* Analyze/Exec pcap: ssldump(decode ssl/tls records), tcpxtract, tcpreplay (can't estab session), tcptrace (stats on pcaps), tcpflow (deconstruct), tcpcopy (resend data), chaosreader.pl (dump http conversations), CapTipper (emulate web svr of what's in pcap), Xplico (extract data per protocol), networkminer, scapy (BYO packets), editcap (convert formats)
+* Sniffing: ngrep, tcpdump, tcpick(passive sniffer), tcptrack, driftnet, tshark, dsniff(captures user data over common protos),
+    aircrack-ng (WEP and WPA-PSK keys cracking), yaraPcap.py (http streams)
+* Analyze/Exec pcap: ssldump(decode ssl/tls records), tcpxtract, tcpreplay (can't estab session), tcptrace (stats on pcaps), tcpflow (deconstruct),
+    tcpcopy (resend data), chaosreader.pl (dump http conversations), CapTipper (emulate web svr of what's in pcap), 
+    Xplico (extract data per protocol), networkminer, scapy (BYO packets), editcap (convert formats)
 * Services: FakeDNS, Nginx, fakeMail, Honeyd, INetSim
 * Reporting: etherape(graphical network monitor), Wireshark
-* MITM: Burp Proxy (manipulate http between web and client), ettercap (content filtering on fly), sslsniff (MITM attacker), mitmproxy, sslcaudit (test ssl), sslstrip, sslsplit
+* MITM: Burp Suite Proxy (manipulate http between web and client), ettercap (content filtering on fly), sslsniff (MITM attacker), 
+    mitmproxy, sslcaudit (test ssl), sslstrip, sslsplit
 * Honeypots: Thug (docker based honeypot), Dionaea (honeypot), Kippo (SSH), Modern Honeypot Network
-* Miscellaneous network: prettyping, Netcat, stunnel, p0f(passive remote fingerprinting), netwox(swiss-army knife of routines), lft(smart traceroute), passivedns, tcpstat(stats on NIC), 
+* Recon: p0f(passive remote fingerprinting), netwox(swiss-army knife of routines), passivedns 
   
 **Extracting protected files from Windows**
 * ftk imager (predefined protected entries)
@@ -124,23 +126,9 @@ dsniff(captures user data over common protos), aircrack-ng (WEP and WPA-PSK keys
 **RecentFileCache reader (24hrs)  
 * rfc.pl  
   
-**TZWorks suite: Others**  
-* Artifacts
-  id (index.dat Parser)  
-* NTFS Analysis  
-  elmo (Event Log MessageTables Offline)   
-* Other
-  DNS Query Utility (dqu)
-  Packet Capture ICMP Carver (pic)
-  Network Xfer Client/Server (nx)
-  Volume Shadow Snapshot Enum (vssenum) 
-  CSV Data eXchange (csvdx) 
-  Windows Symbol Fetch Utility (sf)
-  
-**Extract and Decode Artifacts**  
+**Keyword Extraction and Decoding**  
 * Deobfuscate: floss, unXOR, XORStrings, ex_pe_xor, XORSearch, brxor.py, xortool, NoMoreXOR, XORBruteForcer, Balbuzard
 * Extract strings: floss, string sifter(rank_strings), pestr, strings.exe (wine)
-* DropboxReader: Example Dropbox cache
 
 **Examine Document Files**  
 * PDF: pdfid, pdf-parser (Didier Stevens), AnalyzePDF, Pdfobjflow, peepdf, Origami, PDF X-RAY, 
@@ -158,7 +146,7 @@ dsniff(captures user data over common protos), aircrack-ng (WEP and WPA-PSK keys
 * Flash: xxxswf, SWF Tools, RABCDAsm, extract_swf, Flare(decompiler of Flash), flasm(disassembles Flash)
 * Java: Java Cache IDX Parser, JD-GUI Java Decompiler, JAD Java Decompiler, Javassist, CFR
 * JavaScript: Extract/unpack: Extractscripts, extractjs.rb (Oragami), jsunpack-n (pdf.py)
-* Debug/manip: Rhino Debugger, Firebug, Didier's SpiderMonkey, V8, js Beautifier, JSDetox, 
+* Debug/Deobfuscate: Rhino Debugger, Firebug, Didier's SpiderMonkey, V8, js Beautifier, JSDetox, 
     
 **Mail**  
 * OST/PST: pffexport, readpst, OST Viewer, PST Viewer
@@ -222,22 +210,15 @@ dsniff(captures user data over common protos), aircrack-ng (WEP and WPA-PSK keys
 * PMDump - dump memory of a process
 
 **Disk Capture**  
-* ftk imager
+* ftk imager (Linux with wine)
 * dcfldd (enhanced dd)
-* gddrescue/ddrescueview, ddrutility (complements ddrescue)
-* rdd
+* ddrescueview/ddrutility
 * dislocker (bitlocker decrypting for Linux)
 
 **Super Timelining**  
-* log2timeline w/ plaso
+* Plaso log2timeline
 * CDQR
 * Timesketch
-  
-**Rootkit detection**  
-* GMER (Windows)  
-* Rootkit revealer (Windows)  
-* Rootkit remover (mcafee win)  
-* chkrootkit  
   
 ** USB analysis
 * usbdeview - see s/n of drives inserted  
@@ -253,16 +234,17 @@ dsniff(captures user data over common protos), aircrack-ng (WEP and WPA-PSK keys
 * Magnet's IEF or Axiom (Scraping for chat/webmail logs)  
 * Hindsight - Chrome browser web artifacts
   
-**Windows Miscellaneous  
-* Forensic toolkit (view files without touching metadata by Mcafee)  
-* shoWin (reveal passwords by Mcafee)  
-* Vision (maps net ports to apps by Mcafee)  
-
 **Visual Reporting**  
 * JPCert LogonTracer (scales poorly)
 * PowerBI
 * afterglow (graphs complex datasets)
 * maltego
+
+**Rootkit detection**  
+* GMER (Windows)  
+* Rootkit revealer (Windows)  
+* Rootkit remover (Mcafee Win)  
+* chkrootkit  
 
 **Mac Tools - New Section
 * binplist - binary property list (plist) parser 
